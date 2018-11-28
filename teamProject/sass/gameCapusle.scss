@@ -1,0 +1,850 @@
+@import "layout/nav";
+@import "Team-mixins/Ben_mixins";
+@import "general_mixins";
+
+@font-face {
+  #gameCapusle {
+    font-family: 'Mamelon';
+    src: url(../font/Mamelon.otf) format("opentype"); } }
+  #gameCapusle dd, #gameCapusle dl, #gameCapusle dt, #gameCapusle em, #gameCapusle i, #gameCapusle p, #gameCapusle textarea, #gameCapusle a, #gameCapusle div {
+    padding: 0px;
+    margin: 0px; }
+  #gameCapusle a {
+    text-decoration: none; }
+  #gameCapusle img {
+    border: 0px; }
+  #gameCapusle ul, #gameCapusle li {
+    padding: 0px;
+    margin: 0px;
+    list-style: none; }
+  #gameCapusle .fl {
+    float: left; }
+  #gameCapusle .fr {
+    float: right; }
+  #gameCapusle body {
+    margin: 0px;
+    padding: 0px;
+    color: #ffc476;
+    background: #fff;
+    color: #000000; }
+  #gameCapusle a {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-tap-highlight-color: transparent; }
+  #gameCapusle .none {
+    display: none; }
+ #gameCapusle .niu_danji {
+    width: 640px;
+    height: 1039px;
+    margin: 0px auto;
+    overflow: hidden;
+    position: relative; }
+    #gameCapusle .niu_danji .game_qu {
+          background: url(../images/game2.svg) no-repeat;
+        width: 490px;
+    height: 600px;
+    left: 60%;
+    top: 32%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    z-index: 3;}
+    #gameCapusle .niu_danji .game_go {
+      width: 88px;
+    height: 88px;
+    position: absolute;
+    left: 122px;
+    bottom: 125px;
+    background: url(../images/button.svg) no-repeat;
+    font-size: 18px;
+    color: #fff;
+    line-height: 20px;
+    text-align: center;}
+      #gameCapusle .niu_danji .game_go:after {
+        content: '';
+        width: 25px;
+        height: 100px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: url(../images/buttonBar.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 100%; }
+    #gameCapusle .niu_danji .wdjifen {
+      font-size: 20px;
+      color: #e00b37;
+      width: 128px;
+      height: 35px;
+      line-height: 35px;
+      position: absolute;
+      left: 206px;
+      bottom: 120px;
+      text-align: center; }
+    #gameCapusle .niu_danji .an_jfgr {
+      width: 100%;
+      text-align: center;
+      padding-top: 23px;
+      position: absolute;
+      left: 0px;
+      bottom: 60px; }
+      #gameCapusle .niu_danji .an_jfgr img {
+        margin: 0px 7px; }
+    #gameCapusle .niu_danji .dan_gund {
+      width: 500px;
+      height: 447px;
+      position: absolute;
+    left: 120px;
+    top: -76px;
+    z-index: 3;
+      -webkit-border-radius: 240px 240px 0px 0px;
+      -moz-border-radius: 240px 240px 0px 0px;
+      border-radius: 240px 240px 0px 0px; }
+      #gameCapusle .niu_danji .dan_gund span {
+        width: 115px;
+        height: 115px; }
+  #gameCapusle .qiu_1 {
+        position: absolute;
+    left: 55px;
+    bottom: -52px;}
+    #gameCapusle .qiu_1:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 115px;
+      height: 115px;
+      display: block;
+      background: url(../images/game_1.png) no-repeat;
+      animation: zhuan 1s linear forwards;
+      -webkit-animation: zhuan 1s linear forwards; }
+  #gameCapusle .qiu_2 {
+        position: absolute;
+    left: 122px;
+    bottom: -97px;}
+    #gameCapusle .qiu_2:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 115px;
+      height: 115px;
+      display: block;
+      background: url(../images/game_2.png) no-repeat;
+      animation: zhuan 1s linear forwards;
+      -webkit-animation: zhuan 1s linear forwards; }
+  #gameCapusle .qiu_3 {
+       position: absolute;
+    right: 169px;
+    bottom: -81px;
+}
+    #gameCapusle .qiu_3:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 115px;
+      height: 115px;
+      display: block;
+      background: url(../images/game_3.png) no-repeat;
+      animation: zhuan 1s linear forwards;
+      -webkit-animation: zhuan 1s linear forwards; }
+  #gameCapusle .qiu_4 {
+        position: absolute;
+    left: 156px;
+    top: 377px;
+}
+    #gameCapusle .qiu_4:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 115px;
+      height: 115px;
+      display: block;
+      background: url(../images/game_4.png) no-repeat;
+      animation: zhuan 1s linear forwards;
+      -webkit-animation: zhuan 1s linear forwards; }
+  #gameCapusle .qiu_5 {
+        position: absolute;
+    left: 174px;
+    top: 428px;
+}
+    #gameCapusle .qiu_5:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 115px;
+      height: 115px;
+      display: block;
+      background: url(../images/game_5.png) no-repeat;
+      animation: zhuan 1s linear forwards;
+      -webkit-animation: zhuan 1s linear forwards; }
+  #gameCapusle .qiu_6 {
+        position: absolute;
+    left: 78px;
+    top: 408px;
+}
+    #gameCapusle .qiu_6:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 115px;
+      height: 115px;
+      display: block;
+      background: url(../images/game_6.png) no-repeat;
+      animation: zhuan 1s linear forwards;
+      -webkit-animation: zhuan 1s linear forwards; }
+  #gameCapusle .qiu_7 {
+    position: absolute;
+    left: 213px;
+    bottom: -37px;
+}
+
+
+    #gameCapusle .qiu_7:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 115px;
+      height: 115px;
+      display: block;
+      background: url(../images/game_7.png) no-repeat;
+      animation: zhuan 1s linear forwards;
+      -webkit-animation: zhuan 1s linear forwards; }
+  #gameCapusle .qiu_8 {
+        position: absolute;
+    left: 103px;
+    top: 378px;
+}
+    #gameCapusle .qiu_8:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 115px;
+      height: 115px;
+      display: block;
+      background: url(../images/game_8.png) no-repeat;
+      animation: zhuan 1s linear forwards;
+      -webkit-animation: zhuan 1s linear forwards; }
+  #gameCapusle .qiu_9 {
+        position: absolute;
+    left: 242px;
+    top: 390px;
+}
+    #gameCapusle .qiu_9:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 115px;
+      height: 115px;
+      display: block;
+      background: url(../images/game_9.png) no-repeat;
+      animation: zhuan 1s linear forwards;
+      -webkit-animation: zhuan 1s linear forwards; }
+  #gameCapusle .qiu_10 {
+   position: absolute;
+    left: 259px;
+    top: 353px;}
+    #gameCapusle .qiu_10:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 115px;
+      height: 115px;
+      display: block;
+      background: url(../images/game_10.png) no-repeat;
+      animation: zhuan 1s linear forwards;
+      -webkit-animation: zhuan 1s linear forwards; }
+  #gameCapusle .diaol_1 {
+    animation: dialuodn 1s linear 0.9s backwards;
+    -webkit-animation: dialuodn 1s linear 0.9s backwards; }
+    #gameCapusle .diaol_1:after {
+      animation-delay: 0.8s;
+      -webkit-animation-delay: 0.8s; }
+  #gameCapusle .diaol_2 {
+    animation: dialuodn 1s linear 0.6s backwards;
+    -webkit-animation: dialuodn 1s linear 0.6s backwards; }
+    #gameCapusle .diaol_2:after {
+      animation-delay: 0.5s;
+      -webkit-animation-delay: 0.5s; }
+  #gameCapusle .diaol_3 {
+    animation: dialuodn 1s linear backwards;
+    -webkit-animation: dialuodn 1s linear backwards; }
+  #gameCapusle .diaol_4 {
+    animation: dialuodn 1s linear 1.1s backwards;
+    -webkit-animation: dialuodn 1s linear 1.1s backwards; }
+    #gameCapusle .diaol_4:after {
+      animation-delay: 1s;
+      -webkit-animation-delay: 1s; }
+  #gameCapusle .diaol_5 {
+    animation: dialuodn 1s linear 0.8s backwards;
+    -webkit-animation: dialuodn 1s linear 0.8s backwards; }
+    #gameCapusle .diaol_5:after {
+      animation-delay: 0.7s;
+      -webkit-animation-delay: 0.7s; }
+  #gameCapusle .diaol_6 {
+    animation: dialuodn 1s linear 0.4s backwards;
+    -webkit-animation: dialuodn 1s linear 0.4s backwards; }
+    #gameCapusle .diaol_6:after {
+      animation-delay: 0.3s;
+      -webkit-animation-delay: 0.3s; }
+  #gameCapusle .diaol_7 {
+    animation: dialuodn 1s linear 0.9s backwards;
+    -webkit-animation: dialuodn 1s linear 0.9s backwards; }
+    #gameCapusle .diaol_7:after {
+      animation-delay: 0.8s;
+      -webkit-animation-delay: 0.8s; }
+  #gameCapusle .diaol_8 {
+    animation: dialuodn 1s linear 0.6s backwards;
+    -webkit-animation: dialuodn 1s linear 0.6s backwards; }
+    #gameCapusle .diaol_8:after {
+      animation-delay: 0.5s;
+      -webkit-animation-delay: 0.5s; }
+  #gameCapusle .diaol_9 {
+    animation: dialuodn 1s linear 1.1s backwards;
+    -webkit-animation: dialuodn 1s linear 1.1s backwards; }
+    #gameCapusle .diaol_9:after {
+      animation-delay: 1s;
+      -webkit-animation-delay: 1s; }
+  #gameCapusle .diaol_10 {
+    animation: dialuodn 1s linear 0.2s backwards;
+    -webkit-animation: dialuodn 1s linear 0.2s backwards; }
+  #gameCapusle .diaol_11 {
+    animation: dialuodn 1s linear 1.4s backwards;
+    -webkit-animation: dialuodn 1s linear 1.4s backwards; }
+    #gameCapusle .diaol_11:after {
+      animation-delay: 1.3s;
+      -webkit-animation-delay: 1.3s; }
+  #gameCapusle .niu_danji .zjdl {
+    width: 110px;
+    height: 90px;
+    padding: 32px 0px 0px 20px;
+    position: absolute;
+    right: 190px;
+    top: 760px;
+    z-index: 10; }
+  #gameCapusle .niu_danji .medon {
+    width: 136px;
+    height: 138px;
+    position: absolute;
+    left: 186px;
+    top: 709px;
+    z-index: 3; }
+  #gameCapusle .niu_danji .dila_Y {
+    width: 110px;
+    height: 90px;
+    animation: cujpin 0.7s ease-out forwards;
+    -webkit-animation: cujpin 0.7s ease-out forwards; }
+  #gameCapusle .niu_danji .diaL_one {
+    width: 85px;
+    height: 85px;
+    position: relative; }
+    #gameCapusle .niu_danji .diaL_one:after {
+      content: "";
+      position: absolute;
+      left: -50px;
+      top: 0;
+      width: 85px;
+      height: 85px;
+      display: block;
+      background: url(../images/game_1.png) no-repeat;
+      animation: fanda 0.7s ease-out forwards;
+      -webkit-animation: fanda 0.7s ease-out forwards;
+      z-index: 5; }
+  #gameCapusle .niu_danji .diaL_two {
+    width: 85px;
+    height: 85px;
+    position: relative; }
+    #gameCapusle .niu_danji .diaL_two:after {
+      content: "";
+      position: absolute;
+      left: -50px;
+      top: 0;
+      width: 85px;
+      height: 85px;
+      display: block;
+      background: url(../images/game_2.png) no-repeat;
+      animation: fanda 0.7s ease-out forwards;
+      -webkit-animation: fanda 0.7s ease-out forwards; }
+  #gameCapusle .niu_danji .diaL_three {
+    width: 85px;
+    height: 85px;
+    position: relative; }
+    #gameCapusle .niu_danji .diaL_three:after {
+      content: "";
+      position: absolute;
+      left: -50px;
+      top: 0;
+      width: 85px;
+      height: 85px;
+      display: block;
+      background: url(../images/game_3.png) no-repeat;
+      animation: fanda 0.7s ease-out forwards;
+      -webkit-animation: fanda 0.7s ease-out forwards; }
+  #gameCapusle .niu_danji .diaL_four {
+    width: 85px;
+    height: 85px;
+    position: relative; }
+    #gameCapusle .niu_danji .diaL_four:after {
+      content: "";
+      position: absolute;
+      left: -50px;
+      top: 0;
+      width: 85px;
+      height: 85px;
+      display: block;
+      background: url(../images/game_4.png) no-repeat;
+      animation: fanda 0.7s ease-out forwards;
+      -webkit-animation: fanda 0.7s ease-out forwards; }
+  #gameCapusle .niu_danji .diaL_five {
+    width: 85px;
+    height: 85px;
+    position: relative; }
+    #gameCapusle .niu_danji .diaL_five:after {
+      content: "";
+      position: absolute;
+      left: -50px;
+      top: 0;
+      width: 85px;
+      height: 85px;
+      display: block;
+      background: url(../images/game_5.png) no-repeat;
+      animation: fanda 0.7s ease-out forwards;
+      -webkit-animation: fanda 0.7s ease-out forwards; }
+  #gameCapusle .niu_danji .diaL_six {
+    width: 85px;
+    height: 85px;
+    position: relative; }
+    #gameCapusle .niu_danji .diaL_six:after {
+      content: "";
+      position: absolute;
+      left: -50px;
+      top: 0;
+      width: 85px;
+      height: 85px;
+      display: block;
+      background: url(../images/game_6.png) no-repeat;
+      animation: fanda 0.7s ease-out forwards;
+      -webkit-animation: fanda 0.7s ease-out forwards; }
+  #gameCapusle .niu_danji .diaL_seven {
+    width: 85px;
+    height: 85px;
+    position: relative; }
+    #gameCapusle .niu_danji .diaL_seven:after {
+      content: "";
+      position: absolute;
+      left: -50px;
+      top: 0;
+      width: 85px;
+      height: 85px;
+      display: block;
+      background: url(../images/game_7.png) no-repeat;
+      animation: fanda 0.7s ease-out forwards;
+      -webkit-animation: fanda 0.7s ease-out forwards; }
+  #gameCapusle .niu_danji .diaL_eight {
+    width: 85px;
+    height: 85px;
+    position: relative; }
+    #gameCapusle .niu_danji .diaL_eight:after {
+      content: "";
+      position: absolute;
+      left: -50px;
+      top: 0;
+      width: 85px;
+      height: 85px;
+      display: block;
+      background: url(../images/game_8.png) no-repeat;
+      animation: fanda 0.7s ease-out forwards;
+      -webkit-animation: fanda 0.7s ease-out forwards; }
+  #gameCapusle .niu_danji .diaL_nine {
+    width: 85px;
+    height: 85px;
+    position: relative; }
+    #gameCapusle .niu_danji .diaL_nine:after {
+      content: "";
+      position: absolute;
+      left: -50px;
+      top: 0;
+      width: 85px;
+      height: 85px;
+      display: block;
+      background: url(../images/game_9.png) no-repeat;
+      animation: fanda 0.7s ease-out forwards;
+      -webkit-animation: fanda 0.7s ease-out forwards; }
+  #gameCapusle .niu_danji .diaL_ten {
+    width: 85px;
+    height: 85px;
+    position: relative; }
+    #gameCapusle .niu_danji .diaL_ten:after {
+      content: "";
+      position: absolute;
+      left: -50px;
+      top: 0;
+      width: 85px;
+      height: 85px;
+      display: block;
+      background: url(../images/game_10.png) no-repeat;
+      animation: fanda 0.7s ease-out forwards;
+      -webkit-animation: fanda 0.7s ease-out forwards; }
+
+@-webkit-keyframes cujpin {
+  0% {
+    -webkit-transform: translateY(-100px); }
+  100% {
+    -webkit-transform: translateY(0); } }
+
+@keyframes cujpin {
+  0% {
+    transform: translateY(-100px);
+    transform: scale(1); }
+  100% {
+    transform: translateX(0);
+    transform: scale(2); } }
+
+@keyframes fanda {
+  0% {
+    transform: scale(0.7); }
+  100% {
+    transform: scale(1); } }
+
+@-webkit-keyframes fanda {
+  0% {
+    -webkit-transform: scale(0.7); }
+  100% {
+    -webkit-transform: scale(1); } }
+  #gameCapusle .tc_anima {
+    animation: title1 0.3s linear;
+    -webkit-animation: title1 0.3s linear; }
+
+@keyframes title1 {
+  from {
+    opacity: 0;
+    transform: scale(0, 0); }
+  to {
+    opacity: 1;
+    transform: scale(1, 1); } }
+
+@-webkit-keyframes title1 {
+  from {
+    opacity: 0;
+    -webkit-transform: scale(0, 0); }
+  to {
+    opacity: 1;
+    -webkit-transform: scale(1, 1); } }
+  #gameCapusle .wieyi_1 {
+    animation: around1 1.5s linear infinite;
+    -webkit-animation: around1 1.5s linear infinite; }
+  #gameCapusle .wieyi_2 {
+    animation: around2 1.5s linear infinite;
+    -webkit-animation: around2 1.5s linear infinite; }
+  #gameCapusle .wieyi_3 {
+    animation: around3 1.5s linear infinite;
+    -webkit-animation: around3 1.5s linear infinite; }
+  #gameCapusle .wieyi_4 {
+    animation: around4 1.5s linear infinite;
+    -webkit-animation: around4 1.5s linear infinite; }
+  #gameCapusle .wieyi_5 {
+    animation: around5 1.5s linear infinite;
+    -webkit-animation: around5 1.5s linear infinite; }
+  #gameCapusle .wieyi_6 {
+    animation: around6 1.5s linear infinite;
+    -webkit-animation: around6 1.5s linear infinite; }
+  #gameCapusle .wieyi_7 {
+    animation: around7 1.5s linear infinite;
+    -webkit-animation: around7 1.5s linear infinite; }
+  #gameCapusle .wieyi_8 {
+    animation: around8 1.5s linear infinite;
+    -webkit-animation: around8 1.5s linear infinite; }
+  #gameCapusle .wieyi_9 {
+    animation: around9 1.5s linear infinite;
+    -webkit-animation: around9 1.5s linear infinite; }
+  #gameCapusle .wieyi_10 {
+    animation: around10 1.5s linear infinite;
+    -webkit-animation: around10 1.5s linear infinite; }
+  #gameCapusle .wieyi_11 {
+    animation: around11 1.5s linear infinite;
+    -webkit-animation: around11 1.5s linear infinite; }
+  #gameCapusle .zuadon_dh {
+    animation: around 2s linear backwards;
+    -webkit-animation: around 2s linear backwards; }
+  #gameCapusle .zonj_zezc {
+    width: 640px;
+    min-height: 1039px;
+    position: absolute;
+    left: 50%;
+    top: 0px;
+    z-index: 4;
+    background: rgba(0, 0, 0, 0.5);
+    margin-left: -320px; }
+    #gameCapusle .zonj_zezc .jpzs {
+      width: 90%;
+      height: 0;
+      padding-bottom: 65%;
+      position: relative;
+      -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+      border-radius: 10px;
+      background: #fff;
+      margin: 300px auto 0px auto;
+      position: relative;
+      text-align: center; }
+      #gameCapusle .zonj_zezc .jpzs em {
+        height: 95px;
+        position: absolute;
+        right: 0px;
+        top: -50px; }
+      #gameCapusle .zonj_zezc .jpzs h2 {
+        font-size: 30px;
+        color: #FF5000;
+        text-align: center;
+        line-height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center; }
+        #gameCapusle .zonj_zezc .jpzs h2 b {
+          font-size: 20px;
+          color: #000; }
+        #gameCapusle .zonj_zezc .jpzs h2 span {
+          margin-left: 10px; }
+      #gameCapusle .zonj_zezc .jpzs h1 {
+        color: #76391B;
+        font-family: '微軟正黑體';
+        font-weight: 600;
+        font-size: 35px;
+        padding: 15px 0; }
+  #gameCapusle .nextBTN, #gameCapusle .cancelBTN {
+    position: relative;
+    display: inline-block;
+    width: 120px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: #fff;
+    background-color: #76391B;
+    box-shadow: 0px 4px 0px #FED44F;
+    border-radius: 100px;
+    transition: .2s;
+    cursor: pointer;
+    margin: 10px;
+    font-size: 20px;
+    background-color: #BB7232;
+    color: #fff; }
+  #gameCapusle .nextBTN:hover, #gameCapusle .cancelBTN:hover {
+    opacity: .7;
+    transition: .2s; }
+  #gameCapusle .nextBTN:active, #gameCapusle .cancelBTN:active {
+    top: 2px; }
+
+@keyframes dialuodn {
+  0% {
+    transform: translateY(-50%);
+    opacity: 0; }
+  5% {
+    transform: translateY(-40%); }
+  15% {
+    transform: translateY(0); }
+  30% {
+    transform: translateY(-20%); }
+  40% {
+    transform: translateY(0%); }
+  50% {
+    transform: translateY(-30%); }
+  70% {
+    transform: translateY(0%); }
+  80% {
+    transform: translateY(-20%); }
+  90% {
+    transform: translateY(0%); }
+  95% {
+    transform: translateY(-14%); }
+  97% {
+    transform: translateY(0%); }
+  99% {
+    transform: translateY(-6%); }
+  100% {
+    transform: translateY(0%);
+    opacity: 1; } }
+
+/* @keyframes zhuan {
+  0% {
+    transform: rotate(0); }
+  100% {
+    transform: rotate(360deg); } } */
+
+@keyframes around1 {
+  /* 0%{ transform:translate(0px,0px)  }
+    20%{transform:translate(300px,230px) }
+    40%{transform:translate(200px,-100px) }
+    60%{transform:translate(50px,230px) }
+    80%{transform:translate(300px,-50px) }
+    100%{transform:translate(200px,240px) } */
+  /* 0%{ transform:translate(0px,0px);  transform:rotate(0deg);}
+    20%{transform:translate(10px,5px); transform:rotate(10deg);}
+    40%{transform:translate(5px,10px); transform:rotate(20deg);}
+    60%{transform:translate(15px,5px); transform:rotate(30deg);}
+    80%{transform:translate(10px,6px); transform:rotate(40deg);}
+    100%{transform:translate(5px,5px); transform:rotate(50deg);} */
+  0% {
+    transform: translate(0px, 0px);
+    transform: rotate(0deg); }
+  50% {
+    transform: translate(5px, 0px);
+    transform: rotate(10deg); }
+  100% {
+    transform: translate(10px, 0px);
+    transform: rotate(20deg); } }
+
+@keyframes around2 {
+  /* 0%{ transform:translate(0px,0px)  }
+    10%{transform:translate(300px,-120px) }
+    30%{transform:translate(250px,130px) }
+    50%{transform:translate(-50px,-120px) }
+    80%{transform:translate(0px,140px) }
+    100%{transform:translate(300px,-180px) } */
+  0% {
+    transform: translate(0px, 0px);
+   }
+  50% {
+    transform: translate(5px, -5px);
+    transform: rotate(-10deg); }
+  100% {
+    transform: translate(10px, -10px);
+    transform: rotate(-20deg); } }
+
+@-webkit-keyframes around3 {
+  /* 0%{ -webkit-transform:translate(0px,0px)  }
+    25%{-webkit-transform:translate(70px,-290px) }
+    50%{-webkit-transform:translate(320px,0px) }
+    80%{-webkit-transform:translate(-20px,-290px) }
+    100%{-webkit-transform:translate(290px,0px) } */
+  0% {
+    transform: rotate(0deg); }
+  50% {
+    transform: rotate(-10deg); }
+  100% {
+    transform: rotate(-20deg); } }
+
+@keyframes around3 {
+  0% {
+    transform: rotate(0deg); }
+  50% {
+    transform: rotate(-10deg); }
+  100% {
+    transform: rotate(-42deg); } }
+
+@keyframes around4 {
+  0% {
+    transform: translate(0px, 0px); }
+  12% {
+    transform: translate(10px, 10px); }
+  30% {
+    transform: translate(-10px, -10px); }
+  60% {
+    transform: translate(-14px, 5px); }
+  80% {
+    transform: translate(-10px, -10px); }
+  100% {
+    transform: translate(-10px, 10px); } }
+
+@keyframes around5 {
+  0% {
+    transform: translate(0px, 0px); }
+  12% {
+    transform: translate(10px, -17px); }
+  30% {
+    transform: translate(-10px, 20px); }
+  60% {
+    transform: translate(-14px, 12px); }
+  80% {
+    transform: translate(-10px, -11px); }
+  100% {
+    transform: translate(-20px, 1px); } }
+
+@keyframes around6 {
+  0% {
+    transform: translate(0px, 0px); }
+  12% {
+    transform: translate(10px, 20px); }
+  30% {
+    transform: translate(-15px, -10px); }
+  60% {
+    transform: translate(-19px, 5px); }
+  80% {
+    transform: translate(-13px, -20px); }
+  100% {
+    transform: translate(-10px, 6px); } }
+
+@keyframes around7 {
+  0% {
+    transform: translate(0px, 0px); }
+  20% {
+    transform: translate(-20px, -17px); }
+  40% {
+    transform: translate(10px, 16px); }
+  60% {
+    transform: translate(-12px, -14px); }
+  80% {
+    transform: translate(11px, -14px); }
+  100% {
+    transform: translate(-10px, -10px); } }
+
+@keyframes around8 {
+  0% {
+    transform: translate(0px, 0px); }
+  20% {
+    transform: translate(10px, -12px); }
+  40% {
+    transform: translate(-14px, 10px); }
+  60% {
+    transform: translate(-18px, -24px); }
+  80% {
+    transform: translate(10px, 20px); }
+  100% {
+    transform: translate(-18px, -22px); } }
+
+@keyframes around9 {
+  0% {
+    transform: translate(0px, 0px); }
+  30% {
+    transform: translate(-10px, -18px); }
+  60% {
+    transform: translate(-20px, 12px); }
+  80% {
+    transform: translate(-10px, -20px); }
+  100% {
+    transform: translate(-20px, 10px); } }
+
+@keyframes around10 {
+  0% {
+    transform: translate(0px, 0px); }
+  15% {
+    transform: translate(-6px, -10px); }
+  30% {
+    transform: translate(20px, -22px); }
+  50% {
+    transform: translate(-32px, 10px); }
+  75% {
+    transform: translate(0px, -15px); }
+  100% {
+    transform: translate(-10px, -10px); } }
+
+@keyframes around11 {
+  0% {
+    transform: translate(0px, 0px); }
+  32% {
+    transform: translate(-10px, -10px); }
+  60% {
+    transform: translate(-12px, 22px); }
+  80% {
+    transform: translate(10px, -10px); }
+  100% {
+    transform: translate(-21px, 2px); } }
+  #gameCapusle .dishes-img img {
+    width: 250px;
+    text-align: center; }

@@ -1,0 +1,55 @@
+@import "reset";
+@import "daycookVar";
+@import "daycookMixin";
+@import "general_mixins";
+@import "Team-mixins/ke_mixin.scss";
+@import "login";
+
+body:after {
+    position: absolute;
+    content: '';
+    display: block;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background-image: url(../images/BG001_01.png);
+    background-attachment: fixed;
+    background-size: cover;
+    opacity: .1;
+}
+
+#close-login:checked ~ #login-wrap{
+    display: block;
+
+}
+
+.login-mark label {
+    width: 100%;
+}
+
+.login-wrap {
+    overflow-y: hidden;
+}
+
+
+#login-wrap {
+    position: static;
+    top: 75px;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 50;
+    background-color: #fff;
+}
+
+@media screen and (min-width: 768px){
+
+    #login-wrap {
+        position: static;
+        top: 100px;
+        background-color: #fff;
+    }
+}

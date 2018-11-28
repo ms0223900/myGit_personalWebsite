@@ -1,0 +1,21 @@
+.clearfix:after{
+	content: '';
+	display: block;
+	height: 0;
+	clear: both;
+}
+@mixin container($width,$mt) {
+    width: 100%;
+    max-width: $width;
+    margin: $mt auto; 
+    @content;   
+}
+@function rwdW($px){
+	@return $px * 100 /1200 + %;
+  }
+@function c100($px){
+	@return calc( 100% - #{$px}px );
+}
+@function c50($px){
+	@return calc( 50% - #{$px}px );
+}

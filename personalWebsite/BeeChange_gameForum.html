@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="zh-hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1 ,user-scalable= no, shrink-to-fit=no">
+<title>遊戲論壇</title>
+<link rel="stylesheet" type="text/css" href="css/Reset.css">
+<link rel="stylesheet" type="text/css" href="css/BeeChange_Style.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/littleGame.js"></script>
+<script src="js/beeChangeJS.js"></script>
+<script src="js/masonry.pkgd.min.js">
+	
+</script>
+<script>
+	$(window).ready(function() {
+		$('.grid').masonry({
+	  	itemSelector: '.grid-item',
+		  // use element for option
+		columnWidth: '.grid-sizer',
+		percentPosition: true
+		});
+	})
+	
+</script>
+</head>
+
+<body>
+	<!-- <form class="searchBar" method="post" action="javascript:void">
+		<input type="text" name="search" placeholder="搜尋文章">
+		<button type="submit"  >
+			<i class="fas fa-search"></i>
+		</button>		
+	</form> -->
+	<input type="checkbox" name="menu-control" id="menu-control">
+	<div class="nav">
+		<div class="logoBG">
+			<a href="Index.html">
+			<img src="asset/BeeChange_Logo_Design_180626_logo.svg">
+			<img src="asset/BeeChange_Logo_Design_180626_Name.svg" alt="BeeChange">
+			</a>
+		</div>
+		<h1>你想交換的遊戲，在這裡都找得到</h1>
+		<label class="ham" for="menu-control"></label>
+	</div>
+	<ul class="nav">
+		<li><a href="BeeChange_ProductPage.html">最新交換</a></li>
+		<li><a href="BeeChange_MyChange.html">我的交換</a></li>
+		<li><a href="BeeChange_gameForum.html">遊戲論壇</a></li>
+		<li><a href="###">新增交換</a></li>
+	</ul>
+	<label class="close" for="menu-control"></label>
+	<a name="top"></a>
+	<a href="#top">
+		<div class="toTop">		
+			<i class="fas fa-chevron-up"></i>
+			<span class="toTop-dialogue">
+			回頂端
+			</span>		
+		</div>		
+	</a>	
+			
+				
+		<input type="checkbox" name="menu-control" id="menu-control-genre">		
+		<div class="item3 forum latestGames">
+			<div class="title">
+				<h1>最新論壇文章</h1>
+				<div class="WhiteBG"></div>
+			</div>
+			<div class="genre">
+				<ul>
+					<li class="firstGenre">
+						文章分類
+					</li>
+					<li class="firstGenre">
+						<a class="gameplat" href="###">All 
+						<i class="fas fa-chevron-down"></i></a>
+						<div class="downList">
+							<ul>
+								<li><a href="###">最新文章</a></li>
+								<li><a href="###">最熱門文章</a></li>
+								<li><a href="###">最多人按讚</a></li>
+							</ul>
+						</div>
+					</li>
+					<li class="firstGenre">
+						<a class="gameplat" href="###">PS4<i class="fas fa-chevron-down"></i></a>
+						<div class="downList">
+							<ul>
+								<li><a href="###">最新文章</a></li>
+								<li><a href="###">最熱門文章</a></li>
+								<li><a href="###">最多人按讚</a></li>
+							</ul>
+						</div>
+					</li>	
+					<li class="firstGenre">
+						<a class="gameplat"  href="###">PS3<i class="fas fa-chevron-down"></i></a>
+						<div class="downList">
+							<ul>
+								<li><a href="###">最新文章</a></li>
+								<li><a href="###">最熱門文章</a></li>
+								<li><a href="###">最多人按讚</a></li>
+							</ul>
+						</div>
+					</li>		
+					<li class="firstGenre">
+						<a class="gameplat" href="###">NS
+						<i class="fas fa-chevron-down"></i></a><div class="downList">
+							<ul>
+								<li><a href="###">最新文章</a></li>
+								<li><a href="###">最熱門文章</a></li>
+								<li><a href="###">最多人按讚</a></li>
+							</ul>
+						</div>
+					</li>
+					<li class="firstGenre">
+						<a class="gameplat" href="###">3DS
+						<i class="fas fa-chevron-down"></i></a><div class="downList">
+							<ul>
+								<li><a href="###">最新文章</a></li>
+								<li><a href="###">最熱門文章</a></li>
+								<li><a href="###">最多人按讚</a></li>
+							</ul>
+						</div>
+					</li>
+					<li class="firstGenre">
+						<a class="gameplat" href="###">XBOX
+						<i class="fas fa-chevron-down"></i></a><div class="downList">
+							<ul>
+								<li><a href="###">最新文章</a></li>
+								<li><a href="###">最熱門文章</a></li>
+								<li><a href="###">最多人按讚</a></li>
+							</ul>
+						</div>
+					</li>
+				</ul>
+				<label class="ham genreHam" for="menu-control-genre"></label>	
+			</div>
+			<div class="item3-content forumCol grid clearfix" >
+				<div class="grid-sizer"></div>
+				<div class="forum-content small grid-item">
+					<a href="###">
+						<span class="postTime">
+							03:02 / June 09 / 2020
+						</span>
+						<div class="plat NS3DS">
+							NS
+						</div>
+						<div class="forumPic">
+							<img src="asset/Kinobio.jpg" alt="">
+						</div>
+						<h2>
+							《無雙 OROCHI 蛇魔 3》半神「珀耳修斯」登場！「關銀屏」神格化造型曝光
+						</h2>
+						<div class="forumPara small">
+							<a href="###">
+							<p>
+								臺灣光榮特庫摩今（6）日公開了預定 9 月 27 日發售的 PS4 / Nintendo Switch / PC 戰術動作遊戲《無雙 OROCHI 蛇魔 3》的最新情報。本次公開的新角色「珀耳修斯」由下野紘擔任配音，角色介紹影片也同步解禁。故事關鍵角色獲得神力變化成特殊姿態的「神格化」部分，這次為大家介紹的是「關銀屏」的神格化外觀。同時更公開秘藏神力的關鍵道具「神器」2 種。
+							</p>
+							</a>
+						</div>
+						</a>
+						<span class="seeMore">
+							<a href="###">
+								看完整原文
+							</a>
+						</span>
+				</div>
+				<div class="forum-content medium grid-item">
+					<a href="###">
+						<span class="postTime">
+							03:02 / June 09 / 2020
+						</span>
+						<div class="plat PS4PS3">
+							PS4
+						</div>
+						<div class="forumPic">
+							<img src="https://p2.bahamut.com.tw/M/2KU/45/decb2eeb10eb7f3c11bbdb4f0e11u5d5.JPG" alt="">
+						</div>
+						<h2>
+							【情報】終於等到你 『洛克人11』 中文版
+						</h2>
+						<div class="forumPara medium">
+							<a href="###">
+							<p>相隔八年的經典動作遊戲續作『洛克人11 命運的齒輪』
+								10月4日 中文版發行
+								官網公開了部分角色的聲優陣容和磚塊人、保險絲人的插圖
+								http://www.capcom.co.jp/game/content/rockman/rockman11/
+								竟然有<飛田展男>，說到他就不能不提Z鋼彈的卡密兒，
+								聲線差好多。
+							</p>
+							</a>
+						</div>
+						</a>
+						<span class="seeMore">
+							<a href="###">
+								看完整原文
+							</a>
+						</span>
+				</div>
+				<div class="forum-content small grid-item">
+					<a href="###">
+						<span class="postTime">
+							03:02 / June 09 / 2020
+						</span>
+						<div class="plat NS3DS">
+							NS
+						</div>
+						<div class="forumPic">
+							<img src="https://p2.bahamut.com.tw/M/2KU/65/823738b2fc8fe66df1caa3d2a511tmh5.JPG" alt="">
+						</div>
+						<h2>
+							《任天堂明星大亂鬥 特別版》將會在 8 月 8 日舉辦直播節目 透露更多遊戲內容
+						</h2>
+						<div class="forumPara small">
+							<a href="###">
+							<p>
+								任天堂昨（5）日宣布，將會在 8 月 8 日晚間 10 點（台灣時間），舉辦「任天堂明星大亂鬥 SPECIAL Direct 2018.8.8」直播節目，將會按照慣例由系列製作人櫻井政博 “直接” 介紹將在 Nintendo Switch 推出的新作《任天堂明星大亂鬥 特別版（大乱闘スマッシュブラザーズ SPECIAL）》的新消息。
+							</p>
+							</a>
+						</div>
+						</a>
+						<span class="seeMore">
+							<a href="###">
+								看完整原文
+							</a>
+						</span>
+				</div>
+				<div class="forum-content double big grid-item">
+					<a href="###">
+						<span class="postTime">
+							03:02 / June 09 / 2020
+						</span>
+						<div class="plat PS4PS3">
+							多平台Multi
+						</div>
+						<div class="forumPic">
+							<img src="https://p2.bahamut.com.tw/M/2KU/58/df8594bb512a6905c14beb727011tru5.JPG" alt="">
+						</div>
+						<div class="forumVideo">
+							<iframe class="video" src="https://www.youtube.com/embed/-vlLq6NfhLU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+						</div>
+						<h2>
+							【CJ 18】《Fate/stay night》正版授權遊戲《Fate/stay night 命運守護夜》於展場曝光
+						</h2>
+						<div class="forumPara big">
+							<a href="###">
+							<p>
+								於上海舉辦的中國國際數碼互動娛樂展覽會（ChinaJoy）中，上海遊啟網路科技（上海游启网络科技）於會場中展出由《Fate/stay night》授權之 HTML5 遊戲《Fate/stay night 命運守護夜》。<br>
+								
+							</p>
+							</a>
+						</div>
+						</a>
+						<span class="seeMore">
+							<a href="###">
+								看完整原文
+							</a>
+						</span>
+				</div>
+				<div class="forum-content medium grid-item">
+					<a href="###">
+						<span class="postTime">
+							03:02 / June 09 / 2020
+						</span>
+						<div class="plat PS4PS3">
+							PS4
+						</div>
+						<div class="forumPic">
+							<img src="https://p2.bahamut.com.tw/M/2KU/40/88a39fbeb8b2d746a32615fa1011tao5.JPG" alt="">
+						</div>
+
+						<h2>
+							《地球防衛軍：槍林彈雨》公開最新情報 將出現被稱為「另一個 EDF」的神秘組織
+						</h2>
+						<div class="forumPara medium">
+							<a href="###">
+							<p>
+								D3 PUBLISHER 於近（2）日，公開預定在 2019 年內發售的動作遊戲《地球防衛軍：槍林彈雨（EARTH DEFENSE FORCE: IRON RAIN）》新情報。
+								本作是一款世界觀和《地球防衛軍》正統系列不一樣的遊戲作品，由 Yuke's 公司負責開發，以充廢的地球作為遊戲舞台，描寫地球防衛軍（EARTH DEFENSE FORCE＝EDF）的奮戰。在上一次的報導當中介紹了本作的遊戲概要，而這次就要公開本作新登場的敵人「狼蛛」，以及侵略兵器「葛鋼特」，以及在先前報導中已經有露過臉的神秘集團真實身份。
+							</p>
+							</a>
+						</div>
+						</a>
+						<span class="seeMore">
+							<a href="###">
+								看完整原文
+							</a>
+						</span>
+				</div>
+				<div class="forum-content small grid-item">
+					<a href="###">
+						<span class="postTime">
+							03:02 / June 09 / 2020
+						</span>
+						<div class="plat NS3DS">
+							NS
+						</div>
+						<div class="forumPic">
+							<img src="https://i.imgur.com/TWBt4oZ.jpg" alt="">
+						</div>
+						<h2>
+							情報-超大且超可愛！全長100公分「星之卡比娃娃」登場！
+						</h2>
+						<div class="forumPara small">
+							<a href="###">
+							<p>
+								全長が100センチもある「星のカービィ」の超特大ぬいぐるみと雲形クッションのセットが、タカラトミーアーツの通販サイト「e組（いーぐみ）」に登場しました。
+								ぬいぐるみになったカービィは幸せそうに眠っている表情。コロンとしたフォルムもかわいくて、一緒に眠りたくなってしまいます。雲形のクッション「ふわふわ雲まくら」は「KIRBY」のネーム入り。パステルカラーの星をちりばめた刺しゅうもあしらわれています。
+							</p>
+							</a>
+						</div>
+						</a>
+						<span class="seeMore">
+							<a href="###">
+								看完整原文
+							</a>
+						</span>
+				</div>
+
+			</div>
+			<div class="seeMore forumMore">
+				<a href="###">
+					載入更多文章
+				</a>
+			</div>	
+		</div>
+		<label class="close genreClose" for="menu-control-genre"></label>
+	</div>
+
+	<div class="footer">
+		<div class="item2 clearfix">
+			<div class="SNS col-12 col-lg-6">
+				<h3>Follow Bee Change</h3>
+				<div class="SNS item3">
+					<div class="fb SNS-item3-content"><a href="##"><img src="asset/fb-live-map_2.png" align="facebook"></a></div>
+					<div class="twiiter SNS-item3-content"><a href="##"><img src="asset/Twitter.png" alt="twitter"></a></div>
+					<div class="IG SNS-item3-content"><a href="##"><img src="asset/instagramlogoresized-1.png" alt="Instagram"></a></div>
+				</div>
+			</div>
+			<div class="contactUs col-12 col-lg-6">
+				<div class="contactUs-content">
+					<h3>Contact Us</h3>
+					<ul class="info">
+						<li><a href="mailto:ms0223900@gamil.com">Email：ms0223900@gamil.com</a> </li>
+						<li>Cel 886-989-234-546</li>
+						<li>Address：OOXXOOXX</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="rightReserved">
+			<h4>Bee Change.Inc | Right Reserved</h4>
+			<span>所有遊戲版權皆屬原廠商所有，本平台僅供正版遊戲交易
+			</span>
+		</div>
+	</div>
+	<div class="playGameFixed">
+		<a href="##" class="whatsBeeCoin">
+			BeeCoin是什麼?
+		</a>
+		<h2>
+			來玩小遊戲<br>賺BeeCoin吧!!
+		</h2>
+		<div class="beeCoinNow">
+			<span>
+				BeeCoin數量：
+				<!-- <i class="fas fa-dollar-sign"></i> -->
+			</span>
+			<h3>
+				999
+			</h3>
+		</div>
+	</div>
+	<div class="closeLittleGameBG"></div>
+	<div class="littleGameUI">
+		<div class="closeLittleGame">
+			<span>
+				X 關閉小遊戲
+			</span>
+		</div>
+		<div class="timer">
+			<span>
+				<i class="fas fa-clock"></i>
+			</span>
+			<span class="timeRemaining">
+				01:00
+			</span>
+		</div>
+		<div class="scoreNow">
+			<span>
+				Score：
+			</span>
+			<h2>
+				9999
+			</h2>
+		</div>
+		<!-- <div class="combo">
+			<span>COMBO數：</span>
+			<span class="comboNow">
+				99
+			</span>
+			分數*
+			<span class="comboPlus">
+				1.2
+			</span>
+		</div> -->
+		<div class="mainUI">
+			<div class="num1">
+				?
+			</div>
+			<span class="calOparator">
+				+
+			</span>
+			<div class="num2">
+				?
+			</div>
+			<span>
+				=
+			</span>
+			<div class="result">
+				?
+			</div>
+		</div>
+		<div class="calUI">
+			<a href="##"  class="numPad">1</a>
+			<a href="##"  class="numPad">2</a>
+			<a href="##"  class="numPad">3</a>
+			<a href="##"  class="numPad">4</a>
+			<a href="##"  class="numPad">5</a>
+			<a href="##"  class="numPad">6</a>
+			<a href="##"  class="numPad">7</a>
+			<a href="##"  class="numPad">8</a>
+			<a href="##"  class="numPad">9</a>
+			<a href="##"  class="numPad">0</a>
+		</div>
+		<div class="confirmUI">
+			<a href="##" class="calPadC">C</a>
+			<a href="##" class="calPadDelete">DEL</a>
+			<a href="##" class="calPadCheck">確定</a>
+		</div>
+		<div class="controlBTN">
+			<span class="startPause active">
+				Start
+			</span>
+			<span class="reset">
+				重新開始
+			</span>
+		</div>
+		<div class="coinNow">
+			目前BeeCoin：
+			<i class="fas fa-dollar-sign"></i>
+			<span>
+				20
+			</span>
+		</div>
+		<a href="#" class="whatsBeeCoin">
+			BeeCoin可以做什麼?
+		</a>
+		<div class="finalScoreCoin">
+			<h3>
+				你的分數為：
+			</h3>
+			<span class="finalScore">
+				0000
+			</span>
+			<h3>
+				您獲得的硬幣為：
+			</h3>
+			<span class="finalCoin">
+				000
+			</span>
+			<span class="finalConfirm">
+				確定
+			</span>
+		</div>
+		<div class="finalBG"></div>
+	</div>
+	
+</body>
+
+</html>

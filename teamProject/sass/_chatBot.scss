@@ -1,0 +1,363 @@
+#chatBot {
+  //客服機器人最外層
+  * {
+    box-sizing: border-box;
+  }
+  width: 100%;
+  height: calc(100% - 75px);
+  position: fixed;
+  top:75px;
+  left: 0;
+  z-index: 30; //false
+  @include rwd(sm){
+    width: auto;
+    max-width: 380px;
+    top: auto;
+    left: auto;
+    right: 30px;
+    bottom: 30px;
+    height: auto;
+  }
+
+}
+#close-chatBot:checked ~ #chatBot{ //true
+  z-index: -5;
+  @include rwd(sm){
+    z-index: 99;
+  }
+}
+#close-chatBot:checked ~ .close-chatBot{
+  top: -100px;
+}
+@include scrollBar(8px, $color_main2, $color_main3);
+
+#close-chatBot:checked ~ #chatBot .chatBot-contenier-wrap {//true
+  width: 0;
+  height: 0;
+  display: none;
+}
+#UserText{
+  display: none;
+}
+.chatBot-contenier-wrap {
+  //客服雞以上的物件的wrap
+  display: block;
+  height: 100%;
+  background-color: $color-chatBot;
+  padding: 0 16px;
+  text-align: center;
+  letter-spacing: 1px;
+  h3 {
+    padding: 28px 0;
+    font-size: $fontSize-S;
+    display: inline-block;
+    font-weight: bold;
+    color: $color-main2;
+  }
+  @include rwd(sm){
+      transition: height 0.4s;
+      display: block;
+      max-width: 400px;
+      height: 470px;
+      border-radius: 20px;
+      margin-bottom: 10px;
+      overflow: hidden;
+      position: absolute;
+      right: 160%;
+      bottom: 0;
+
+  }
+  
+}
+#chatBot-content {
+  //機器人回覆內容
+  background-color: #fff;
+  border-radius: 10px 10px 0 0;
+  text-align: left;
+  height: calc(100% - 185px);
+  overflow: hidden;
+  overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 0px 16px 0;
+  @include chatBot-scrollbar;
+  p {
+    border-radius: 10px;
+    background-color: $color-chatBot-text;
+    padding: 10px;
+    line-height: 1.6em;
+    margin: 10px 0;
+    position: relative;
+  }
+  .chatBot-content-A {
+    float: left;
+    margin-right: 14%;
+    &:after {
+      content: '';
+      width: 100%;
+      height: 0;
+      display: block;
+      clear: both;
+    }
+    &:before{
+      content: '';
+      border-top: 15px solid transparent;
+      border-bottom:15px solid transparent;
+      border-right: 15px solid $color_chatBot_text;
+      border-left:15px solid transparent;
+      position: absolute;
+      top: 5px;
+      left: -25px;
+    }
+  }
+  .chatBot-content-Q {
+    float: right;
+    &:after {
+      content: '';
+      height: 0;
+      display: block;
+      clear: both;
+    }
+    &:before{
+      content: '';
+      border-top: 15px solid transparent;
+      border-bottom:15px solid transparent;
+      border-right: 15px solid transparent;
+      border-left:15px solid $color_chatBot_text;
+      position: absolute;
+      top: 5px;
+      right: -25px;
+    }
+    span{
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      margin: 5px;
+      background-color: $color_main2;
+      border-radius: 50%;
+      position: relative;
+      top: 0;
+      animation: point 0.7s infinite alternate;
+    }
+    @for $i from 1 to 4 {
+      span:nth-child(#{$i}){
+        animation-delay: $i * 0.1s;
+        // background-color: #fff;
+      }
+    }    
+  }
+}
+
+@keyframes point{
+  0%{
+    top: 0px;
+  }
+  50%{
+    top: 10px;
+  }
+  100%{
+    top: -2px;
+  }
+}
+.chatBot-keyword {
+  padding: 10px 0;
+  overflow: scroll;
+  overflow-y: hidden;
+  overflow-x: auto;
+  white-space: nowrap;
+  @include chatBot-scrollbar;
+  &::-webkit-scrollbar {
+    width: 1px;
+    height: 1px;
+  }
+  li {
+    display: inline-block;
+    margin-left: 5px;
+    // border: 1px solid $color-hot;
+    color: #fff;
+    background-color: $color-main4;
+    border-radius: 10px;
+    padding: 5px;
+    cursor: pointer;
+  }
+
+}
+.chatBot-text-Wrap {
+  position: relative;
+  @include nextAndCancel-BTN(100px);
+
+}
+#chatBot-search {
+  position: absolute;
+  right: 00px;
+  top: 50%;
+  transform: translateY(-80%);
+}
+.chatBot-text {
+  font-size: $fontSize-S;
+  width: 100%;
+  height: 50px;
+  padding-left: 15px;
+  border-radius: 0 0 10px 10px;
+  border: 0;
+}
+#close-chatBot {
+  //checkbox
+  display: none;
+}
+.close-chatBot-pic img {
+  //客服雞的圖
+  width: $white-point;
+  vertical-align: middle;
+
+}
+.close-chatBot {
+  //機器人開關按鈕
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  cursor: pointer;
+  @include rwd(sm){
+    width: 30px;
+    height: 40px;
+  }
+  @include close(100%, 50%) {
+    @extend %closeJumpWindow ;
+    &::before{
+      top: calc( 100% - 20px );
+      left: calc( 50% - 20px );
+    }
+    &::after{
+      top: calc( 100% - 20px );
+      left: calc( 50% - 20px );
+    }    
+  }
+}
+
+#chatBot .close-chatBot-pic img {
+  display: none;
+  @include rwd(sm){
+      display: block;
+  }
+}
+#chatBot .close-chatBot-pic .chatBot-shonw {
+  display: none;
+  @include rwd(sm){
+      display: inline-block;
+  }
+}
+#chatBot .close-chatBot-pic .chatBot-title {
+  display: none;
+  @include rwd(sm){
+      display: inline-block;
+  }
+}
+@include rwd(sm) {
+  #chatBot:hover .chatBot-shonw{
+    // animation: chatBotShonw .7s infinite cubic-bezier(.78,-1.09,.14,.91) alternate;
+    animation: chatBotShonw 1s infinite cubic-bezier(.44,-0.96,.14,.91) alternate;
+  }
+  #chatBot:hover .chatBot-pic{
+    // animation: chatBotPic .7s infinite cubic-bezier(.78,-1.09,.14,.91) alternate;
+    animation: chatBotPic 1s infinite cubic-bezier(.44,-0.96,.14,.91) alternate;
+  }
+  #chatBot:hover .chatBot-title{
+    animation: chatBotTitle 1s infinite cubic-bezier(.44,-0.96,.14,.91) alternate;
+  }
+  .close-chatBot-pic {
+    float: right;
+    cursor: pointer;
+    position: relative;
+    text-align: center;
+    font-size: 0;
+    .chatBot-shonw{
+      display: inline-block;
+      width: 70%;
+      height: 10px;
+      background-color: #000;
+      opacity: .7;
+      border-radius: 50%;
+      transition: .4s;
+      // animation: chatBotShonw .7s 1;
+    }
+    .chatBot-title{
+      font-size: $fontSize_S;
+      color: #fff;
+      font-weight: bold;
+      position: absolute;
+      top: -24px;
+      left: 0%;
+      transform: translate(-30%);
+      width: 180px;
+      height: 36px;
+      line-height: 36px;
+      background-color: $color_main2;
+      border-radius: 10px;
+      transition: .4s;
+      &:after{
+        content: '';
+        display: block;
+        width: 0px;
+        border-top: 15px solid $color_main2;
+        border-bottom: 15px solid transparent;
+        border-left: 15px solid transparent;
+        border-right: 15px solid transparent;
+        position: absolute;
+        left: 50px;
+        bottom: -26px;
+      }
+    }
+    .chatBot-pic{
+      position: relative;
+      top: 10px;
+      transition: .4s;
+
+      // animation: chatBotPic .7s 1;
+    }
+
+  }
+}
+@keyframes chatBotShonw{
+  0%{
+    width: 70%;
+    background-color: #000; 
+    opacity: .7; 
+  }
+  10%{
+    width: 73%;
+    background-color: #000;
+    opacity: .8;
+  }
+
+  100%{
+    width: 30%;
+    background-color: #000;
+    opacity: .6;
+  }
+}
+@keyframes chatBotPic{
+  0%{
+    top: 10px;
+  }
+  10%{
+    top: 11px;
+
+  }
+  100%{
+    top: -7px;
+  }
+}
+@keyframes chatBotTitle{
+  0%{
+    top: -24px;
+  }
+  10%{
+    top: -23px;
+
+  }
+  100%{
+    top: -42px;
+  }
+}

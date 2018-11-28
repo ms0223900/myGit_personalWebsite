@@ -1,0 +1,3824 @@
+:root {
+/*Color*/
+	--beeBlack:#3f3a39;
+	--beeRed:#e60012;
+	--beeGreen:#1d793a;
+	--lightGray:#efefef;
+/*FontSize*/
+	--title:28px;
+	--subtitle:22px;
+	--smallSub:20px;
+	--gameTitle:16px;
+	--innerText:15px;
+/*BoxShadow*/ 
+	--bigBlackShadow:0px 6px 0px var(--beeBlack);
+	--bigRedShadow:0px 6px 0px var(--beeRed);
+	--smallBlackShadow:0px 3px 0px var(--beeBlack);
+	--smallRedShadow:0px 3px 0px var(--beeRed);
+	--offsetBlackShadow: 4px 4px 0 var(--beeBlack);
+	--offsetRedShadow: 4px 4px 0 var(--beeRed);
+/*Border*/
+	--bigRoundBorder:6px;
+	--smallRoundBorder:3px;
+	--thinBlackBorder: 2px solid var(--beeBlack);
+	--thinRedBorder: 2px solid var(--beeRed);
+	--thickBlackBorder: 4px solid var(--beeBlack);
+	--thickRedBorder: 4px solid var(--beeRed);
+	--separateBlack: .5px solid var(--beeBlack);
+	--separateRed: .5px solid var(--beeRed);
+
+}
+/*捲動條*/
+        ::-webkit-scrollbar {
+        	width: 6px;
+        	opacity: .6;
+        }
+        ::-webkit-scrollbar-thumb {
+   	 		background: var(--beeBlack); 
+    		border-radius: 10px;
+		}
+		::-webkit-scrollbar-track {
+			background-color: var(--lightGray);
+		}
+/*捲動條*/
+
+
+/*共用部分*/
+    *{
+       /*outline: .4px solid #d88;*/
+       text-decoration: none;
+       font-size: 0px;
+		letter-spacing: 0px;
+    }
+    body {
+    	font-family: '微軟正黑體', Arial;
+    	letter-spacing: 1.6px;
+    }
+    a {
+    	text-decoration: none;
+    	color: #fff;
+    	height: 100%;
+    }
+    a:hover {
+    	/*text-decoration: underline;*/
+    }
+    select {
+    	font-family: '微軟正黑體', Arial;
+    }
+    @keyframes fadeIn {
+    	0% {
+    		opacity: .8;
+    	}
+    	100% {
+    		opacity: 1;
+    	}
+    }
+    .title {
+    	width: 200px;
+    	height: 70px;
+    	border-radius: 6px;
+    	position: absolute;
+    	z-index: 8;
+    	top:-35px;
+    	left: 10px;
+    	text-align: center;
+    	line-height: 70px;
+    	background-color: #fff;
+    	/*border: 2px solid var(--beeRed);*/
+    	box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+    }
+	.title h1 {
+		font-size: var(--title);
+		font-weight: bolder;
+		color: var(--beeBlack);
+		/*border: 2px solid var(--beeBlack);*/
+		border-radius: 10px;
+	}
+    .howTo,
+    .tryIt,
+    .latestGames {
+    	position: relative;
+    	position: 8;
+    }
+    img {
+    	display: block;
+    }
+    .clearfix:after {
+		content: '';
+		display: block;
+		clear: both;
+	}
+	.toTop {
+		position: fixed;
+		bottom: 20px;
+		right: 20px;
+		z-index: 30;
+		padding: 8px 10px;
+		box-sizing: border-box;
+		background-color: var(--beeBlack);
+		color: #fff;
+		box-shadow: var(--smallRedShadow);
+		border-radius:var(--smallRoundBorder); 
+	}
+	.toTop a {
+		display: block;
+		width: 20px;
+		height: 20px;
+		color: #fff;
+	}
+	.toTop:hover span {
+		opacity: 1;
+		transition: .2s;
+	}
+	.toTop:hover {
+		bottom: 23px;
+		box-shadow:var(--bigRedShadow); 
+	}
+	.toTop span {
+		display: block;
+		width: 50px;
+		padding: 2px;
+		height: 20px;
+		line-height: 20px;
+		position: absolute;
+		right: 120%;
+		top: 0;
+		bottom: 0;
+		margin: auto;
+		font-size: var(--innerText);
+		background-color: var(--beeBlack);
+		border-radius: var(--smallRoundBorder);
+		opacity: 0;
+		transition: .2s;
+	}
+	.toTop span:after {
+		content: '';
+		display: block;
+		width: 0;
+		height: 0;
+		position: absolute;
+		right: -4px;
+		top: 0;
+		bottom: 0;
+		margin: auto;
+		border-left: 4px solid var(--beeBlack);
+		border-top: 4px solid transparent;
+		border-bottom:4px solid transparent;
+	}
+	.toTop:active {
+		bottom: 20px;
+		box-shadow: var(--smallRedShadow);
+		transition: .1s;
+	}
+	.pic {
+		width: 100%;
+		overflow: hidden;
+	}
+	.pic img {
+		width: 100%;
+		height: auto;
+	}
+	.calltoAction {
+		width: 212px;
+		height: 60px;
+		margin: auto;
+		color: #fff;
+		text-align: center;
+		line-height: 60px;
+		font-size: var(--title);
+		border-radius: 6px;
+		box-shadow: 0px -6px 0px #fff;
+		background-color: var(--beeRed);
+		position: relative;
+
+	}
+	.calltoAction span {
+		color: #fff;
+		font-weight: bolder;
+	}
+	.calltoAction:hover {
+		box-shadow: 0px -3px 0px #fff;
+		position: relative;
+		top: -3px;
+	}
+/*共用部分*/
+
+/*格線系統*/
+	.clearfix:after {
+		content: '';
+		display: block;
+		width: 100%;
+		height: 0;
+		clear: both;
+	}
+	.col-1,.col-2,.col-3,.col-4,.col-5,.col-6,.col-7,.col-8,.col-9,.col-10,.col-11,.col-12 {
+		box-sizing: border-box;
+		padding: 0 10px;
+		float: left;
+		/*border-left: 2px solid #999;*/
+	}
+/*小於768px*/
+	.col-1 { width: 8.333333%; }
+	.col-2 { width: 16.666666%; }
+	.col-3 { width: 25%; }
+	.col-4 { width: 33.333333%; }
+	.col-5 { width: 41.666666%; }
+	.col-6 { width: 50%; }
+	.col-7 { width: 58.333333%; }
+	.col-8 { width: 66.666666%; }
+	.col-9 { width: 75%; }
+	.col-10 { width: 83.333333%; }
+	.col-11 { width: 91.666666%; }
+	.col-12 { width: 100%; }
+	
+	.item {
+		width: 100%;
+	}
+	.item img {
+		width: 100%;
+	}
+/*小於992px*/
+@media screen and (min-width: 768px ) {
+	.col-md-2 { width: 16.666666%; }
+	.col-md-3 { width: 25%; }
+	.col-md-4 { width: 33.333333%; }
+	.col-md-5 { width: 41.666666%; }
+	.col-md-6 { width: 50%; }
+	.col-md-7 { width: 58.333333%; }
+	.col-md-8 { width: 66.666666%; }
+	.col-md-9 { width: 75%; }
+	.col-md-10 { width: 83.333333%; }
+	.col-md-11 { width: 91.666666%; }
+	.col-md-12 { width: 100%; }
+}
+/*小於1200px*/
+@media screen  and (min-width: 992px ) {
+	.col-lg-1 { width: 8.333333%; }
+	.col-lg-2 { width: 16.666666%; }
+	.col-lg-3 { width: 25%; }
+	.col-lg-4 { width: 33.333333%; }
+	.col-lg-5 { width: 41.666666%; }
+	.col-lg-6 { width: 50%; }
+	.col-lg-7 { width: 58.333333%; }
+	.col-lg-8 { width: 66.666666%; }
+	.col-lg-9 { width: 75%; }
+	.col-lg-10 { width: 83.333333%; }
+	.col-lg-11 { width: 91.666666%; }
+	.col-lg-12 { width: 100%; }
+}
+/*大於1200px*/
+@media screen  and (min-width: 1200px ) {
+	.col-xl-1 { width: 8.333333%; }
+	.col-xl-2 { width: 16.666666%; }
+	.col-xl-3 { width: 25%; }
+	.col-xl-4 { width: 33.333333%; }
+	.col-xl-5 { width: 41.666666%; }
+	.col-xl-6 { width: 50%; }
+	.col-xl-7 { width: 58.333333%; }
+	.col-xl-8 { width: 66.666666%; }
+	.col-xl-9 { width: 75%; }
+	.col-xl-10 { width: 83.333333%; }
+	.col-xl-11 { width: 91.666666%; }
+	.col-xl-12 { width: 100%; }
+}
+/*格線系統*/
+
+/*logo*/
+	div.nav {
+		position: fixed;
+		z-index: 20;
+		width: 100%;
+		height: 60px;
+		top: 0;
+		background-color: var(--beeBlack);
+	}
+	.logoBG {
+		width: 90px;
+		height: 42px;
+		position: absolute;
+		z-index: 22;
+		top: 6px;
+		left:6px;
+		z-index: 3;
+		background-color: #fff;
+		border-radius: 6px;
+		box-shadow: 0px 6px 0px var(--beeRed);
+	}
+	.logoBG:hover {
+		transform: translateY(-3px);
+		background-color: #fff;
+		border-radius: 6px;
+		box-shadow: 0px 9px 0px var(--beeRed);
+		transition: .1s;
+	}
+	.logoBG img {
+		float: left;
+		width: 50%;	}	
+
+/*導覽列在此*/
+	ul.nav {
+		display: block;
+		position: fixed;
+		z-index: 21;
+		top: 60px;
+		left: -100%;
+		transition: .3s;
+		width: 240px;
+		height: calc(100vh - 60px);
+		background-color: #fff;
+		border-right: var(--thickRedBorder);
+		box-shadow: 0px 6px 20px rgba(0,0,0,0.2);
+	}
+	ul.nav li {
+		width: 100%;
+		height: 60px;
+		line-height: 60px;
+		text-align: center;
+	}
+	.nav li a {
+		width: 100%;
+		color: var(--beeBlack);
+	}
+	ul.nav li a:hover {
+		border-bottom: var(--thinRedBorder);
+	}
+
+	ul.nav li.nowPage a {
+		border-bottom: var(--thinRedBorder);
+	}
+	.nav h1 {
+		width: 300px;
+		font-size: 20px;
+		font-weight: bolder;
+		color: #eee;
+		float: left;
+		position: absolute;
+		z-index: 48;
+		top: -80px; 
+		left: 204px;
+	}
+	#menu-control {
+		position: fixed;
+		display: none;
+	}
+	input:checked ~ ul.nav {
+		left: 0;
+		transition: .3s;
+	}
+	.ham {
+		display: block;
+		position: absolute;
+		z-index: 21;
+		width: 30px;
+		height: 4px;
+		top: 0px;
+		bottom: 0;
+		right: 20px;
+		margin: auto;
+		background-color: var(--beeRed);;
+		cursor: pointer;
+	}
+	.ham:before {
+		content: '';
+		display: block;
+		width: 30px;
+		height: 4px;
+		position: absolute;
+		top: 10px;
+		background-color: #fff;
+	}
+	.ham:after {
+		content: '';
+		display: block;
+		width: 30px;
+		height: 4px;
+		position: absolute;
+		bottom: 10px;
+		background-color: #fff;
+	}
+	.close {
+		display: none;
+		position: fixed;
+		z-index: 19;
+		top: 60px;
+		width: 100%;
+		height: calc(100vh - 60px);
+	}
+	input:checked ~ .close {
+		display: block;
+	}
+	input:checked ~ .nav .ham {
+		background-color: #fff;
+	}
+	input:checked ~ .nav .ham:before {
+		background-color: var(--beeRed);;
+	}
+	input:checked ~ .nav .ham:after {
+		background-color: var(--beeRed);;
+	}
+/*導覽列在此*/
+
+
+
+	
+
+
+	
+	.bannerText {
+		/*position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;*/
+		margin: 0px auto 10px;
+		padding-bottom: 10px;
+		max-width: 300px;
+		background-color: rgba(255,255,255,0.6);
+		border-radius: 10px;
+	}
+	.logo {
+		width: 100%;
+	}
+	.btnBoxBanner {
+		max-width: 300px;
+		margin: auto;
+	}
+	.indexBanner .calltoAction {
+		width: calc(100% - 20px);
+		margin: 10px;
+	}
+	.indexBanner .tryItBTN {
+		position: relative;
+		top: 0;
+		width: calc(100% - 20px);
+		margin: 10px;
+		font-size: var(--title);
+		line-height: 60px;
+	}
+	.indexBanner .tryItBTN:hover {
+		top: -3px;
+	}
+	.platform {
+		margin: auto;
+		text-align: center;
+	}
+	@keyframes bigger {
+		0% {
+			transform: scale(1);
+		}
+		100% {
+			transform: scale(1.2);
+		}
+	}
+	.indexBanner  {
+		width: 100%;
+		height: 600px;
+		margin-top: 100px;
+		padding: 80px 0px ;
+		position: relative;
+		top: 0px;
+		z-index: 1;
+		background-size: cover;
+		background-image: url('../asset/BG-01.jpg');
+		background-position: center;
+	}
+	.picSlogan {
+		position: absolute;
+		z-index: 	1;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		margin: auto;
+	}
+	.picSlogan img {
+		height: 100%;
+	}
+	
+	.platform {
+		font-size:36px;
+		font-weight: 600;
+	}
+	.noMoney {
+		font-size: var(--innerText);
+	}
+	.bottomText {
+		position: absolute;
+		bottom: 0px;
+		left: 0px;
+		right: 0px;
+		margin: 0px auto;
+		margin-bottom: 10px;
+	}
+	.noMoney {
+		display: block;
+		padding-top: 20px;
+		text-align: center;
+		font-size: var(--title);
+	}
+	.noMoney span {
+		display: block;
+		margin-top: 6px;
+		font-size: 24px;
+	} 
+
+/*圖片底下圓圈圈*/
+	.swaperBullet {
+		margin: auto;
+		margin-top: 20px;
+		text-align: center;
+		font-size: 0px;	
+	}
+	.bullet {
+		display: inline-block;
+		width: 10px;
+		height: 10px;
+		border-radius: 400px;
+		background-color: var(--beeBlack);		
+		cursor: pointer;
+	}
+	.swaperBullet :nth-child(n+2) {
+		margin-left: 20px;
+	}
+	.swaperBullet .bullet.active {
+		background-color: var(--beeRed);
+		animation: fadeIn .3s;
+	}
+
+
+	.howTo {
+		width: 100%;
+		background-color: var(--beeBlack);
+		margin: 80px 0px;
+		padding: 60px 0;
+		box-sizing: border-box;
+	}
+	.item4 {
+		width: 80%;
+		margin: auto;
+		font-size: 0px;
+		letter-spacing: 0;
+	}
+	.item4-content {
+		border: none;
+		display: inline-block;
+		vertical-align: top;
+		width: 25%;
+		padding: 0px 3.5%;
+		box-sizing: border-box;
+	}
+	.stepBox {
+		max-width: 600px;
+		margin: auto;
+	}
+	.step {
+		color: #fff;
+		margin-bottom: 50px;
+	}
+	.step .icon {
+		max-width: 140px;
+		max-height: 140px;
+		width: 100%;
+		height: 100%;
+		margin: auto;
+		text-align: center;
+		border-radius: 400px;
+		background-color: #fff;
+		/*box-shadow: 0px 6px 0px var(--beeRed); */
+	}
+	/*.step .icon:hover {
+		position: relative;
+		box-shadow: 0px 9px 0px var(--beeRed); 
+		transform: translateY(-3px);
+		cursor: pointer;
+	}*/
+	.icon i {
+		color: var(--beeBlack);		
+		line-height: 140px;
+		font-size: 80px;
+	}
+	.step:nth-child(3) .icon {
+		/*box-shadow: 0px 6px 0px  var(--beeGreen);*/
+	}
+	/*.step:nth-child(3) .icon:hover {
+		box-shadow: 0px 9px 0px var(--beeGreen);
+	}*/
+	.step:nth-child(3) i {
+		color: var(--beeGreen);
+	}
+	.step h2 {
+		text-align: center;
+		margin: 10px auto ;
+		font-size: var(--title);
+		font-weight: bolder;
+	}
+	.step h2 span {
+		display: inline-block;
+		margin-right: 20px;
+		font-size: 32px;
+	}
+	.step p {
+		font-size: var(--innerText);
+		line-height: 24px;
+		/*padding: 0px 30px;*/
+		text-align: center;
+	}
+
+
+
+/*---------------------------*/
+	.tryIt {
+		margin: 100px auto;
+		font-size: 0px;
+		letter-spacing: 0;
+	}
+	.pcTry,
+	.mobileTry {
+		position: relative;
+		z-index: 1;
+		padding: 0;
+		background-color: #ddd;
+		overflow: hidden;
+		transition: .2s;
+	}
+	.pcTry .pic,
+	.mobileTry .pic {
+		position: relative;
+		width: 100%;
+		height: 0;
+		padding-top: 56.25%;
+	}
+	.mobileTry img,
+	.pcTry img {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;left: 0;
+		transition: .2s;
+	}
+	.pcTry:hover .pic img,
+	.mobileTry:hover .pic img {
+		transform: scale(1.07);
+		opacity: .7;
+		transition: .4s;		
+	}
+	.mobileTry a,
+	.pcTry a {
+		width: 100%;
+	}
+	.tryItBTN {
+		width: 212px;
+		height: 60px;		
+		box-sizing: border-box;
+		margin:auto ;
+		position: absolute;
+		bottom: 20px;
+		left: 0px;
+		right: 0px;
+		text-align: center;
+		color: #fff;
+		background-color: var(--beeBlack);
+		border-radius: 6px;
+		box-shadow: 0px 6px 0px var(--beeRed);
+	}
+	.tryItBTN:hover {
+		bottom: 23px;
+		box-shadow: 0px 9px 0px var(--beeRed);
+	}	
+	.tryItBTN a {
+		width: 100%;
+		height: 100%;
+		/*padding: 5px;*/
+		box-sizing: border-box;
+		display: block;
+		color: #fff;
+	}
+	.tryItBTN h2 {
+		font-size: var(--title);
+		line-height: 40px;
+	}
+	.tryItBTN span {
+		font-size: var(--innerText);
+		display: block;
+	}
+	.QRcode {
+		height: 60px;
+		width: 60px;
+		display: inline-block;
+		position: absolute;
+		bottom: 0px;
+		right: -80px;
+		box-shadow: 0px 6px 0px var(--beeRed); 
+	}
+/*---------------------------*/
+
+	#menu-control-genre {
+		position: fixed;
+		display: none;
+	}
+	#menu-control-genre:checked ~ ul.nav {
+		left: 0;
+		transition: .3s;
+	}
+	.genreHam:before,
+	.genreHam:after {
+		display: block;
+		background-color: var(--beeBlack);;
+	}
+	.genreClose {
+		display: none;
+		position: fixed;
+		z-index: 5;
+		top: 60px;
+		width: 100%;
+		height: calc(100vh - 60px);
+		/*background-color: #ddd;*/
+	}
+	#menu-control-genre:checked ~ .close {
+		display: block;
+	}
+	#menu-control-genre:checked ~ .nav .ham {
+		background-color: #fff;
+	}
+	#menu-control-genre:checked ~ .nav .ham:before {
+		background-color: var(--beeRed);;
+	}
+	#menu-control-genre:checked ~ .nav .ham:after {
+		background-color: var(--beeRed);;
+	}
+	#menu-control-genre:checked ~ .latestGames ul {
+		left: auto;
+		right: 0;
+		transform: translateY(0px);
+		opacity: 1;
+		transition: .4s;
+	}
+	.latestGames {
+		background-color: #efefef;
+	}
+	.latestGames .title {
+		top: 3px;
+	}
+	.genre {
+		position: relative;
+		height: 64px;
+		/*padding-left: 240px;*/
+		border-top: 6px solid var(--beeBlack);
+		/*background-color: #ddd;*/
+	}
+	.latestGames ul {
+		position: absolute;
+		left: -300%;
+		transform: translateY(-60px);
+		opacity: 0;
+		z-index: 2;
+		width: 200px;
+		margin-top: 60px;
+		text-align: left;
+		/*padding-left: 240px;*/
+		box-sizing: border-box;
+		color: var(--beeBlack);
+		font-size: 0px;
+		background-color: #fff;
+		float: right;
+		transition: .4s;
+	}
+	.latestGames ul li  {
+		display: block;
+		/*display: inline-block;*/
+		width: 100%;
+		vertical-align: top;
+		text-align: center;
+		/*margin-right: 20px;*/
+		font-size: var(--subtitle);
+		line-height: 64px;
+		font-weight: bolder;
+		transition: .2s;
+	}
+	.genre .firstGenre {
+		width: calc(16.6%);
+		width: 200px;
+		position: relative;
+	}
+	.latestGames ul li a {
+		display: block;
+		width: 100%;
+		/*padding: 0px 20px;*/
+		color: var(--beeBlack);
+		margin-right: 20px;
+	}
+	.latestGames i {
+		margin-left: 10px;
+		color: var(--beeRed);
+	}
+	.latestGames ul li a.gameplat {
+		border-bottom: 3px solid #fff;
+	}
+	.latestGames ul li a.gameplat:hover    {
+		box-sizing: border-box;
+		border-color: var(--beeBlack);
+		transition: .2s;
+	}
+	.latestGames ul li a:hover > i {
+		transform: rotate(180deg);
+		transition: .3s;
+	}
+	.latestGames ul li:hover i {
+		transform: rotate(180deg);
+		/*transition: .3s;
+	}
+	.latestGames ul  a:focus > i {
+		transform: rotate(180deg);
+		/*transition: .3s;*/
+	}
+	.downList {
+		position: absolute;
+		top: -94%;
+		right: 100%;
+	}
+	.downList ul {
+		display: none;
+		/*display: inline-block;*/
+		width: 140px;
+		padding-left: 0px;
+		height: 300px;
+		background-color: #fff;
+		border-bottom: 3px solid var(--beeRed);
+		transition-delay: 1s;
+	}
+	.downList ul li {
+		display: block;
+		text-align: center;
+		margin-right: 0px;
+		font-size: var(--smallSub);
+	}
+	.downList ul li a {
+		width: 100%;
+		display: block;
+	}
+	.downList ul:hover {
+		display: block;
+	}
+	.downList ul:hover  {
+		display: block;
+	}
+	.latestGames ul a:hover + .downList ul  {
+		display: block;
+		
+		border-radius: 0px 0px 6px 6px;
+		/*position:relative;---------------------------------*/
+		z-index: 6;
+		/*transition-delay:2s;*/
+	}
+	/*.latestGames ul a:focus + .downList ul  {
+		border-bottom: 3px solid var(--beeRed);
+		border-radius: 0px 0px 6px 6px;
+		display: block;
+		position:relative;
+		z-index: 6;
+	}*/
+	/*.latestGames ul a:focus {
+		border-bottom: 3px solid var(--beeBlack);
+	}*/
+	.latestGames ul li:hover {
+		border-bottom: 2px solid var(--beeRed);
+	}
+	.gameContain {
+		width: 100%;
+		margin: auto;
+		/*height: 1000px;*/
+		padding: 100px 20px;
+		box-sizing: border-box;
+		background-color: #ececec;
+		font-size: 0px;
+		text-align: center;
+	}
+	/*.Game:nth-child(3n+2){
+		border-right: 2px solid #ddd;
+		border-left: 2px solid #ddd;
+	}*/ 
+	.Game {
+		display: inline-block;
+		vertical-align: top;
+		max-width: 300px;
+		padding: 10px;
+		margin:0px 10px 60px 10px;
+		box-sizing: border-box;
+		background-color: #fff;
+		border-radius: 6px;
+		/*border-bottom: 2px solid var(--beeRed);*/
+		position: relative;
+		font-size: 0px;
+		z-index: 0;
+		text-align: center;
+	}
+	/*.Game:hover {
+		box-shadow: var(--bigRedShadow);
+		top: -3px;
+	}*/
+	.gameContain h5 {
+		font-size: var(--innerText);
+		position: absolute;
+		left: 0;
+		top: -20px;
+		color: #888;
+	}
+	.Game .leftGamePic {
+		width: 160px;
+		height: 100%;
+		/*background-color: #999;*/
+		display: inline-block;
+		position: relative;
+	}
+	.plat {
+		/*width: 70px;*/
+		height: 25px;
+		padding: 0px 10px;
+		line-height: 25px;
+		color: var(--beeRed);;
+		background-color: #fff;
+		border-radius: 3px;
+		
+		position: absolute;
+		top: 0px;
+		left:0px;
+		font-size: var(--innerText);
+		font-weight: bolder;
+		text-align: center;
+		box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+	}
+	.plat.PS {
+		color: var(--beeBlack);
+		/*box-shadow: var(--smallBlackShadow);*/
+	}
+	.leftGamePic .gamePic {
+		width: 100%;
+		height: 180px;
+		border-radius: 6px;
+		overflow: hidden;
+	}
+	
+	.leftGamePic img {
+		height: 100%;
+		margin: auto;
+		border-radius: 6px;
+		vertical-align: middle;
+	}
+	.gameName {	
+		font-size: var(--gameTitle);
+		font-weight: bolder;
+		width: 100%;
+		height: 35px;
+		margin-top: 5px;
+		line-height: 35px;
+		color: var(--beeBlack);
+		/*background-color: var(--beeBlack);*/
+		border-radius: 6px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+	.gameName a {color: var(--beeBlack);}
+	.gameName a:hover {
+		color: var(--beeBlack);
+		text-decoration: underline;
+	}
+	.rightDetail {
+		width: 230px;
+		height: 100%;
+		margin-left: 10px;
+		box-sizing: border-box;		
+		/*background-color: #890;*/
+		display: inline-block;
+		vertical-align: top;
+
+	}
+	.top3{
+		padding: 5px;
+		font-size: 0px;
+		letter-spacing: 0px;
+		text-align: left;
+		border-left: 2px solid var(--beeBlack);
+	}
+	.top3 h3 {
+		margin-bottom: 5px;
+		font-size: var(--gameTitle);
+		font-weight: bolder;	
+		color: var(--beeRed);
+		text-align: left;
+	}
+	.top3Game {
+		display: inline-block;
+		width: 60px;
+		height: 60px;
+		margin-right: 10px;
+		font-size: var(--innerText);
+		text-align: center;
+		white-space: nowrap; 
+		text-overflow: ellipsis;
+		background-color: #fff;
+
+	}
+	.top3 h4 {
+		padding: 5px 0px;
+		text-align: center;
+		font-weight: bolder;
+	}
+	.top3Game img {
+		margin: auto;
+		height: 100%;
+	}
+	.rightDetail .simpleText {
+		font-size: var(--innerText);
+		width: 100%;
+		height: 40px;
+		box-sizing: border-box;
+		margin: 18px 0px;
+		text-align: left;
+		line-height: 20px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+	.btn {
+		font-size: 0px;
+		letter-spacing: 0px;
+	}
+	.btn span {
+		font-size: var(--innerText); 
+	}
+	.btn a {
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+
+	.addTo {
+		display: inline-block;
+		vertical-align: top;
+		box-sizing: border-box;
+		width: 40%;
+		height: 36px;
+		line-height: 30px;
+		color: var(--beeBlack);
+		background-color: #fff;		
+		border:2px solid var(--beeBlack);
+		border-radius: 3px;
+		box-shadow: 0px 2px 0px var(--beeBlack);
+	}
+	.addTo span {
+		color: var(--beeBlack);
+		font-weight: bolder;
+	}
+	.addTo:hover  {
+		position: relative;
+		top: -2px;
+		box-shadow: 0px 4px 0px var(--beeBlack);
+	}
+	.changeGame {
+		display: inline-block;
+		box-sizing: border-box;
+		width: 57%;
+		height: 36px;
+		line-height: 36px;
+		margin-left: 3%;
+		background-color: var(--beeBlack);
+		color: #fff;
+		/*border:2px solid var(--beeRed);*/
+		border-radius: 3px;
+		box-shadow: 0px 2px 0px var(--beeRed);
+	}
+	/*.changeGame span {
+		
+		color: var(--beeRed);
+		
+	}*/
+	.changeGame a {
+		display: block;
+		width: 100%;
+		height: 100%;
+		color: #fff;
+		font-weight: bolder;
+	}
+	.changeGame:hover  {
+		position: relative;
+		top: -2px;
+		box-shadow: 0px 4px 0px var(--beeRed);
+	}
+	.seeMore {
+		width: 100px;
+		height: 32px;
+		display: block;
+		margin:  auto;
+		/*padding: 60px 0;*/
+		line-height: 32px;
+		text-align: center;
+		font-size: var(--innerText);
+		background-color: var(--beeBlack);
+		color: #fff;
+		border-radius: 3px;
+		box-shadow: 0px 2px 0px var(--beeRed);
+	}
+	.seeMore a {
+		width: 100%;
+		height: 100%;
+		display: block;
+		border-radius: 3px;
+		box-shadow: 0px 2px 0px var(--beeRed);
+		color: #fff;
+	}
+	.seeMore:hover {
+		position: relative;
+		top: -2px;
+		box-shadow: 0px 4px 0px var(--beeRed);
+	}
+
+/*footer頁尾*/
+	.footer {
+		width: 100%;
+		/*height: 500px;*/
+		padding-top: 30px;
+		background-color: var(--beeBlack);
+		border-top: 6px solid var(--beeRed);
+		color: #fff;
+	}
+	.item2 {
+		font-size: 0px;
+		letter-spacing: 0px;
+	}
+	.item2-content{
+		display: inline-block;
+		vertical-align: top;
+		width: 50%;
+		box-sizing: border-box;
+		margin-top: 60px;
+		/*background-color: #ddd;	*/
+	}
+	.SNS {
+		padding: 0px 5%;
+		box-sizing: border-box;
+		text-align: center;
+	}
+	.SNS h3 {
+		font-size: var(--subtitle);
+		color: #fff;
+		font-weight: bolder;
+		margin-bottom: 10px;
+	}
+	.SNS.item3 {
+		padding:20px 0 0;
+	}
+	.SNS-item3-content {
+		display: inline-block;
+		width: calc(33.33% - 20px) ;
+		width: 60px;
+		margin: 0px 10px;
+		/*height: 80px;*/
+	}
+	.SNS-item3-content img {
+		width: 100%;
+	}
+	.contactUs,
+	.SNS {
+		color: #fff;
+		margin-bottom: 30px;
+		/*float: none;*/
+	}
+	.contactUs a {
+		color: #fff;
+	}
+	.contactUs h3 {
+		display: inline-block;
+		vertical-align: top;
+		font-size: var(--title);
+		line-height: 96px;
+		margin-right: 20px;
+	}
+	.contactUs ul.info {
+		display: inline-block;
+		vertical-align: top;
+		font-size: var(--innerText);
+		padding-left: 20px;
+		border-left: 3px solid var(--beeRed);
+		text-align: left;
+	}
+	.contactUs ul.info li {
+		line-height: 32px;
+	}
+	.contactUs:after {
+		content: '';
+		display: block;
+		width: 100%;
+		height: 0;
+		clear: both;
+	}
+	.contactUs-content {
+		margin: auto;
+		text-align: center;
+	}
+	.rightReserved {
+		padding-top: 20px;
+		text-align: center;
+	}
+	.rightReserved h4 {
+		font-size: var(--subtitle);
+		line-height: 40px;
+	}
+	.rightReserved span {
+		display: block;
+		font-size: var(--innerText);
+		line-height: 40px;
+	}
+/*footer頁尾*/
+@media screen and (min-width: 566px) {
+	.Game {
+		max-width: 100%;
+	}
+}
+@media screen and (min-width: 768px) {
+	.logoBG {
+		width: 120px;
+		height: 60px;
+		top: 10px;
+		left:10px;
+	}
+	input:checked ~ ul.nav {
+		left: auto;
+		transition: .3s;
+	}
+	ul.nav {
+		width: auto;
+		height: auto;
+		left: auto;
+		top: 0;
+		right: 20px;
+		z-index: 21;
+		font-size: 0px;
+		background-color: transparent;
+		box-shadow: none;
+		border-right: none;
+	}
+	ul.nav li {
+		display: inline-block;
+		width: 130px;
+		height: 40px;
+		margin: 10px 0;
+		line-height: 40px;
+		font-size:16px;
+	}
+	ul.nav li a {
+		color:#fff;
+	}
+	ul.nav li:nth-child(n+2) {
+		border-left: .5px solid #ddd;
+	}
+	.ham {
+		display: none;
+	}
+	.genreHam {
+		display: block;
+	}
+	.btnBoxBanner {
+		max-width: 400px;
+	}
+	.indexBanner .calltoAction {
+		width: calc(50% - 20px);
+	}
+	.indexBanner .tryItBTN {
+		width: calc(50% - 20px);
+	}
+	.stepBox {
+		max-width: 600px;
+		margin: auto;
+	}
+}
+@media screen and (min-width: 992px) {
+	.stepBox {
+		max-width: 1000px;
+	}
+	#menu-control-genre {
+		position: fixed;
+		display: none;
+	}
+	#menu-control-genre:checked ~ ul.nav {
+		left: 0;
+		transition: .3s;
+	}
+	.genreHam {
+		display: none;
+	}
+	.genreHam:before,
+	.genreHam:after {
+		background-color: var(--beeBlack);;
+	}
+	.genreClose {
+		display: none;
+		position: fixed;
+		z-index: 5;
+		top: 60px;
+		width: 100%;
+		height: calc(100vh - 60px);
+		/*background-color: #ddd;*/
+	}
+	#menu-control-genre:checked ~ .latestGames ul {
+		left: auto;
+		right: 0;
+		margin-top: 0;
+	}
+	#menu-control-genre:checked ~ .genreClose {
+		display: none;
+	}
+	.latestGames {
+		background-color: #efefef;
+	}
+	.latestGames .title {
+		top: 3px;
+	}
+	.genre {
+		position: relative;
+		height: 64px;
+		box-sizing: border-box;
+		/*padding-left: 240px;*/
+		border-top: 6px solid var(--beeBlack);
+		/*background-color: #ddd;*/
+	}
+	.latestGames ul {
+		/*position: absolute;*/
+		left: auto;
+		right: 0;
+		opacity: 1;
+		width: 100%;
+		padding-left: 240px;
+		font-size: 0px;
+		background-color: #fff;
+		float: right;
+		transition: .4s;
+	}
+	.latestGames ul li  {
+		display: inline-block;
+		width: 100%;
+		vertical-align: top;
+		text-align: center;
+		/*margin-right: 20px;*/
+		font-size: var(--subtitle);
+		line-height: 64px;
+		font-weight: bolder;
+		transition: .2s;
+	}
+	.genre .firstGenre {
+		width: calc(16.6%);
+		position: relative;
+	}
+	.latestGames ul li a {
+		display: block;
+		width: 100%;
+		/*padding: 0px 20px;*/
+		color: var(--beeBlack);
+		margin-right: 20px;
+	}
+	.latestGames i {
+		margin-left: 10px;
+		color: var(--beeRed);
+	}
+	/*.latestGames ul li a.gameplat:hover    {
+		border-bottom: 3px solid var(--beeBlack);
+		transition: .2s;
+	}*/
+	.latestGames ul li a:hover > i {
+		transform: rotate(180deg);
+		transition: .3s;
+	}
+	.latestGames ul li:hover i {
+		transform: rotate(180deg);
+		/*transition: .3s;
+	}
+	.latestGames ul  a:focus > i {
+		transform: rotate(180deg);
+		/*transition: .3s;*/
+	}
+	.downList {
+		position: static;
+		top: -94%;
+		right: 100%;
+	}
+	.downList ul {
+		/*display: none;*/
+		/*display: inline-block;*/
+		/*width: 140px;*/
+		padding-left: 0px;
+		height: 300px;
+		background-color: #fff;
+		transition-delay: 1s;
+	}
+	.downList ul li {
+		display: block;
+		text-align: center;
+		margin-right: 0px;
+		font-size: var(--smallSub);
+	}
+	.downList ul li a {
+		/*width: 100%;*/
+		display: block;
+	}
+	.downList ul:hover {
+		display: block;
+	}
+	.downList ul:hover  {
+		display: block;
+	}
+	.contactUs-content {
+		text-align: left;
+	}
+}
+/*首頁結束-------------------------------------------------*/
+
+
+
+
+/*第二頁開始-----------------------------------------------*/
+
+	
+/*遊戲瀏覽頁面*/
+	.consoles {
+		width: 100%;
+		margin-top: -200px;
+		font-size: 0px;
+		letter-spacing: 0px;
+	}
+	.whiteSpace {
+ 		width: 100%;
+ 		height: 300px;
+ 		background-color: #fff;
+ 		position: relative;
+ 		z-index: 2;
+ 	}
+ 	.consoles .item3 {
+ 		width: 100%;
+ 		
+ 		padding-bottom: 20px;
+ 		/*height: 500px;*/
+ 		text-align: right;
+ 		font-size: 0px;
+ 		letter-spacing: 0px;
+ 		 		/*background: linear-gradient(to right,#000 0%, #000 33.333%,#fff 33.333%, #fff 66.6666%, #000 66.6666%, #000 100%);*/
+ 		position: relative;
+ 		background-color: var(--beeBlack);
+ 		overflow: hidden;
+ 	}
+ 	.consoles-content {
+ 		float: none;
+ 		height: 30%;
+ 		box-sizing: border-box;
+ 		cursor: pointer;
+ 		margin-top: 75px;
+ 		display: inline-block;
+ 		vertical-align: bottom;
+ 		overflow: hidden;
+ 		position: relative;
+ 		z-index: 4;
+ 	}
+ 	.consoles-content img {
+ 		display: block;
+ 		box-sizing: border-box;
+ 		margin: auto;
+ 		width: 110%;
+ 		transition: .2s;
+ 		position: relative;
+ 		z-index: 5;
+ 	}
+ 	.consoles-content:hover img {
+ 		box-sizing: border-box;
+ 		transform-origin: 50% 50%;
+ 		transform: scale(1.15);
+ 		transition-property: transform:;
+ 		transition: .4s;		
+ 		position: relative;
+ 		z-index: 5;
+ 	}
+ 	.consoles-content h3 {
+ 		font-size: var(--subtitle);
+ 		color: #fff;
+ 		text-align: center;
+ 		box-sizing: border-box;
+ 		letter-spacing: 1.8px;
+ 		padding-bottom: 10px;
+ 		margin-bottom: 10px;
+ 	}
+ 	.consoles-content:hover h3 {
+ 		box-sizing: border-box;
+ 		display: block;
+ 		/*border-bottom: 2px solid #fff;*/
+ 		box-shadow: 0px 2px 0px #fff;
+ 	}
+ 	.consoles-content:nth-child(4):hover h3 {
+ 		box-shadow: 0px 2px 0px var(--beeRed);
+ 	}
+ 	.consoles-content:nth-child(5):hover h3 {
+ 		box-shadow: 0px 2px 0px var(--beeGreen);
+ 	}
+	.productBrowse {
+		background-color: #000;
+		width: 100%;
+		height: 200px;
+		margin-top: 100px;
+		position: relative;
+	}
+@media screen and (min-width: 768px) {
+	.consoles .item3 {
+ 		display: flex;
+ 		align-items: flex-end;
+ 	}
+}
+
+
+/*條件篩選區*/
+	.genreFilter  {
+	/*	width: calc(25% - 10px);*/
+		/*margin-left: 10px;*/
+		padding: 20px;
+		box-sizing: border-box;
+		font-size: 0px;
+		letter-spacing: 0px;		
+		display: inline-block;
+		font-size: var(--subtitle);
+		text-align: left;
+		position: relative;
+		z-index: 5;
+		font-size: 0px;
+		letter-spacing: 0px;
+		color: var(--beeBlack);
+		background-color: #fff;
+		border-radius: 6px;
+		box-shadow: 0px 4px 0px var(--beeRed);
+	}
+	.genreFilter h2 {
+		font-size: var(--subtitle);
+		font-weight: bolder;
+		padding: 10px 0 10px 0;
+		text-align: left;
+	}
+	.genreFilter h3 {
+		font-size: var(--subtitle);
+	}
+	select {
+		font-size: var(--innerText);
+		border-radius: 6px;
+	}
+	select option:hover {
+		background-color: var(--beeRed);
+	}
+	.gameFilter {
+		width: 100%;
+		height: 30px;
+		display: inline-block;
+		border:2px solid var(--beeBlack);
+		border-radius: 6px;
+		font-family: 微軟正黑體;
+		box-shadow: 0px 4px 0px var(--beeBlack);
+	}
+	.location h3 {
+		/*width: 25%;*/
+		display: inline-block;
+		vertical-align: top;
+		font-size: var(--subtitle);
+		line-height: 30px;
+		text-align: left;
+	}
+	form div:nth-child(n) {
+		padding: 10px 0px 10px 0px;
+		border-bottom: .5px solid var(--beeBlack);
+	}
+	form .productSitu div {
+		border: none;
+	}
+	.situ {
+		width: 40%;
+		display: inline-block;
+		text-align: left;
+		font-size: var(--innerText);
+	}
+	.genreFilter button {
+		cursor: pointer;
+		font-family: 微軟正黑體;
+		font-weight: bolder;
+		font-size: var(--innerText);
+		margin-top: 10px;
+		padding: 10px;
+		background-color: #fff;
+		color: var(--beeRed);
+		border: 2px solid var(--beeRed);
+		border-radius: 6px;
+		box-shadow: 0px 4px 0px var(--beeRed);
+	}
+	.genreFilter button:hover {
+		color: var(--beeRed);
+		box-shadow: 0px 5px 0px var(--beeRed);
+		transform: translateY(-1px);
+	}
+	.genreFilter button:active {
+		color: var(--beeRed);
+		box-shadow: 0px 2px 0px var(--beeRed);
+		transform: translateY(2px);
+	}
+	.consoles .title {
+		position: relative;
+		z-index: 6;
+		top: 0px;
+	}
+/*種類下拉區黏住*/
+	.genre {
+		position: sticky;
+		top: 56px;
+		z-index: 6;
+		background-color: #fff;
+	}
+	.gameContain.productPage {
+		padding-bottom: 0;
+	}
+/*分頁*/
+	.page {
+		/*width: 600px;*/
+		
+		font-size: var(--title);
+		margin: auto ;
+		padding: 20px 0px 60px;
+		text-align: center;
+		position: relative;
+	}
+	.page :nth-child(n) {
+		display: inline-block;
+	}
+	.page i {
+		cursor: pointer;
+		padding: 6px;
+		border-radius: 3px;
+		transition: .2s;
+	}
+	.page i:hover {
+		padding: 6px;
+		color: #fff;
+		background-color: var(--beeBlack);
+		transition: .2s;
+	}
+	.page ul {
+		cursor: pointer;
+		width: auto;
+		line-height: var(--innerText);
+		padding: 0px;
+		display: inline-block;
+		vertical-align: middle;
+		text-align: center;
+	}
+	.page ul li {
+		width: auto;
+		height: auto;
+		line-height: var(--innerText);
+		font-size: var(--innerText);
+		padding: 6px;
+	}
+	.page ul li:nth-child(1) {
+		border-bottom: 2px solid var(--beeRed);
+	}
+
+/*最近完成交換*/
+	.justChanged {
+		width: 100%;
+		padding: 40px 0px 20px 0px ;
+		position: relative;
+		z-index: 2;
+		/*background-color: var(--lightGray);*/
+	}
+	.content-overflow {
+		width: 100%;
+		overflow: hidden;
+	}
+	.change-content-overflow {
+		/*margin-left: -690px;*/
+		/*width: 2000%;*/
+	}
+	.justChanged .hint {
+		padding: 20px 0px ;
+		text-align: left;
+		line-height: 20px;
+		text-align: center;
+		/*position: absolute;
+		top: 0;
+		left: 240px;*/
+	}
+	.justChanged .hint span {
+		font-size: var(--innerText);
+		color: var(--beeRed);
+		/*border-bottom: var(--thinRedBorder);*/
+		margin-right: 6px;
+	}
+	.change-content {
+		/*width: 460px;*/
+		float: none;
+		max-width: 360px;
+		width: calc(100% - 20px);
+		margin: 0px auto 20px;
+		box-sizing: border-box;
+		font-size: var(--innerText);
+		background-color: #fff;
+		border-radius:var(--smallRoundBorder);
+		box-shadow: 0px 6px 20px #ddd;
+		border-radius: var(--bigRoundBorder);
+		font-size: 0;
+		letter-spacing: 0px;
+		animation: fadeIn .3s;
+	}
+
+	/*上部分*/
+	.top-game-change .change-game {
+
+		width: 45%;
+		height: 0;
+		padding-top: 56.25%;
+		display: inline-block;
+		vertical-align: middle;
+		position: relative;
+		overflow: hidden;
+		text-align: center;
+	}
+	/*.top-game-change .change-game a {
+		width: 100%;
+		height: 0%;
+		padding-top: 56.25%;
+		display: block;
+	}*/
+	.change-game .gamePic {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		margin: auto;
+		overflow: hidden;
+
+	}
+	.change-game img {
+		height: 100%;
+		margin: auto;
+		display: inline-block;
+	}
+	.change-game h2 {
+		font-size: var(--gameTitle);
+		text-align: center;
+		padding: 6px 0px;
+	} 
+	/*.change-game span {
+		display: block;
+		position: absolute;
+		top: 0px;
+		font-size: var(--innerText);
+		font-weight: bolder;
+		padding: 6px;
+		background-color: #fff;
+		color: var(---beeBlack);
+		border-radius: 3px;
+		box-shadow: 0px 2px 0px var(--beeBlack);
+	}*/
+	.change-game a {
+		color: var(--beeBlack);
+	}
+	.change-game a:hover  {
+		text-decoration: underline;
+	}
+	/*.plat.NS {
+		color: var(--beeRed);
+		font-weight: bolder;
+		box-shadow: 0px 2px 0px var(--beeRed);
+	}*/
+	.plat.XBOX {
+		color: var(--beeGreen);
+		box-shadow: 0px 2px 0px var(--beeGreen);
+	}
+	.top-game-change i {
+		font-size: 32px;
+	}
+	.top-game-change .change-icon {
+		width: 10%;
+		display: inline-block;
+		text-align: center;
+	}
+	/*下部分*/
+	.down-change-player {
+		font-size: var(--innerText);
+		text-align: center;
+		border-top: 2px solid var(--beeBlack);
+	}
+	.down-change-player h3 {
+		font-weight: bolder;
+	}
+	.down-change-player span {
+		display: inline-block;
+		padding: 10px 0px 10px 0px;
+		color: #999;
+		font-weight: bolder;
+	}
+	span.changeTime {
+		font-size: 12px;
+		padding: 10px 0px 10px 0px;
+		text-align: left;
+		color: #666;
+
+	}
+@media screen and (min-width: 768px) {
+	.change-content {
+		max-width: calc(33.333333% - 20px);
+		float: left;
+		margin: 0px 10px 20px;
+	}
+}
+
+/*第三頁-遊戲詳細頁面---------------------------------------*/
+	a {
+		display: inline-block;
+	}
+/*麵包屑*/
+	.breadCrumb {
+		/*position: relative;*/
+		padding: 120px 10px 20px;
+		margin-left: 10px;
+		display: block;
+		font-size: var(--innerText);
+		font-weight: bolder;
+		color: var(--beeBlack);
+		opacity: .6;
+		transition: .1s;
+	}
+	.breadCrumb li {
+		display: inline-block;	
+	}
+	.breadCrumb :nth-child(n+2):before {
+		content: '>';
+		padding: 0px 4px;
+	}
+	.breadCrumb li:nth-last-child(1) {
+		color: var(--beeRed);
+	}
+	.breadCrumb a{ color:var(--beeBlack); }
+
+	.breadCrumb a:hover,
+	.gamerID a:hover {
+		color: var(--beeRed);
+		text-decoration: underline;
+		transition: .1s;
+	}
+
+/*遊戲詳細整個左邊*/
+	.gameDetail {
+		position: relative;
+		line-height: var(--title);
+		
+	}
+	.mainGameDetail {
+		width: 100%;
+		box-sizing: border-box;
+
+		/*float: left;*/
+	}
+	.mainGameDetail h2 {
+		font-size: 	var(--subtitle);
+		font-weight: 700;
+		width: auto;
+		display: inline-block;
+		line-height: 32px;
+		padding: 10px 10px 0px 0px ;
+		margin-bottom: 10px;
+		border-bottom: var(--thinBlackBorder);
+	}
+	/*.openIt {
+		position: absolute;
+		top: 20px;
+		left: -16px;
+		color: #fff;
+		cursor: pointer;
+	}*/
+	.sidebarGamer {
+		width: 100%;
+		box-sizing: border-box;
+		margin-right: 100px;
+		font-size: 	var(--innerText);
+		text-align: center;
+		border: var(--thickBlackBorder);
+		border-radius: var(--bigRoundBorder);
+		background-color: #fff;
+	}
+	#sidebar-control:checked ~ .gameDetail .sidebarGamer {
+		left: auto;
+		right: 0;
+	}
+
+/*主交換介面*/
+	.mainChangeUI {
+		/*height: 300px;*/
+		font-size: 0;
+		letter-spacing: 0;
+		/*padding:0px 80px ;*/
+	}
+	/*主要-左邊UI*/
+	.leftMain {
+		width: 100%;
+		/*height: 30vw;*/
+		display: inline-block;
+		vertical-align: top;
+		/*background-color: #eee;*/
+		border-bottom: var(--thinBlackBorder);
+	}
+	.leftMain .pic {
+		margin: 10px;
+		box-sizing: border-box;
+	}
+	.main.pic {
+		position: relative;
+		width: calc(100% - 20px);
+		height: 0;
+		padding-top: 80%;
+		background-color: #fff;
+		border: var(--thinBlackBorder);
+		border-radius: var(--bigRoundBorder);
+		box-shadow: var(--smallBlackShadow);
+		overflow: hidden;
+	}
+	.main.pic img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		/*height: 100%;*/
+		/*height : 100%;*/
+		margin: auto;
+	}
+	.otherGamePic .pic {
+		position: relative;
+		width: calc(25% - 20px);
+		height: 0px;
+		padding-top: calc(25% - 20px);
+		background-color: #fff;
+		border-radius: var(--smallRoundBorder);
+		display: inline-block;
+		cursor: pointer;
+		box-shadow: 2px 2px 0 var(--beeBlack);
+		overflow: hidden;
+		box-sizing: border-box;
+		border: 2px solid transparent;
+	}
+	.otherGamePic .pic img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 140%;
+		margin-left: -20%;
+	}
+	.otherGamePic .pic:hover {
+		border-bottom: var(--thinBlackBorder);
+		transition: .1s;
+	}
+	.pic.Now {
+		border: var(--thinBlackBorder);
+	}
+	.gameTitle {
+		font-size: var(--innerText);
+		padding: 0 20px;
+	}
+	.gameTitle h1 {
+		padding: 10px;
+		background-color: var(--beeBlack);
+		color: #fff;
+		font-size: 	var(--subtitle);
+		font-weight: bolder;
+		border-radius: 6px;
+	}
+	.gamerID a {
+		color: var(--beeBlack);
+		font-weight: bolder;
+		text-decoration: underline;
+	}
+	.gamerID a:hover {
+		color: var(--beeRed);
+		text-decoration: underline;
+		transition: .1s;
+	}
+
+/*主要-右邊UI*/
+	.rightMain {
+		position: relative;
+		width: 100%;
+		/*padding: 0px 20px;*/
+		height: 0;
+		padding-top: 100%;
+		box-sizing: border-box;
+		display: inline-block;
+		/*background-color: #ddd;*/
+		border-bottom: var(--thinBlackBorder);
+	}
+	
+	.rightMain .changeList :nth-child(n) {
+		display: inline-block;
+	}
+	.rightMain h3 {
+		width: 100%;
+		/*padding-left: 40px;*/
+		box-sizing: border-box;
+		font-size: 	var(--subtitle);
+		display: block;
+	}
+	.changeList {
+		position: absolute;
+		left: 0;
+		top: 0;
+		height: 0;
+		width: 100%;
+		height: 70%;
+		padding: 10px 20px 0;
+		box-sizing: border-box;
+		display: block;
+	}
+	.changeList6 {
+		width: calc(100% - 52px);
+		height: 100%;
+		padding-top: 24px;
+	}
+	.changeList6 .content {
+		display: inline-block;
+		vertical-align: top;
+		box-sizing: border-box;
+		width: 33.33%;
+		height: calc(50% - 30px);
+		padding: 0px 1.66%;
+		text-align:center;
+		/*background-color: #999;*/
+	}
+	.rightMain .changeList .changeList6 .pic {
+		display: block;
+		width: 100%;
+		height: 70%;
+		display: block;
+		background-color: #fff;
+		box-shadow: 2px 2px 0 var(--beeRed);
+		overflow: hidden;
+	}
+	.rightMain .changeList .changeList6 h4 {
+		display: block;
+		font-size: 	var(--innerText);
+		width: 100%;
+		margin-top: 0px;
+	}
+	.rightMain i {
+		width: 20px;
+		line-height: 100%;
+		margin-top: -100%;
+		padding: 3px;
+		border-radius: 3px;
+		font-size: 	var(--subtitle);
+		text-align: center;
+		vertical-align: top;
+		cursor: pointer;
+	}
+	.rightMain i:hover {
+		background-color: var(--beeBlack);
+		color: #fff;
+	}
+	.changeButtons {
+		display: flex;
+		justify-content: flex-end;
+		flex-flow: column;
+		position: absolute;
+		left: 0;
+		top: 70%;
+		font-size: 0px;
+		letter-spacing: 0px;
+		width: 100%;
+		height: 30%;
+		box-sizing: border-box;
+		padding: 0px 10px 20px;
+		/*display: block;*/
+	}
+	.upperBTN {
+		width: 100%;
+	}
+	.changeButtons a {
+		width: 100%;
+		line-height: 190%;
+		display: block;
+		font-size: 	var(--subtitle);
+		text-align: center;
+	}
+	
+	
+	
+	.changeButtons .button2 {
+		display: inline-block;
+		margin: 10px;
+		width: calc(50% - 20px);
+		height: 36px;
+		box-sizing: border-box;
+		background-color: #fff;
+		border-radius: var(--smallRoundBorder);
+	}
+	.addToColl {
+		border:var(--thinBlackBorder);
+		box-shadow: var(--smallBlackShadow);
+	}
+	.addToColl a {color: var(--beeBlack);}
+	.addToColl:hover {
+		position: relative;
+		top: -3px;
+		box-shadow: var(--bigBlackShadow);
+	}
+	.addToColl:active {
+		position: relative;
+		top: 0px;
+		box-shadow: var(--smallBlackShadow);
+	}
+	.leaveMessage {
+		border:var(--thinRedBorder);
+		box-shadow: var(--smallRedShadow);
+	}
+	.leaveMessage a{ color: var(--beeRed); }
+	.leaveMessage:hover
+	 {
+		position: relative;
+		top: -3px;
+		box-shadow: var(--bigRedShadow);
+	}
+	.leaveMessage:active {
+		position: relative;
+		top: 0px;
+		box-shadow: var(--smallRedShadow);
+	}
+	.changeButtons .changeNow:hover {
+		position: relative;
+		top: -2px;
+		box-shadow: 0px 8px 0px var(--beeRed);}
+	.changeButtons .changeNow {
+		display: block;
+		width: calc(100% - 30px);
+		height: 32px;
+		margin: 10px;
+		margin-top: 0px;
+		background-color: var(--beeBlack);;
+		border:var(--thickBlackBorder);
+		box-shadow: var(--bigRedShadow);
+		border-radius: var(--bigRoundBorder);
+	}
+	.changeButtons .changeNow:active {
+		position: relative;
+		top: 0px;
+		box-shadow: var(--bigRedShadow);}
+
+
+/*簡介、交換說明那列導覽列*/
+	ul.gameDetailGenre {
+		position: sticky;
+		top: 56px;
+		z-index: 5;
+		width: 100%;
+		/*padding:0 80px 20px 0px;*/
+		box-sizing: border-box;
+		font-size: 0;
+		letter-spacing: 0;
+		
+	}
+	.gameDetailGenre li {
+		display: inline-block;
+		vertical-align: top;
+		box-sizing: border-box;
+		font-size: var(--innerText);
+		font-weight: bolder;
+		line-height: 36px;
+		text-align: center;
+		border-bottom: var(--thickBlackBorder);
+		border-radius: var(--bigRoundBorder);
+		background-color: #fff;
+	}
+	.gameDetailGenre li a{
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+	.gameDetailGenre li a:hover {
+		text-decoration: underline;
+	}
+	.gameDetailGenre li:nth-child(1) a {
+		
+		color: var(--beeRed);
+	}
+	.gameDetailGenre li:nth-child(n+2) a{
+		color: var(--beeBlack);
+	}
+	.gameDetailGenre li:nth-child(1) {
+		width: calc(14.28% );
+		color: var(--beeRed);
+		border-bottom: var(--thickRedBorder);
+	}
+	.gameDetailGenre li:nth-child(n+2) {
+		margin-left: 10px;
+		width: calc(28.56% - 10px);
+		color:var(--beeBlack);
+	}
+	
+	.simple p {
+		width: 100%;
+	}
+	.simple ,
+	.message ,
+	.topGames  {
+		/*margin-right: 80px;*/
+		box-sizing: border-box;
+		padding:  0 20px;
+	}
+	.simple a,
+	.message a,
+	.topGames a {
+		float: right;
+		padding: 10px 0px;
+		text-align: right;
+		color: var(--beeRed);
+	}
+	.simple a:hover,
+	.message a:hover,
+	.topGames a:hover {
+		text-decoration: underline;	}
+
+	.message {
+		border-top: 4px solid var(--beeBlack);
+		border-bottom: 4px solid var(--beeBlack);
+	}
+	.QApart {
+		padding: 15px 0;
+	}
+	.QApart + .QApart {
+		border-top: 1px solid var(--beeBlack);
+		transition: .3s;
+		/*box-shadow: 0px 6px 20px rgba(0,0,0,0.2);*/
+		
+	}
+	.QApart:hover {
+		box-shadow: var(--smallBlackShadow);
+		box-shadow: 0px 6px 20px rgba(0,0,0,0.3);
+		transition: .3s;
+		border-radius: 10px;
+	}
+	.QApart .QANum {
+		width: 50px;
+		padding-right: 10px;
+		/*border-right: var(--thinBlackBorder);*/
+		display: inline-block;
+		vertical-align: top;
+		text-align: center;
+	}
+	.QANum span {
+		display: block;
+		color: var(--beeRed);
+		font-weight: bolder;
+	}
+	.QApart .QA {
+		width: 80%;
+		padding-left:10px; 
+		display: inline-block;
+		text-align: left;
+	}
+	.QA .time {
+		color: var(--beeRed);
+		font-size: 	var(--innerText);
+		opacity: .7;
+	}
+	.QA h3 {
+		font-size: 	var(--subtitle);
+		margin-bottom: 10px;
+	}
+	.QA .answer {
+		/*border: var(--thinBlackBorder);*/
+	/*	border-left: 42px solid var(--beeRed);*/
+		border-radius: var(--bigRoundBorder);
+		height: 100%;
+		font-size: 0px;
+		letter-spacing: 0;
+		position: relative;
+	}
+
+	.answer p {
+		width: 100%;
+		display: inline-block;
+		padding: 10px;
+		/*padding-left: 52px;*/
+		box-sizing: border-box;
+		/*width: calc(100% - 50px);*/
+		/*text-indent:20px;*/
+		font-size: 	var(--innerText);
+	}
+	.answer span {
+		display:block;
+		margin: 	0px;
+		/*vertical-align: middle;	*/
+		/*width: 30px;*/	
+		text-align: center;
+		text-indent:0px;
+		padding :0px 6px; 
+		border-bottom: var(--thinRedBorder);
+		color: var(--beeRed);
+		font-size: 	var(--innerText);
+	}
+	.gameBrowse {
+		font-size: 	0;
+		letter-spacing: 0;
+	}
+	.topGames {
+		display: none;
+	}
+	.gamePicSlide {
+		width: 90%;
+		display: inline-block;
+		vertical-align: middle;
+		font-size: 0;
+		letter-spacing: 0;
+	}
+	.slidePic  {
+		position: relative;
+		display: inline-block;
+		vertical-align: top;
+		width: calc(20% - 20px);
+		height: 0;
+		padding-top: 20%;
+		margin-left: 20px;
+		border-radius: var(--bigRoundBorder);
+		box-shadow: 4px 4px 0 var(--beeRed);
+		/*overflow: hidden;*/
+	}
+	.slidePic .pic {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		margin: auto;
+		overflow: hidden;
+	}
+	.slidePic .pic img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: auto;
+		margin: auto;
+	}
+	.slidePic h4 {
+		font-size: 	var(--gameTitle);
+		padding-top: 10px;
+		text-align: center;
+	}
+	.gameBrowse .toLeft,
+	.gameBrowse .toRight {
+		width: 5%;
+		padding: 6px;
+		box-sizing: border-box;
+		display: inline-block;
+		vertical-align: middle;
+		text-align: center;
+		font-size: 	var(--subtitle);
+		cursor: pointer;
+	}
+	.gameBrowse i:hover {
+		padding: 6px;
+		box-sizing: border-box;
+		background-color: var(--beeBlack);
+		color: #fff;
+		border-radius: var(--smallRoundBorder);
+	}
+	.topGames .swaperBullet {
+		margin-top: 64px;
+	}
+/*交換遊戲的玩家資訊*/
+	/*.sidebarGamer */
+		/*position: sticky;
+		z-index: 0;
+		top: 56px;*/
+		/*left: -100%;*/
+		/*height: 1000px;*/
+		
+/*	.sidebarGamer:hover  {
+		width: 30%;
+	}*/
+	.gamerInfo .gamer {
+		width: 100%;
+		display: block;
+		background-color: var(--beeBlack);
+		color: #fff;
+	}
+	.head {
+		width: 100px;
+		height: 100px;
+		border-radius: 400px;
+		margin: auto;
+		overflow: hidden;
+	}
+	.head img {
+		width: 100%;
+	}
+	.successGames {
+		width: 90%;
+		margin: auto;
+		padding-bottom: 10px;
+		border-bottom: var(--thinBlackBorder); 
+	}
+	.successGameNum {
+		font-size: 	var(--subtitle);
+		font-weight: bolder;
+	}
+	select.location {
+		border: var(--thinBlackBorder);
+		text-align: center;
+		padding: 6px;
+		margin-bottom: 20px;
+		font-family: 微軟正黑體;
+	}
+	.location option {
+		margin: auto;
+	}
+	.otherGames ul {
+		width: 90%;
+		height: 100%;
+		margin: auto;
+		font-size: 0;
+		letter-spacing: 0;
+	}
+	.otherGames li {
+		display: inline-block;
+		width: 160px;
+		height: 160px;
+		padding: 0 ;
+		margin: 0px 10px;
+		position: relative;
+		background-color: #fff;		
+		border-radius: var(--bigRoundBorder);
+		box-shadow: var(--offsetBlackShadow);
+	}
+	.otherGames-pic {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.otherGames li .otherGames-name {
+		display:block;
+		/*width: 50px;*/
+		padding: 6px;
+		height: 40px;
+		line-height: 20px;
+		position: absolute;
+		right: 164px;
+		top: 0;
+		bottom: 0;
+		margin: auto;
+		font-size: var(--innerText);
+		word-wrap: nowrap;
+		background-color: var(--beeBlack);
+		color: #fff;
+		border-radius: var(--smallRoundBorder);
+		opacity: 0;
+		transition: .2s;
+	}
+	.otherGames .date {
+	font-size: 10px;
+	opacity: .6;
+	}
+	.otherGames li .otherGames-name:after {
+		content: '';
+		display: block;
+		width: 0;
+		height: 0;
+		position: absolute;
+		right: -4px;
+		top: 0;
+		bottom: 0;
+		margin: auto;
+		border-left: 4px solid var(--beeBlack);
+		border-top: 4px solid transparent;
+		border-bottom:4px solid transparent;
+	}
+	.otherGames li div:hover + span {
+		opacity: 1;
+	}
+	.otherGames li img {
+		width: 100%;
+	}
+	.otherMore {
+		margin:0px auto 10px;
+		width: 100px;
+		color: var(--beeBlack);
+		font-weight: bolder;
+		border: var(--thinBlackBorder);
+		border-radius: var(--bigRoundBorder);
+		box-shadow: var(--smallBlackShadow);
+	}
+	.otherMore a {
+		width: 100%;
+		height: 100%;
+		color: var(--beeBlack);
+	}
+	
+@media screen and (min-width: 768px) {
+	.leftMain,
+	.rightMain {
+		width: 50%;
+		border-bottom: none;
+	}
+	.rightMain {
+		padding-top: 54.55%;
+	}
+	.gameDetail {
+		padding: 0;
+	}
+	.gameDetailGenre,
+	.simple,
+	.message,
+	.topGames {
+		margin-right: 80px;
+	}
+	ul.gameDetailGenre {
+		padding: 0px 80px 20px 0;
+	}
+	.gameDetailGenre li {
+		font-size: 	var(--subtitle);
+	}
+	.topGames {
+		display: block;
+	}
+
+}
+@media screen and (min-width: 992px) {
+	.gameDetail {
+		margin: 20px 0px  100px 100px;
+	}
+	.sidebarGamer {
+		width: calc(100% - 100px);
+		margin-right: 0px;
+	}	
+}
+@media screen and (min-width: 1200px) {
+	.sidebarGamer {
+		width: 240px;
+		position: absolute;
+		right: 0;
+		top: 28px;
+	}
+	.mainGameDetail {
+		width: 80%;
+	}
+	.simple p {
+		width: 70%;	
+	}
+	.changeButtons .button2,
+	.changeButtons .changeNow {
+		height: 48px;
+	}
+
+}
+
+
+
+
+/*第四頁開始-我的交換*-----------------------------------------------------*/
+	.seeAll {
+		/*display: block;*/
+		float: right;
+		padding: 10px;
+		text-align: right;
+		font-weight: 500;
+		color: var(--beeRed);
+	}
+	.seeAll:hover {
+		text-decoration: underline;
+	}
+	.timeTag {
+		padding-top: 10px;
+	}
+	.newTag {
+		padding: 6px;
+		margin: 3px;
+		background-color: var(--beeRed);
+		color: #fff;
+		border-radius: 6px;
+	}
+	.title.myChangePage {
+		position: static;
+		width: auto;
+		padding: 0 10px;
+		margin: 0 0 20px 10px;
+		/*display: inline-block;*/
+		text-align: left;
+		text-align: center;
+		box-shadow: none;
+		background-color: transparent;
+		border-bottom: var(--thinBlackBorder);
+	}
+	.myChangeNav {
+		position: fixed;
+		z-index: 20;
+		left: 0;
+		top: 60px;
+		width: 100%;
+		height: 60px;		
+		box-sizing: border-box;
+		background-color: #fff;
+		border-right: var(--thickRedBorder);
+	}
+	.myChangeNav h3 {
+		text-align: center;
+		margin: auto;
+		padding-top: 30px;
+	}
+	.myChangeNav .myInfo {
+		display: none;
+		width: 160px;
+		margin: 0 20px;
+		box-sizing: border-box;
+		/*background-color: #888;*/
+	}
+	.myInfo .headPic {
+		margin:  auto;
+		padding: 20px 0;
+		width: 80px;
+		height: 80px;
+	}
+	.headPic .pic {
+		width: 80px;
+		height: 80px;
+		border-radius: 300px;
+		border: var(--thickRedBorder);
+		background-color: #000;
+	}
+	.myName {
+		margin: auto;
+		padding: 0 0 20px ;
+		text-align: center;
+		font-weight: 800;
+	}
+	.myChangeNav ul li {
+		position: relative;
+		float: left; /*---*/
+		width: calc(20% - 1px); /*---*/
+		height: 60px; /*---*/
+		/*padding:  20px 0; /*---*/*/
+		box-sizing: border-box;
+		line-height: 60px;
+		font-weight: 600; /*---*/
+		border-left: 1px solid var(--beeBlack);
+		transition: .1s;
+		font-size: 12px;
+		text-align: center;
+	}
+	.myChangeNavIcon {
+		width: 100%;
+		height: 36px;
+		line-height: 36px;
+		font-size: 24px;
+	}
+	.myChangeNavTitle {
+		display: block;
+		height: 24px;
+		line-height: 24px;
+	}
+	.myChangeNav ul li a {
+		display: block;
+		width: 100%;
+	}
+	.myChangeNav ul li.active {
+		background-color: var(--beeBlack);
+	}
+	.myChangeNav ul li.active a {
+		color: #fff;
+	}
+	.myChangeNav ul li:hover {
+		background-color: var(--beeBlack);
+		transition: .1s;
+	}
+	.myChangeNav ul li:hover a {
+		color: #fff;
+	}
+	.myChangeNav ul li a {
+		color: var(--beeBlack);
+	}
+	.unRead {
+		position: absolute;
+		top: 3px;
+		right: 3px;
+		display: block;
+		width: 24px;
+		height: 24px;
+		line-height: 24px;
+		background-color: var(--beeRed);
+		color: #fff;
+		border-radius: 300px;
+	}
+	.title .unRead {
+		position: relative;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		display: inline-block;
+		width: 36px;
+		height: 36px;
+		line-height: 36px;
+		text-align: center;
+		/*background-color: transparent;
+		color: var(--beeRed);*/
+		font-size: 	var(--subtitle);
+	}
+
+
+
+
+	.unconfirmedChange,
+	.gamerAnswer,
+	.gamerAsk,
+	.myGames {
+		padding: 80px 0px 0;
+	}
+	.unconfirmedChange {
+		padding-top: 140px;
+		background-color: #eee;
+	}
+	.unconfirm-content {
+		width: calc(100% - 20px);
+		max-width: 400px;
+		margin: 20px auto;
+		float: none;
+		background-color: #fff;
+		/*border: var(--thickBlackBorder);*/
+		box-shadow: 0px 6px 30px rgba(0,0,0,0.2);
+		transition: .3s;
+		border-radius: 10px;
+		padding: 10px;
+		position: relative;
+	}
+	.unconfirm-content:hover {
+		box-shadow: 0px 9px 30px rgba(0,0,0,0.4);
+		transition: .3s;
+	}
+	.whoGamer {
+		padding: 20px 0;
+	}
+	.whatGame {
+		padding: 10px;
+		background-color: var(--beeBlack);
+		border-radius: 6px;
+		color: #fff;
+		box-sizing: border-box;
+	}
+	.whatGame h2 {
+		text-align: center;
+		padding: 10px;
+		border-radius: 6px;
+		box-sizing: border-box;
+		font-size: 	var(--smallSub);
+		font-weight: 799;
+		background-color: #fff;
+		color: var(--beeBlack);
+		border: var(--thinBlackBorder);
+	}
+	.whatGame span {
+		display: block;
+		padding: 10px;
+		text-align: center;
+	}
+	.whatGame .myGame {
+		background-color: var(--beeBlack);
+		color: #fff;
+	}
+	.gamePart {
+		padding: 20px 0 0;
+	}
+	.whichGame {
+		position: relative;
+		height: 0;
+		padding-top: 50%;
+		overflow: hidden;
+	}
+	.whichGame h3 {
+		position: absolute;
+		top: 80%;
+		left: 0;
+		width: 100%;
+		height: 30px;
+		line-height: 30px;
+		text-align: center;
+	}
+	.whichGame .pic {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 80%;
+		background-color: #fff;
+	}
+	.changeIcon {
+		display: inline-block;
+		vertical-align: middle;
+		padding-top: 18%;
+		font-size: 	var(--subtitle);
+		text-align: center;
+	}
+	.unconfirmedChange .confirmPart .addTo,
+	.unconfirmedChange .confirmPart .changeGame {
+		width: calc(50% - 6px);
+		padding: 0;
+		margin: 0;
+		text-align: center;
+	}
+	.unconfirmedChange .confirmPart .addTo {
+		margin-right: 12px;
+	}
+	.rejectChange {
+		position: absolute;
+		top: 0;
+		right: 0;
+		background-color: var(--beeBlack);
+		border-radius: 3px;
+		font-size: 	var(--innerText);
+		opacity: .7;
+		transition: .2s;
+	}
+	.rejectChange a {
+		padding: 10px;
+	}
+	.rejectChange:hover {
+		opacity: 1;
+		transition: .2s;
+	}
+	.addTo a{
+		width: 100%;
+		height: 100%;
+		color: var(--beeBlack);
+		font-weight: 600;
+	} 
+
+
+/*---------------------------*/
+
+
+	.gamerAns-content {
+		/*border: var(--thickBlackBorder);*/
+		max-width: 500px;
+		width: calc(100% - 20px);
+		margin: 10px;
+		box-shadow: 0px 3px 20px rgba(0,0,0,0.2);
+		border-radius: 6px;
+		border-left: 10px solid var(--beeBlack);
+		padding:0 20px 20px;
+		float: none;
+		margin: 20px auto;
+	}
+	.gamerAns-content .gamePic {
+		max-width: 200px;
+		margin: auto;
+	}
+	.gamerAns-content .timeTag {
+		padding: 20px 0;
+	}
+	.QAPart {
+		border-left: var(--thinBlackBorder);
+	}
+	.rightQPart {
+		padding: 20px 10px;
+	}
+	.yourQ {
+		font-size: 	var(--subtitle);
+		line-height: 1.3;
+	}
+	.yourQ span {
+		display: block;
+		padding: 10px 0;
+		font-size: 	var(--innerText);
+	}
+	.leftGameInfo {
+		padding: 0;
+	}
+	.leftGameInfo .gameName {
+		height: auto;
+		line-height: 1.3;
+	}
+	.leftGameInfo h3 {
+		text-align: center;
+	}
+	.rightAPart .whoGamer {
+		padding: 0 0 10px;
+	}
+	.rightAPart .gamerA {
+		padding: 20px;
+		border-radius: 10px;
+		border: var(--thickBlackBorder);
+		/*background-color: var(--beeBlack);*/
+		/*color: #fff;*/
+	}
+	.gamerA p {
+		line-height: 1.4;
+	}
+
+
+/*---------------------------*/
+
+	.gamerAsk {
+		background-color: #eee;
+	}
+	.gamerAsk-content {
+		width: calc(50% - 20px);
+		width: calc(100% - 20px);
+		max-width: 500px;
+		float: none;
+
+		padding: 10px;
+		margin: 10px;
+		margin: 20px auto;
+		box-shadow: 0px 3px 20px rgba(0,0,0,0.2);
+		border-top: 10px solid var(--beeBlack);
+		border-radius: 6px;
+		background-color: #fff;
+	}
+	.askGame .pic {
+		max-width: 200px;
+		height: 200px;
+		background-color: #fff;
+		margin: auto;
+	}
+	.gamerAsk-content .timeTag {
+		padding: 20px 0;
+	}
+	.underAnswerIt {
+		/*height: 200px;*/
+		background-color: #ddd;
+	}
+	.upperAsk .askGame h2 {
+		padding: 10px;
+		font-size: var(--gameTitle);
+		font-weight: 600;
+		-ms-text-align-last: auto;
+		text-align: center;
+	}
+	.gamerAskWhat .whoGamer {
+		text-align: center;
+		padding-top: 0;
+	}
+	.askPart h3 {
+		font-size: 	var(--subtitle);
+		line-height: 1.5;
+	}
+	.underAnswerIt {
+		position: relative;
+		padding: 20px 10px 10px;
+		margin-top: 20px;
+		background-color: var(--beeBlack);
+		border-radius: 6px;
+	}
+	.underAnswerIt:before {
+		position: absolute;
+		top: -10px;
+		left: 0;
+		right: 0;
+		margin: auto;
+		width: 0;
+		content: '';
+		display: block;
+		border-style: solid;
+		border-width: 0 20px 20px;
+		border-color: transparent transparent var(--beeBlack);;  
+	}
+	.underAnswerIt span {
+		display: block;
+		padding-bottom: 10px;
+		text-align: center;
+		color: #fff;
+	}
+	.underAnswerIt textarea {
+		width: 100%;
+		height: 160px;
+		padding: 0;
+		font-size: 	var(--innerText);
+	}
+	.underAnswerIt .answer,
+	#save {
+		width: 50%;
+		height: 40px;
+		border: none;
+		float: left;
+		font-size: 	var(--innerText);
+		cursor: pointer;
+	}
+	.underAnswerIt .answer:active,
+	#save:active {
+		opacity: .7;
+	}
+	.underAnswerIt .answer {
+		background-color: var(--beeBlack);
+		box-shadow: var(--smallRedShadow);
+		color: #fff;
+	}
+	#save {
+		border: var(--thinBlackBorder);
+		background-color: #fff;
+	}
+
+
+/*---------------------------*/
+
+	.myGames-content {
+		position: relative;
+		z-index: 2;
+		width: calc(25% - 20px);
+		width: calc(100% - 20px);
+		max-width: 400px;
+		float: none;
+
+		padding: 10px 10px 0;
+		margin: 10px;
+		margin: 20px auto;
+		box-shadow: 0px 3px 10px rgba(0,0,0,0.4);
+		border-bottom: 10px solid var(--beeBlack);
+		border-radius: 6px;
+		background-color: #fff;
+		/*background-color: #ddd;*/
+	}
+	input.gameList-control {
+		position: fixed;
+		top: 0;
+		left: 0;
+		display: none;
+	}
+	input.gameList-control:checked + .myGames-content {
+		z-index: 5;
+	}
+	input.gameList-control:checked + .myGames-content .gameList-content,
+	input.gameList-control:checked + .myGames-content .closeGameList {
+		display: block;
+	}
+	input.gameList-control:checked + .myGames-content .gameList-control-label {
+		background-color: #888;
+		color: #fff;
+	}
+	.gameList-content {
+		position: absolute;
+		left: 0;
+		display: none;
+		width: 100%;
+		height: 200px;
+		background-color: #fff;
+		overflow-y:  scroll;
+		box-shadow: 0px 3px 10px rgba(0,0,0,0.4); 
+	}
+	.closeGameList {
+		display: none;
+		position: fixed;
+		/*z-index: 25;*/
+		top: 60px;
+		left: 200px;
+		width: calc(100% - 200px);
+		height: 100%;
+		/*background-color: #ddd;*/
+	}
+	.myGames .gameName {
+		width: 100%;
+		padding: 6px 0;
+		margin: 20px 0 35%;
+		/*background-color: #fff;*/
+		/*border: var(--thickBlackBorder);*/
+		/*box-sizing: border-box;*/
+		font-size: 	var(--subtitle);
+		text-align: center;
+	}
+	.myGames .gameName h2 {
+		font-size: var(--title);
+		padding: 10px;
+	}
+	.gameIntro {
+		background-color: #555555;
+		padding: 10px;
+		color: #fff;
+	}
+	.gameIntro h3 {
+		padding: 10px 0;
+		text-align-last: center;
+		font-size: var(--smallSub);
+	}
+	.gameIntro p {
+		-webkit-line-clamp: 5;
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		padding: 0 10px;
+		line-height: 1.3;
+		overflow: hidden;
+	}
+	.myGames-content .gamePic {
+		position: relative;
+		width: 50%;
+		padding-top: 50%;
+		margin: auto;
+		margin-top: -30%;
+		border-radius: 200px;
+		overflow: hidden;
+	} 
+	.myGames-content .gamePic .pic {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+	.gameList-control-label {
+		display: block;
+		padding: 10px 0;
+		text-align-last: center;
+		cursor: pointer;
+		transition: .1s;
+	}
+	.gameList-control-label:hover {
+		background-color: #888;
+		color: #fff;
+		transition: .1s;
+	}
+	.gameList-content h3 {
+		padding: 10px 0;
+		background-color: var(--beeBlack);
+		color: #fff;
+		text-align: center;
+	}
+	.gameList-content ul li {
+		padding-left: 10px;
+		line-height: 1.5;
+	}
+	.applyTime {
+		padding-left: 10px;
+	}
+
+
+/*---------------------------*/	
+	.myChange.footer {
+		width: 100%;
+		margin-left: 0;
+	}
+	.seeMoreBox {
+		padding: 20px 0;
+		text-align: center;
+	}
+	.seeMore.myChange {
+		width: auto;
+		height: auto;
+		padding: 6px;
+		display: inline-block;
+		box-sizing: content-box;
+	}
+/*---------------------------*/
+
+
+
+/*md*/
+@media screen and (min-width: 768px ) {
+	.myChangeNav {
+		width: 200px;
+		height: calc(100vh - 60px);		
+		border-right: var(--thickRedBorder);
+	}
+	.myChangeNav .myInfo {
+		display: block;
+	}
+	.unRead {
+		top: 0;
+		bottom: 0;
+		right: 10px;
+		margin: auto;
+	}
+	.myChangeNav ul li {
+		width: 100%;
+		height: 60px;
+		padding: 0 20px;
+		box-sizing: border-box;
+		line-height: 60px;
+		font-weight: 800;
+		font-size: 	var(--innerText);
+		border-top: .5px solid var(--beeBlack);;
+	}
+	.title.myChangePage {
+		text-align: left;
+	}
+	.unconfirmedChange,
+	.gamerAnswer,
+	.gamerAsk,
+	.myGames {
+		padding: 80px 20px 0 220px;
+	}
+	.unconfirmedChange {
+		padding-top: 80px;
+	}
+	.unconfirm-content {
+		width: calc(50% - 20px);
+		/*max-width: 400px;*/
+		margin: 10px;
+		float: left;
+	}
+	.gamerAns-content {
+		/*border: var(--thickBlackBorder);*/
+		max-width: 100%;
+		box-shadow: 0px 3px 20px rgba(0,0,0,0.2);
+		border-radius: 6px;
+		border-left: 10px solid var(--beeBlack);
+		padding:0 20px 20px;
+		float: none;
+		margin: 20px auto;
+	}
+	.myChange.footer {
+		width: calc(100% - 200px);
+		margin-left: 200px;
+	}
+	.gamerAsk-content {
+		max-width: 500px;
+		margin: 20px auto;
+	}
+	.myGames-content {
+		position: relative;
+		width: calc(100% - 20px);
+		max-width: 400px;
+		margin: 20px;
+		margin: 10px auto;
+	}
+	
+}	
+/*lg*/
+@media screen and (min-width: 992px ) {
+	.unconfirm-content {
+		max-width: 100%;
+		width: calc(33.33% - 20px);
+	}
+	.unconfirmedChange .content-part,
+	.gamerAnsPart,
+	.askPart,
+	.myGamesPart {
+		max-width: 1400px;
+		margin: auto;
+	}
+
+	.gamerAsk-content {
+		max-width: 100%;
+		float: left;
+		width: calc(50% - 20px);
+		margin: 10px;
+	}
+	.myGames-content {
+		position: relative;
+		width: calc(50% - 20px);
+		max-width: 100%;
+		float: left;
+		margin: 10px;
+		/*margin: 10px auto;*/
+	}
+}	
+/*lg*/
+@media screen and (min-width: 1200px ) {
+	.myGamesPart {
+		max-width: 1400px;
+	}
+	.myGames-content {
+		position: relative;
+		width: calc(33.33% - 20px);
+		/*max-width: 400px;*/
+		float: left;
+		margin: 10px;
+		/*margin: 10px auto;*/
+	}
+}
+
+
+
+
+/*我的交換--結束-----------------------------------------------------*/
+
+
+
+
+/*第五頁--遊戲論壇-----------------------------------------------------*/
+	.item3.forum {
+		padding: 200px 0 80px;
+		position: relative;
+		bottom: 0;
+	}
+	.forum .title {
+		font-size: 	var(--subtitle);
+		top: 100px;
+		z-index: 2;
+	}
+	.item3 {
+		font-size: 0;
+		letter-spacing: 0;
+	}
+/*搜尋列*/
+	.searchBar {
+		position: fixed;
+		top: 10px;
+		left: 100px;
+		margin-left: 100px;
+		z-index: 50;
+		width:500px;
+		height: 40px;
+		border-radius: var(--smallRoundBorder);
+	}
+	.searchBar input {
+		width: 240px;
+		height: 100%;
+		padding: 4px;
+		font-size: var(--innerText);
+		border-radius: 6px 0 0 6px ;
+		border: var(--thinRedBorder);
+		box-sizing: border-box;
+		float: left;
+		box-shadow: var(--offsetBlackShadow);
+		transition: .4s;
+	}
+	.searchBar input:focus  {
+		width: 400px;
+		transition: .3s;
+	}
+	.searchBar input:active  {
+		width: 400px;
+		transition: .3s;
+	}
+	.searchBar button i {
+		font-size: var(--innerText);
+		padding: 6px;
+		box-sizing: border-box;
+		color: #fff;
+	}
+	.searchBar button {
+		/*float: left;*/
+		width: 60px;
+		height: 100%;
+		padding: 6px;
+		line-height: 100%;
+		box-sizing: border-box;
+		border: none;
+		border-radius:  0 6px 6px  0 ;
+		background-color: var(--beeRed);
+		box-shadow: var(--offsetBlackShadow);
+	}
+	.searchBar button:active {
+		position: relative;
+		top: 2px;
+	}
+	.forum.latestGames ul {
+		padding-left: 0;
+	}
+	.forum.latestGames ul > .firstGenre:nth-child(1) {
+		background-color: var(--beeBlack);
+		color: #fff;
+	}
+	.forum .item3-content {
+		/*max-width: 1200px;*/
+		margin: 20px auto;
+		padding: 20px;
+		box-sizing: border-box;
+		/*vertical-align: top;*/
+	}
+	.forum-content {
+		position: relative;
+		/*margin: 10px;*/
+		padding: 40px 20px 20px;
+		box-sizing: border-box;
+		/*display: inline-block;*/
+		float: left;
+		vertical-align: top;
+		box-shadow: var(--smallBlackShadow);
+		border-radius: var(--bigRoundBorder);
+		background-color: #fff;
+	}
+	.forum-content .postTime {
+		position: absolute;
+		top: 10px;
+		right: 20px;
+		text-align: right;
+		font-size: 	var(--innerText);
+		opacity: .7;
+	}
+	.forum-content .plat {
+		position: absolute;
+		top: 0;
+		left: 0;
+		padding: 10px;
+		border-radius: var(--bigRoundBorder);
+		background-color: var(--beeBlack);
+		box-shadow: none;
+		color: #fff;
+		font-size: 	var(--subtitle);
+		letter-spacing: 2px;
+	}
+	.forum-content .plat.NS3DS {
+		background-color: var(--beeRed);
+	}
+	.forum-content a {
+		color: var(--beeBlack);
+	}
+	.forum-content a:hover {
+		text-decoration: underline;
+	}
+	.forum-content:hover {
+		position: relative;
+		top: -3px;
+		box-shadow: var(--bigBlackShadow);
+		transition:.2s;
+		/*border: var(--thinBlackBorder);*/
+	}
+	.forum-content .forumPic {
+		width: 100%;
+		padding-bottom: 10px;
+		border-bottom: var(--thinBlackBorder);
+
+	}
+	.forum-content .forumVideo {
+		width: 100%;
+		min-height: 300px;
+		border-bottom: var(--thinBlackBorder);
+	}
+	.forum-content .video {
+		width: 100%;
+		min-height: 300px;
+	}
+
+	.forumPic img {
+		width: 100%;
+		display: block;
+	}
+	.forum-content h2 {
+		font-size: 	var(--title);
+		line-height: 40px;
+		padding: 20px 10px;
+		font-weight: bolder;	
+	}
+	.forumPara.small {
+		height: 100px;
+		padding: 10px 10px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+	.forumPara.medium {
+		height: 190px;
+		padding: 10px 10px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+	.forumPara.medium a {
+		height: 0;
+	}
+	.forumPara.large {
+		height: 150px;
+		padding: 10px 10px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+	.forumPara p {
+		font-size: 	var(--subtitle);
+		line-height: 36px;
+	}
+	.forum-content .seeMore {
+		margin: 20px auto;
+		box-shadow: none;
+		font-size: 	var(--innerText);
+		background-color: #fff;
+	}
+	.forum-content .seeMore a {
+		color: #fff;
+		font-weight: bolder;
+		box-shadow: none;
+		font-size: 	var(--innerText);
+	}
+	.forumMore {
+		width: 150px;
+		padding: 10px;
+		border: var(--thinRedBorder);
+	}
+	.forumMore a {
+		width: 100%;
+		height: 100%;
+		box-shadow: none;
+	}
+	.grid {
+		max-width: 1200px;
+		margin:0 auto 100px;
+	}
+	.genreTitle {
+		border-right: var(--thinBlackBorder);
+		opacity: .6;
+	}
+	.latestGames ul li.genreTitle:hover {	
+		border-bottom: none;
+	}
+	.grid-sizer,
+	.grid-item { 
+		width: 100%; 
+	}
+	.grid-item {
+		width: calc(100% - 20px); 
+		margin: 10px auto;
+		/*height: 200px;*/
+		/*background-color: #ddd;*/
+	}
+@media screen and (min-width: 768px) {
+	.grid-sizer,
+	.grid-item { 
+		width: 50%; 
+	}
+	.grid-item {
+		width: calc(50% - 30px);
+		/*margin: 12px;*/
+		float: left;
+	}
+}
+@media screen and (min-width: 992px) {
+	.grid-sizer,
+	.grid-item { 
+		width: 33.3333%; 
+	}
+	.grid-item {
+		width: calc(33.3333% - 20px);
+	}
+	.forum.latestGames ul .firstGenre {
+		width: 14.28%;
+	}
+}
+
+/*小遊戲的CSS----------------------------------*/
+	.closeLittleGameBG {
+		display: none;
+		position: fixed;
+		z-index: 26;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		margin: auto;
+		background-color: #333;
+		opacity: .5;
+	}
+	.littleGameUI {
+		display: none;
+		position: fixed;
+		z-index: 31;
+		top: 30px;
+		left: 0;
+		right: 0;
+		width: 300px;
+		margin: auto;
+		background-color: rgba(255,255,255,1);
+		box-shadow: 0px 6px 20px rgba(0,0,0,0.2);
+		border-radius: 6px;
+	}
+	.littleGameUI a {
+		color: #000;
+	}
+	.closeLittleGame span {
+		display: block;
+		width: 100%;
+		height: 30px;
+		line-height: 30px;
+		box-sizing: border-box;
+		text-align: center;
+		background-color: #222;
+		color: #fff;
+		cursor: pointer;
+	}
+	.closeLittleGame span:hover {
+		background-color: #666;
+	}
+	.controlBTN .startPause.active {
+		background-color: #222;
+	}
+	.controlBTN .startPause,
+	.controlBTN .reset {
+		position: absolute;
+		top: 40px;
+		padding: 10px;
+		background-color: #888;
+		color: #fff;
+		cursor: pointer;
+	}
+	.controlBTN .startPause {
+		right: 0;
+	}
+	.controlBTN .reset {
+		left: 0;
+		opacity: .6;
+		font-size: 14px;
+	}		
+	.finalScoreCoin {
+		display: none;
+		position: absolute;
+		z-index: 3;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		margin: auto;
+		width: 200px;
+		height: 200px;
+		background-color: #fff;
+		/*border: 2px solid #222;*/
+		box-shadow: 0px 3px 10px rgba(0,0,0,0.4);
+		border-radius: 10px;
+		text-align: center;
+	}
+	.finalConfirm {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		display: block;
+		width: 100%;
+		text-align: center;
+		background-color: #333;
+		color: #fff;
+		cursor: pointer;
+	}
+	.finalScore,
+	.finalCoin {
+		font-size: 32px;
+	}
+	.finalBG {
+		display: none;
+		position: absolute;
+		z-index: 2;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		margin: auto;
+		background-color: #222;
+		opacity: .5;
+	}
+	.timer {
+		padding-top: 10px; 
+		text-align: center;
+	}
+	.timer span {
+		/*display: inline-block;*/
+		font-size: 30px;
+		font-weight: 500;		
+	}
+	.combo {
+		position: absolute;
+		top: 0;
+		right: 0;
+		text-align: right;
+	}
+	.combo span {
+		display: block;
+		text-align: right;
+	}
+	.scoreNow {
+		padding: 20px 0; 
+		text-align: center;
+	}
+	.scoreNow  h2{
+		padding: 20px 0;
+		font-size: 32px;
+		/*background-color: #222;*/
+		/*color: #fff;*/
+	}
+	.calUI {
+		/*width: 180px;*/
+		margin: auto;
+		padding: 10px;
+		text-align: center;
+		font-size: 0;
+	}
+	.numPad {
+		display: inline-block;
+		width: 50px;
+		height: 50px;
+		margin: 2px;
+		line-height: 50px;
+		background-color: #ddd;
+		border-radius: 6px;
+		font-size: 18px;
+	}
+	.numPad:active {
+		background-color: #222;
+		color: #fff;
+	}
+	.confirmUI {
+		/*width: 180px;*/
+		padding: 10px 0;
+		margin: auto;
+		font-size: 0;
+		border-radius: 6px;
+	}
+	.calPadDelete,
+	.calPadCheck,
+	.calPadC {
+		display: inline-block;
+		vertical-align: top;
+		height: 50px;
+		line-height: 50px;
+		font-size: 22px;
+		text-align: center;
+	}
+	.calPadC {
+		width: 15%;
+		/*font-size: 12px;*/
+		border: 3px solid #000;
+		box-sizing: border-box;
+	}
+	.calPadDelete {
+		width: 32%;
+		border: 3px solid #000;
+		box-sizing: border-box;
+	}
+	a.calPadCheck {
+		width: 53%;
+		background-color: #000;
+		color: #fff;
+	}
+	.mainUI {
+		margin: auto;
+		text-align: center;
+		padding: 20px 0;
+		border-bottom: 3px solid #000;
+		font-size: 30px;
+	}
+	.num1,
+	.num2,
+	.result {
+		display: inline-block;
+		/*width: 50px;*/
+		height: 50px;
+		margin: 2px;
+		padding: 0 10px;
+		line-height: 50px;
+		background-color: #ddd;
+		border-radius: 6px;
+		font-size: 30px;
+		text-align: center;
+	}
+	.num2 {
+		background-color: #fff;
+		border: 3px solid #000;
+	}
+	.coinNow {
+		font-size: 18px;
+		padding: 10px;
+		text-align: center;
+		border-bottom: 2px solid #999;
+	}
+	a.whatsBeeCoin {
+		display: block;
+		padding: 6px 0;
+		color: var(--beeRed);
+		text-align: center;
+	}
+	.whatsBeeCoin:hover {
+		text-decoration: underline;
+		/*color: var(--beeRed);*/
+	}
+	
+/*小遊戲的CSS----------------------------------*/
+
+
+/*BeeCoin面板----------------------------------*/
+	.playGameFixed {
+		position: fixed;
+		z-index: 29;
+		top: -125px;
+		left: 142px;
+		padding: 10px;
+		background-color: #fff;
+		border-radius: 10px;
+		/*border-top: 10px solid var(--beeBlack);*/
+		border-bottom: 10px solid var(--beeBlack);
+		text-align: center;
+		cursor: pointer;
+		transition: .5s;
+	}
+	.playGameFixed:hover {
+		top: -6px;
+		transition: .5s;
+	}
+	.playGameFixed.clickIt {
+		top: -6px;
+		transition: .5s;
+	}
+	.beeCoinNow {
+		padding: 10px 0;
+		/*border-bottom: var(--thinBlackBorder);*/
+	}
+	.beeCoinNow h3 {
+		font-size: 	var(--subtitle);
+	}
+	.playGameFixed h2 {
+		padding: 10px 0;
+		font-weight: 600;
+		line-height: 1.4;
+	}
+	.playGameFixed h2:hover {
+		text-decoration: underline;
+	}
+
+/*BeeCoin面板----------------------------------*/	
+
+
+
+
+
+	
+	

@@ -1,0 +1,2723 @@
+// @import 
+@import "layout/nav";
+@import "layout/grid";
+@import "Team-mixins/mixins";
+@import "animation/anime";
+
+// gridSystem
+@include gridSys(12);
+@include gridSys(12, md, 768px);
+@include gridSys(12, lg, 1024px);
+
+// media query
+$pad: 768px;
+$PC: 1024px; 
+$lgPC: 1200px;
+// @include rwdSys() {
+// };
+$pd: 10px;
+@include scrollBar(14px, $color_main2, $color_main3);
+
+
+* {
+    // outline: 1px solid #345;
+    box-sizing: border-box;
+    line-height: 1.6;
+    input:focus, button:focus {
+        outline-width: 0px;
+    }
+}
+button {
+    border: none;
+    cursor: pointer;
+}
+body {
+    font-family: $fmy;
+    font-size: $fontSize_text;
+}
+.clearfix:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+.owl-dots {
+    text-align: center;
+    button.owl-dot {
+        width: 12px;
+        height: 12px;
+        margin: 0 10px;
+        border-radius: 10px;
+        background-color: $color_main1;
+        &.active {
+            background-color: $color_main2;
+        }
+    }
+}
+
+.maxWidthWrapper {
+    @include maxWidthWrapper(1200px);
+    width: 100%;
+}
+.toTop {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 200px;
+    text-align: center;
+    font-size: $fontSize_M;
+    background-color: $color_main4;
+    color: $color_main1;
+    transition: .3s;
+    &:hover {
+        background-color: $color_main2;
+        transition: .3s;
+    }
+}
+a {
+    text-decoration: none;
+}
+h1 {
+    font-weight: 800;
+    font-size: $fontSize_L;
+    padding: 10px;
+    // color: $color_main2;
+    text-align: center;
+}
+h2{
+    font-weight: 600;
+    font-size: $fontSize_M;
+    color: $color_main2;
+    text-align: center;
+}
+
+.penguinPage { //penguinPage css wrapper start
+    @include picSetting2;
+
+    //通用按鈕設定
+    
+    @include nextAndCancel-BTN(120px);
+    @include main-BTN(200px);
+    @include sub-BTN(200px);
+    @include plusAndMinus-BTN;
+
+.woodTemp {
+    position: relative;
+    background-image: url('../images/woodTemplate-01.png');
+    // background-color: #aaa;
+    background-position: center;
+    // background-size: cover;
+    background-size: auto 160%;
+    padding: $pd;
+    color: #fff;
+    overflow: hidden;
+    // font-weight: 600;
+    box-shadow: 0px 10px 0px $color_main2;
+    @include rwdSys(pad) {
+        padding: $pd *10;
+        padding-top: 0px;;
+        padding-bottom: $pd *2;
+        margin-bottom: 20px;
+        border-radius: 20px;
+    }
+}
+.step-wrapper {
+    max-width: 800px;
+    text-align: center;
+    margin: auto;
+    background-image: url('../images/woodTemplate-02.png');
+    background-size: auto 132%;
+    background-position: center;
+    color: #fff;
+    li {
+       span {
+            position: relative;
+            width: 60px;
+            height: 60px;
+            margin: 20px auto;
+            line-height: 60px; 
+            display: block;
+            border-radius: $BR;
+            background-color: #fff;
+            color: $color_main2;
+            // color: #fff;
+            border: 2px solid $color_main2;
+            font-size: $fontSize_M;
+            font-weight: 600;
+            &.active {
+                background-color: $color_main2;
+                color: #fff;
+            }
+        }
+        &:nth-child(n+2) {
+            span:before {
+                content: '';
+                display: block;
+                position: absolute;
+                z-index: -1;
+                top: 30px;
+                right: 0;
+                width: 35vw;
+                max-width: 300px;
+                height: 4px;
+                // background-color: $color_main2;
+                background-color: #fff;
+            }
+        }  
+    }
+}
+
+.chooseDay-wrapper {
+    position: relative;
+    margin: 100px auto 0px;
+    padding: 50px;
+    border-radius: 50px;
+    // @include border(2px, $color_main1);
+    @include border(2px, #fff);
+    h2 {
+        // display: inline;
+        position: absolute;
+        top: -40px;
+        left: 0;
+        right: 0;
+        width: 300px;
+        margin: auto;
+        padding: 10px;
+        color: #fff;
+        // background-color: #fff;
+    }
+    .element-day {
+        margin: auto;
+        font-size: 0;
+        text-align: center;
+        input { display: none; }
+        input[type="radio"]:checked + label {
+            @include hover($color_main2, #fff, .2s);
+        }
+        label {
+            @include square(80px, #fff, $color_main2) {
+                display: inline-block;
+                font-size: $fontSize_text;
+                // @include border(2px, $color_main2);
+                border-radius: 10px;
+                margin: 4px;
+            };
+            span {
+                display: block;
+                line-height: 50px;
+                font-size: $fontSize_M;
+                font-weight: 800;
+            }
+            &:hover {
+                @include hover($color_main2, #fff, .2s);
+            }
+        }
+    }
+}
+
+.name-container {
+    position: relative;
+    margin: 100px auto 0px;
+    padding: 50px;
+    border-radius: 50px;
+    // @include border(2px, $color_main1);
+    @include border(2px, #fff);
+    h2 {
+        display: inline;
+        position: absolute;
+        top: -42px;
+        left: 0;
+        right: 0;
+        width: 400px;
+        margin: auto;
+        padding: 10px;
+        color: #fff;
+        // background-color: #fff;
+    }
+    h3 {
+        margin-left: 20px;
+        margin-top: 40px;
+    }
+    input {
+        @include inputText(10px,100px, $color_main2);
+        width: calc(100% - 40px);
+        max-width: 500px;
+        margin: 20px;
+        font-size: $fontSize_S;
+        font-family: $fmy;
+        text-align: center;
+        border: none;
+        &:focus + .hint {
+            opacity: .8;
+            color: #fff;
+            border-width: 4px;
+            transition: .2s;
+        }
+    }
+    .randomTitle {
+        @include btn(160px, dark);
+        display: block;
+        margin-left: $pd * 2;
+    }
+    .input-wrapper {
+        position: relative;
+        input { font-weight: 800; }
+        .hint {
+            @include hint(200px, 60px, $color_txt) {
+                opacity: .0;
+                top: 142px;
+                left: 128px;
+                color: #fff;
+                line-height: 1.6;
+            }
+        }
+    }
+    
+    select {
+        @include inputText(10px,100px, $color_main2);
+        width: calc(100% - 40px);
+        margin: 20px;
+        font-size: $fontSize_S;
+        border: none;
+    }
+}
+.btn-container {
+    margin: 20px 0 10px;
+    
+}
+.btn-container {
+    margin: 60px auto 50px;
+    text-align: center;
+    font-size: 0;
+    .nextBTN, .cancelBTN {
+        width: calc(50% - 20px);
+    }
+    @include rwdSys(pad) {
+        @include nextAndCancel-BTN(240px);
+    }
+}
+
+// 3-2----------------------------------------------
+@include plusAndMinus-BTN;
+
+.settingThreshold-container {
+    // max-width: 960px;
+    float: none;
+    margin: 30px 0px 0px;
+    padding: $pd;
+    border: 3px solid $color_main2;
+    border-top: 20px solid $color_main4;
+    border-radius: 30px;
+    background-position: center;
+    @include rwdSys(pad) {
+        width: calc(100% - 120px);
+        margin: 60px auto;
+        padding: $pd * 3;
+    }
+    .setting {
+        margin: 20px 0;
+        padding: 20px;
+        @include border(1px, $color_main2, right);
+        h3 {
+            text-align: center;
+        }
+        .settingArea {
+            width: 70%;
+            margin: auto;
+            padding: 20px 0;
+            text-align: center;
+        }
+    }
+    .bonus {
+        padding: 20px;
+        background: url('images/bonusIcon-05.png');
+        color: $color_hot;
+        text-align: center;
+        p {
+            // padding: 40px;
+            span {
+                font-size: $fontSize_XL; 
+                font-weight: 600;   
+            }
+        }
+        .pic {
+            position: relative;
+        }
+        .bonus-coin {
+            display: block;
+            @include coverTextBG(#fff) {
+                font-weight: 900;
+            };
+            font-size: $fontSize_L;
+        }
+    }
+    
+}
+#people, #minus, #plus {
+    display: inline-block;
+    float: none;
+}
+#people {
+    // display: block;
+    text-align: center;
+    font-size: $fontSize_XL; 
+    font-weight: 600;  
+}
+#people2 {
+    font-size: $fontSize_M;
+}
+.woodTemp.create3_2 {
+    padding: $pd;
+}
+.addMeal-container {
+    position: relative;
+    
+    border-radius: 30px;
+    // background-color: $color_main4;
+    // background-image: url("../images/natural-wooden-paneling-texture.jpg");
+    background-size: cover;
+    background-position: center;
+    // background-color: #ddd;
+    // @include border(2px, $color_main4);
+    color: $color_main2;
+    .checkMeal-btn {
+        margin: 10px auto;
+        @include btn(160px, dark);
+    }
+    @include rwdSys(pad) {
+        width: 90%;
+        padding: 30px;
+        .checkMeal-btn {display: none;}
+    }
+    .checkMeal-bg {
+        display: none;
+        position: fixed;
+        z-index: 2;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: rgb(92, 92, 92);
+        opacity: .6;
+    }
+    
+}
+#add-meal {
+    position: fixed;
+    display: none;
+}
+#add-meal:checked + .addMeal-container .addMealPanel {
+    left: 0;
+    transition: .3s;
+}
+#add-meal:checked + .addMeal-container .checkMeal-bg {
+    display: block;
+    transition: .3s;
+}
+.addMealPanel {
+    // display: none;
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    left: -800px;
+    transition: .3s;
+    float: none;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    // @include border(2px, $color_main4);
+    box-shadow: 0px 6px 20px rgba(70, 70, 70, 0.445);
+    @include rwdSys(pad) {
+        position: relative;
+        left: 0;
+        float: left;
+        display: block;
+        // background-color: rgba(51, 51, 170, 0.178);
+    }
+    ul {
+        li {
+            float: left;
+            width: calc(33.33% - 20px);
+            margin: 10px 10px 0px;
+            padding: 10px;
+            text-align: center;
+            border-radius: 200px;
+            cursor: pointer;
+            @include border(2px, $color_main4);
+            @include rwdSys(pc) {
+                width: calc(16.66% - 10px);
+            }
+            &.active {
+                background-color: $color_main4;
+                color: #fff;
+            }
+        }
+        padding-bottom: 20px;
+        @include border(1px, $color_main4, bottom);
+    }
+    .add-wrapper {
+        width: 100%;
+        // height: 75%;
+        height: 460px;
+        padding: 10px;
+        font-size: 0;
+        text-align: center;
+        overflow-y: scroll;
+        background-color: #eee;
+        
+    }
+}
+.mealPointer {
+    position: absolute;
+    top: 250px;
+    left: 56.5%;
+    text-align: center;
+    h3 { width: 100px; }
+    .pic {
+        filter: invert(100);
+        transform: rotate(90deg) scale(.5);
+    }
+}
+.selectMeal {
+    position: relative;
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    margin: 10px;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    font-size: $fontSize_text;
+    box-shadow: 6px 6px 0px $color_main1;
+    cursor: pointer;
+    .pic { border-radius: 20px; }
+    .topUI {
+        position: absolute;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        padding: 10px;
+        .addThis, .removeThis {
+            position: relative;
+            font-size: $fontSize_L;
+            @include border(1px, #aaa);
+            @include roundBtn(30px, #fff) {
+                box-shadow: none;
+            };
+            .hint {
+                display: none;
+                font-size: $fontSize_text;
+                color: #fff;
+                @include hint(100px, 30px, #333) {
+                    // z-index: 2;
+                    top: 40px;
+                };
+                &:after {
+                    left: 10px;
+                    right: auto;
+                }
+            }
+
+            &:hover {
+                opacity: .9;
+                .hint {
+                    display: block;
+                }
+            } 
+            &.removeThis {
+                font-size: $fontSize_text;
+            }    
+        }
+    }
+    .meal-title {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        .meal-score {
+            padding: 6px;
+        }
+    }
+    .title-wrapper {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        padding: 6px 10px;
+        background-color: $color_main2;
+        color: $color_main3;
+    }
+    .added-bg {
+        @include coverTextBG(#fff, #111, $fontSize_S, .8);
+        // display: none;
+        left: 100000px;
+        opacity: 0;
+        transition: opacity .3s;
+    }
+}
+.addedList {
+    position: relative;
+    max-width: 500px;
+    // height: 400px;
+    margin: auto;
+    background-color: #fff;
+    @include border(2px, $color_main1);
+    text-align: center;
+    float: none;
+    border-radius: 20px;
+    &:before {
+    }
+    .mealArea {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 400px;
+        // line-height: 400px;
+        overflow-y: scroll;
+        .selectMeal {
+            box-shadow: 6px 6px 0px $color_main4;
+        }
+    }
+    .grouponDate {
+        padding: 20px;
+        margin: 0 20px;
+        vertical-align: middle;
+        border-bottom: 2px solid $color_main1;
+        h3 {
+            padding: 20px;
+        }
+        .grouponDay {
+            font-size: $fontSize_L;
+        }
+    }
+    .grouponDetail {
+        // padding: 20px;
+        margin: 0 20px;
+        border-top: 2px solid $color_main3;
+        div {
+            padding: 30px 10px;
+        }
+        #addedMealNow {
+            font-size: $fontSize_L;
+        }
+        .originalPrice {
+            text-decoration: line-through;
+        }
+        // .salePrice {
+             
+        // } 
+    }
+    #salePrice {
+        color: $color_hot;
+        @include highFont;
+    } 
+    @include rwdSys(pad) {
+        float: left;
+        right: -118px;
+    }
+    .addMeal-btn {
+        @include roundBtn(60px, #fff) {
+            position: absolute;
+            top: 450px;
+            right: 20px;
+            font-size: $fontSize_L;
+            box-shadow: 0px 3px 10px rgba(77, 77, 77, 0.39);
+            &:active {
+                top: 454px;
+            }
+        }
+        @include rwdSys(pad) {
+            display: none;
+        }
+        &:after {
+            position: absolute;
+            top: 50px;
+            left: -30px;
+            width: 200%;
+            content: '點此增加餐點';
+            font-size: $fontSize_text;
+        }
+    }
+}
+
+
+// 3-3----------------------------------------------
+.createdList-wrapper {
+    margin-top: 20px;
+    color: $color_main2;
+    @include roundBorder(3, 3px, $color_main1);
+    h1 {
+        background-color: $color_main1;
+        padding: 30px;
+        font-size: $fontSize_L;
+    }
+    .selectedMealList-container {
+        // margin: -40px 0 0;
+        padding: $pd * 2;
+        
+        .mealList {
+            @include roundBorder(2, 3px, $color_main2 );
+            background-color: #fff;
+            h2 {
+                background-color: $color_main2;
+                padding: $pd;
+                
+                color: #fff;
+            }
+            .addedMeal-wrapper {
+                height: 560px;
+                overflow-y: scroll;
+                text-align: center;
+                @include rwdSys(pad) {
+                    text-align: left;
+                }
+            }
+        }
+    }
+}
+.selectedDetail-container {
+    padding: $pd *2;
+    
+    .selectedDetail {
+        background-color: #fff;
+        padding: $pd *2;
+        @include roundBorder(3, 3px, $color_main1);
+        box-shadow: 0px 0px 20px rgba(65, 65, 65, 0.418);
+    }
+    .grouponTitle {
+        h2 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: $pd;
+            padding-left: 0px;
+            font-weight: 800;
+            text-align: left;
+            line-height: 1.6;
+            // @include roundBorder(3, 3px, $color_main2);
+            border-bottom: 2px dashed $color_main2;
+            .grouponTag {
+                font-size: $fontSize_text;
+            }
+        }
+    }
+    .grouponDate {
+        h3 {
+            padding: $pd;
+            padding-left: 0px;
+        }
+        .date-wrapper {
+            @include flexSB {
+                @include textPD($pd);
+                border-bottom: 2px dashed $color_main2;
+            }
+        }
+        .startDate, .endDate, .grouponDay {
+            font-size: $fontSize_L;
+            font-weight: 800;
+        }
+    }
+    .bonusArea-wrapper {
+        @include textPD($pd*3);
+        border-bottom: 2px dashed $color_main2;
+        .title {
+            display: block;
+            @include textPD($pd);
+        } 
+        .people {
+            display: inline-block;
+            // @include textPD($pd*2);
+            font-size: $fontSize_L;
+            font-weight: 600;
+            text-align: center;
+            color: $color_hot;
+        }
+        .people-container {
+            p { @include textPD($pd * 3); }
+            h3 { font-weight: 600; }
+            
+        } 
+        p {
+            @include textPD($pd);
+        }
+        .bonus-container {
+            padding: $pd *1;
+            background-color: $color_bonus;
+            color: $color_main2;
+            font-weight: bolder;
+            border-radius: 1000px;
+            .bonus {
+                font-size: $fontSize_M;
+            }
+            .pic {
+                position: relative;
+            }
+            .bonus-coin {
+                
+                display: block;
+                @include coverTextBG(#fff) {
+                    font-size: $fontSize_L;
+                    font-weight: 900;
+                };
+            }
+        }
+    }
+    .grouponDetail {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        @include textPD($pd * 2);
+        text-align: center;
+        .salePrice {
+            color: $color_hot;
+            font-weight: 800;
+        }
+        #addedMealNow, #salePrice {
+            font-size: $fontSize_L;
+            font-weight: 800;
+        }
+    }
+}
+
+
+
+// 4-1----------------------------
+
+
+//搜尋吧!
+.searchBar {
+    margin-top: 60px;
+    text-align: center;
+    // background-color: #ddd;
+    // padding: $pd;
+    .searchBar-container {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        max-width: 400px;
+    }
+    input[name="grouponKW"], #kwBTN {
+        display: inline-block;
+        width: 100%;
+        // max-width: 400px;
+        padding: $pd + 6;
+        border-radius: 2000px;
+        border: 2px solid $color_main2;
+        transition: width .3s;
+    }
+    input[name="grouponKW"]:focus {
+        // width: 500px;
+        // box-shadow: 0px 0px 20px $color_main1;
+        transition: width .3s;
+        + #kwBTN {
+            background-color: $color_main1;
+            color: $color_main2;
+            transition: background-color .3s;
+        }
+    }
+    #kwBTN {
+        position: absolute;
+        top: 3px;
+        right: 3px;
+        width: 50px;
+        height: 50px;
+        border: none;
+        background-color: $color_main4;
+        color: #fff;
+        transition: background-color .3s;
+    }
+}
+.page-container4_1 {
+    ul {
+        li {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            background-color: #aaa;
+            color: #fff;
+            text-align: center;
+            cursor: pointer;
+        }
+    }
+}
+.forBackgroundImage {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    height: auto;
+    // height: 100vh;
+    &:after {
+        position: absolute;
+        @include BfAf;
+        z-index: -1;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        background-image: url('../images/BG001_01.png');
+        background-attachment: fixed;
+        background-size: cover;
+        opacity: .1;
+    }
+    
+}
+//分頁頁籤
+@include pageBTN($color_main2) {
+    // margin-top: 60px;
+};
+
+//篩選checkbox
+@include filter($color_main2);
+.groupon-container {
+    text-align: center;
+}
+.groupon-wrapper {
+    &.g_8 { //官方飯團
+        // background-color: $color_main;
+        border-width: 6px;
+        border-color: $color_main2;
+        .groupon_topUI .leftUI {
+            .titleTag {
+                background-color: $color_main2;
+                h3, .tag {
+                    // color: $color_main1;
+                    color: #fff;
+                }
+                 
+                &:after {
+                    border-color: $color_main2 transparent $color_main2 transparent;
+                }
+            }
+        }
+        
+    }
+    position: relative;
+    display: inline-block;
+    border-radius: 30px;
+    border: 3px solid $color_main2;
+    // max-width: 600px;
+    max-width: 500px;
+    width: calc(100% - 20px);
+    margin: 10px;
+    background-color: #fff;
+    transition: .3s;
+    .originalPrice {
+        display: none;
+    }
+    @include rwdSys(PC) {
+        max-width: 90%;
+        width: 100%;
+        margin: 0px 30px 60px;
+        .originalPrice {
+            display: block;
+        }
+    }
+    &:hover {
+        box-shadow: 0px 6px 20px #aaa;
+        transition: .3s;
+    }
+    // overflow: hidden;
+}
+.groupon_topUI {
+    // background-color: #ddd;
+    border-radius: 30px 30px 0px 0px;
+    //temp
+    .leftUI {
+        padding: $pd;
+        margin: 10px 0;
+        text-align: left;
+        .titleTag {
+            position: relative;
+            left: -32px;
+            padding: 20px;
+            padding-left: 40px;
+            background-color: $color_main1;
+            box-shadow: 0px 6px 20px rgba(80, 80, 80, 0.123);
+            white-space: nowrap;
+            // overflow: hidden;
+            text-overflow: ellipsis;
+            &:before {
+                top: 90px;
+                left: -1px;
+                @include decoTri(12px, 0px, 0px, 23px, 
+                $color_main2, transparent, $color_main2, transparent)
+            }
+            &:after {
+                top: 0;
+                right: -40px;
+                @include decoTri(45px, 40px, 45px, 0px, 
+                $color_main1, transparent, $color_main1, transparent);
+            }
+            h3 {
+                padding-top: $pd;
+                font-size: $fontSize_M;
+                font-weight: 600;
+            }
+        }
+        .mealAndScore-container {
+            display: flex;
+            align-items: center;
+            height: 90px;
+            .meal-counter {
+                font-size: $fontSize_L;
+                font-weight: 600;
+                text-align: center;
+            }
+        }
+        .meal-container {
+            padding: $pd * 0;
+            padding-bottom: 0;
+            .meal-box {
+                width: 120px;
+                height: 120px;
+            }
+            .meal-box:nth-child(4),
+            .meal-box:nth-child(3) {
+                display: none;
+            }
+            @include rwdSys(lgPC) {
+                padding: $pd * 2;
+                .meal-box:nth-child(3),
+                .meal-box:nth-child(4) {
+                    display: inline-block;
+                }
+            }
+            text-align: center;
+            .andMoreMeal-counter {
+                margin: auto;
+                padding: $pd;
+                text-align: center;
+                color: $color_main2;
+                font-size: $fontSize_M;
+                font-weight: 800;
+            }
+        }
+    }
+    .rightUI {
+        padding: $pd;
+        margin: 10px 0;
+        border-left: 2px solid $color_main2;
+        .endDate-container {
+            text-align: center;
+            span {
+                font-size: $fontSize_M;
+                font-weight:800;
+                color: $color_hot;
+            }
+            .day {
+                // text-align: left;
+            }
+        }
+        .threshold {
+            padding: $pd*2;
+            padding-bottom: 0;
+            text-align: center;
+            h3 { padding: $pd; }
+            .circleChart {
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 136px;
+                height: 136px;
+                margin: auto;
+                .circleDisplay {
+                    @include pieChar(136px, $color_main1, $color_main2, 6px, 0);
+                    // background-color: #fff
+                }
+            }
+            .people-container {
+                position: absolute;
+                z-index: 3;
+                font-size: $fontSize_M;
+            }
+            .peopleNow {
+                position: relative;
+                top: -10px;
+                font-size: $fontSize_L;
+                font-weight: 800;
+                color: $color_hot;
+            }
+            .peopleNeeded {
+                position: relative;
+                top: 20px;
+                font-weight: 800;
+                &:before {
+                    position: absolute;
+                    top: -38px;
+                    left: -6px;
+                    display: inline;
+                    @include BfAf;
+                    width: 2px;
+                    height:76px;
+                    transform: rotate(45deg);
+                    background-color: $color_main2;
+                }
+            }
+        }
+        
+    } 
+}
+.meal-box {
+    position: relative;
+    display: inline-block;
+    border-radius: 20px;
+    border: 4px solid transparent;
+    transition: .3s;
+    overflow: hidden;
+    width: 136px;
+    height: 136px;
+    margin: 10px;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px #aaa;
+    text-align: left;
+    cursor: pointer;
+    .price {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 6px;
+        font-size: $fontSize_S;
+        border-radius: 0 0 0 20px;
+        color: #fff;
+        background-color: $color_main2;
+    }
+    .title {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        text-align: left;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding: 6px;
+        background-color: $color_main1;
+    }
+    
+}
+.bonus-container {
+    display: flex;
+    align-items: center;
+    width: 90%;
+    padding: $pd;
+    margin: auto;
+    vertical-align: middle;
+    .bonus {
+        .pic {
+            position: relative;
+            width: 80px;
+            height: 80px;
+        }
+        span {
+            position: absolute;
+            top: 32%;
+            left: 30%;
+            z-index: 2;
+            color: #fff;
+            font-size: $fontSize_L;
+            font-weight: 800;
+        }
+    }
+    .bonusPeople {
+        font-weight: 600;
+        padding: $pd;
+        p {
+            color: $color_hot;
+            @include textPD($pd);
+            font-size: $fontSize_L;
+        }
+        
+    }
+}
+.groupon_bottomUI {
+    // background-color: #aaa;
+   
+    border-top: 1px solid $color_main2;
+    border-bottom: 16px solid $color_main2;
+    border-radius: 0 0 20px 20px ;
+    padding: $pd *1;
+    line-height: 1.6;
+    @include rwdSys(pad) {
+        display: flex;
+        align-items: center;
+    }
+    .mealAndKcal {
+        font-size: $fontSize_S;
+        
+        span {
+            font-size: $fontSize_L;
+            font-weight: 800;
+            color: $color_hot;
+        }
+    }
+    .price {
+        border-left: 1px solid $color_main2;
+        padding: 0px $pd;
+        .originalPrice {
+            text-decoration: line-through;
+        }
+        .grouponPrice {
+            font-size: $fontSize_S;
+            font-weight: 800;
+            color: $color_hot;
+            span {
+                font-size: $fontSize_L;
+            }
+        }
+    }
+    .callToAction {
+        text-align: center;
+        margin-top: 30px;
+        @include rwdSys(PC) {
+            margin-top: 0px;
+        }
+        @include sub-BTN(240px);
+    }
+}
+
+.almostSucc-icon {
+    display: none;
+    position: absolute;
+    top: 140px;
+    left: -50px;
+    // right: -50px;
+    width: 116px;
+    height: 116px;
+    line-height: 116px - 10px;
+    text-align: center;
+    border: 8px solid $color_main1;
+    border-radius: 200px;
+    color: #fff;
+    font-size: $fontSize_S;
+    font-weight: 800;
+    background-color: $color_main2;
+    transform: rotate(-15deg);
+
+}
+.page4_1 {
+    .almostSucc-icon {
+        top: 9px;
+        right: -30px;
+        left: auto;
+        @include rwdSys(pad) {
+            top: 140px;
+            left: -50px;
+        }
+    }
+    .groupon-container {
+        h2 {
+            padding: $pd * 2;
+        }
+    }
+}
+
+
+
+// 用代碼找飯團
+@include popUp('.search-BTN-bg', '#search-BTN4_1', '.search-container', '.searchGroupon-wrapper');
+.searchGroupon-wrapper {
+    position: relative;
+    max-width: 1080px;
+    // height: 20px;
+    margin: auto;
+    .search4_1 {
+        position: absolute;
+        z-index: 3;
+        top: 20px;
+        right: 0px;
+        left: auto;
+        background-color: $color_main4;
+        &:active {
+            top: 23px;
+        }
+    }
+    .search-container {
+        display: none;
+        position: absolute;
+        z-index: 4;
+        top: 80px;
+        right: 0px;
+        // left: auto;
+        // max-width: 300px;
+        padding: $pd *2;
+        line-height: 1.6;
+        text-align: center;
+        background-color: #fff;
+        border-radius: 10px;
+        p {
+            padding-bottom: $pd * 3;
+        }
+        input, button {
+            border-radius: 3000px;
+            border: none;
+            border: 2px solid $color_main2;
+            padding: $pd;
+        }
+        button {
+            background-color: $color_main2;
+            color: #fff;
+        }
+    }
+}
+#search-BTN4_1:checked + .searchGroupon-wrapper .search-container {
+    left: auto;
+    display: block;
+}
+
+//5-1---------------------------------------
+#changeIt {
+    position: fixed;
+    display: none;
+}
+#changeIt:checked + .fixedChangeMenu-wrapper .titleClick {
+    i {
+        transform: rotate(180deg);
+        transition: .3s;
+    }
+}
+#changeIt:checked + .fixedChangeMenu-wrapper .mealChange-container {
+    ul li {
+        font-size: 0px;
+        padding: 0px;
+        transition: .3s;
+    }
+    .btn-container {
+        display: none;
+    }
+}
+.fixedChangeMenu-wrapper {
+    position: fixed;
+    bottom: 0;
+    right: 10px;
+    // width: 240px;
+    // padding: 0px $pd;
+    border: 3px solid $color_main2;
+    border-radius: 10px 10px 0px 0px;
+    background-color: #fff;
+    
+    .titleClick {
+        display: block;
+        font-size: 0;
+        padding: $pd * 1;
+        text-align: center;
+        background-color: $color_main2;
+        cursor: pointer;
+    }
+    span {
+        display: inline-block;
+        padding: 0 $pd;
+        color: #fff;
+        text-align: center;
+        font-size: $fontSize_S;
+    }
+    .deleteIt {
+        text-align: center;
+        font-weight: 900;
+        cursor: pointer;
+        &:hover {
+            opacity: .3;
+        }
+    }
+    .mealChange-container {
+        ul {
+            li {
+                margin: 0px $pd;
+                padding: $pd*1.5 $pd;
+                font-size: $fontSize_S;
+                transition: .3s;
+                &+li {
+                    border-top: 1px solid #ccc;
+                }
+            }
+        }
+    }
+    .mealChange-container {
+        .info {
+            display: none;
+            text-align: center;
+            padding: $pd;
+            font-size: $fontSize_S;
+            &.active {
+                display: block;
+            }
+        }
+        .btn-container {
+            margin: 0px;
+            padding: $pd * 1;
+            .subBTN {
+                max-width: calc(80% - 20px);
+            }
+        }
+    }
+}
+// page-1
+.changeMeal-container {
+    position: relative;
+    text-align: center;
+    h1 {
+        padding: $pd * 3;
+        color: $color_main2;
+        // border-bottom: 2px solid $color_main2;
+    }
+    .groupon-wrapper {
+        text-align: left;
+        // overflow: hidden;
+        max-width: 500px;
+        // margin: 0px 30px 60px;
+        margin: 0 auto 60px;
+        transition: .3s;
+        @include rwdSys(PC) {
+            max-width: 100%;
+            width: 100%;
+            .originalPrice {
+                display: block;
+            }
+        }
+        &:after {
+            @include BfAf;
+            position: absolute;
+            right: -3px;
+            bottom: -6px;
+            width: 76px;
+            height: 76px;
+            background: url('../images/folded-03.png');
+            background-size: cover;
+            background-position: right bottom;
+        }
+        .meal-counter {
+            i {
+                color: $color_main1;
+            }
+            span {
+                color: $color_hot;
+            }
+        }
+        .mealAndScore-container {
+            border-bottom: 2px dashed $color_main2;
+        }
+        .meal-container {
+            // text-align: left;
+            @include rwdSys(pad) {
+                text-align: left;
+            }
+            .meal-box {
+                &:hover {
+                    border-color: $color_main2;
+                }
+                &.active {
+                    border-color: $color_main2;
+                    .added-bg {
+                        left: 0px;
+                        opacity: .8;
+                    }
+                }
+                .added-bg {
+                    @include coverTextBG(#fff, #111, $fontSize_S, .8);
+                    // display: none;
+                    left: 100000px;
+                    opacity: 0;
+                    transition: opacity .3s;
+                    &.active {
+                        left: 0px;
+                        opacity: .8;
+                    }
+                }
+            }
+        }
+    }
+    
+}
+//page-2 
+.page5_1 {
+    .almostSucc-icon {
+        display: none;
+        top: 9px;
+        right: -30px;
+        left: auto;
+        @include rwdSys(pad) {
+            top: 140px;
+            left: -50px;
+        }
+    }
+    @include pageBTN($color_main4) {
+        // margin-top: 60px;
+    };
+}
+//page-3
+.changePage_container {
+    padding-top: 60px;
+    text-align: center;
+   .clickToGroupon {
+       max-width: 300px;
+       margin: 30px auto;
+       padding: 0px $pd *2;
+       text-align: center;
+   } 
+}
+//popUpWindow
+.checkChange-container {
+    @include centerABS {
+        position: fixed;
+        z-index: 2;
+        height: auto;
+        top: 60px;
+    };
+    display: none;
+    max-width: 400px;
+    width: 100%;
+    // border: 2px solid $color_main2;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 6px 6px 20px rgba(73, 73, 73, 0.295);
+    overflow: hidden;
+    h2 {
+        padding: $pd;
+        font-size: $fontSize_S;
+        background-color: $color_main2;
+        color: #fff;
+    }
+    table {
+        width: 100%;
+        // text-align: center;
+        text-align: left;
+        
+        th,td {
+            padding: $pd;
+        }
+        th {
+            border-bottom: 1px solid #aaa;
+            padding: $pd * 2;
+            padding-left: $pd * 6;
+            color: #777;
+        }
+        td {
+            font-size: $fontSize_S;
+            font-weight: 900;
+            padding-left: $pd * 6;
+        }
+        .method {
+            padding: $pd * 5 0px $pd * 2;
+            // padding-left: 0;
+            color: #aaa;
+            text-align: center;
+        }
+    }
+    .btn-container {
+        margin: 0px 0px 10px;
+        .cancelBTN, .nextBTN {
+            width: calc(50% - 20px);
+        }
+    }
+    .QRcodeAndCode {
+        display: none;
+        h3 {
+            padding: $pd;
+            font-weight: 900;
+            text-align: center;
+            font-size: $fontSize_S;
+        }
+        .pic {
+            width: 200px;
+            height: 200px;
+            margin: auto;
+        }
+        .code-container {
+            margin-top: 20px;
+        }
+        #changeMealCode {
+            display: block;
+            margin: 0 auto 30px;
+            padding: $pd;
+            font-size: $fontSize_M;
+            font-weight: 900;
+            text-align: center;
+            border: 2px solid $color_main2;
+            border-radius: 1000px;
+        }
+    }
+    .btn-container_changeItByYourself {
+        display: none;
+        padding: $pd * 2;
+        text-align: center;
+        border-top: 1px solid #aaa;
+        #finishChangBTN {
+            width: 300px;
+        }
+    }
+    .exchangeSuccess {
+        display: none;
+        border: 10px solid $color_main2;
+        .chickShishou {
+            position: absolute;
+            top: 170px;
+            left: 290px;
+            width: 160px;
+
+        }
+        .success-icon {
+            position: relative;
+            width: 160px;
+            height: 160px;
+            margin: auto;
+            border-radius: 1000px;
+            border: 10px solid  $color_main2;
+            &:before {
+                position: absolute;
+                top: 75px;
+                left: 46px;
+                @include BfAf;
+                width: 100px;
+                height: 10px;
+                 border-radius: 1000px;
+                background-color: $color_main1;
+                transform: rotate(126deg);
+                toFull: .4s;
+            }
+            &:after {
+                position: absolute;
+                top: 90px;
+                left: 11px;
+                @include BfAf;
+                width: 70px;
+                height: 10px;
+                border-radius: 1000px;
+                background-color: $color_main1;
+                transform: rotate(45deg);
+                toFull: .4s;
+            }
+        }
+        text-align: center;
+        @keyframes toFull {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+#checkChange-container_bg {
+    @include centerABS(100%, 100vh) {
+        position: fixed;
+        // z-index: 4;
+        top: 0;
+        bottom: 0;
+        left: -10000px;
+        opacity: 0;
+        transition: opacity .4s;
+    };
+    // display: none;
+    background-color: rgba(17, 17, 17, 0.452);
+}
+.changePage_container {
+    &:nth-child(n+2) {
+        display: none;
+    }
+    .share-wrapper {
+        padding: $pd;
+        .shareGroupon-BTN {
+            margin: 10px $pd;
+        }
+        .shareInfo-container {
+            top: -300px;
+            @include rwdSys(pad) {
+                position: fixed;
+                top: 100px;
+            }
+        }
+    }
+}
+
+
+
+//6-1-----------------------------------
+
+.scoreEgg-container ul li {
+    display: inline-block;
+    width: 40px;
+    .pic {
+        width: 100%;
+    }
+}
+.grouponTitle-wrapper {
+    position: relative;
+    width: 100%;
+    height: auto;
+    color: #fff;
+    .text-box {
+        position: relative;
+        z-index: 4;
+        top: 0;
+        left: 0;
+        width: 100%;
+        // height: 100%;
+        padding: $pd *1;
+        background-color: $color_main2;
+        box-shadow: 0px 6px 20px rgba(105, 105, 105, 0.562);
+        h2 {
+            color: #fff;
+            text-align: left;
+            @include textPD($pd);
+            font-size: $fontSize_L;
+            font-weight: 800;
+        }
+    }
+    .leftRibbon, .rightRibbon {
+        display: none;
+        @include rwdSys(lgPC) {
+            display: block;
+        }
+    }
+    .leftRibbon {
+        position: absolute;
+        z-index: 1;
+        top: 12px;
+        left: -76px;
+        width: 100px;
+        height: 86px;
+        background-color: $color_main1;
+        &:before {
+            top: 73px;
+            left: 77px;
+            @include decoTri(12px, 0px, 0px, 23px, 
+            $color_main2, transparent, $color_main2, transparent);
+            opacity: .6;
+        }
+        &:after {
+            top: 0;
+            left: -40px;
+            @include decoTri(43px, 0px, 43px, 40px, 
+            $color_main1, transparent, $color_main1, transparent);
+        }
+    }
+    .rightRibbon {
+        position: absolute;
+        z-index: 1;
+        top: 12px;
+        right: -76px;
+        width: 100px;
+        height: 86px;
+        background-color: $color_main1;
+        &:before {
+            top: 73px;
+            left: 0px;
+            @include decoTri(12px, 23px, 0px, 0px, 
+            $color_main2, transparent, $color_main2, transparent);
+            opacity: .6;
+        }
+        &:after {
+            top: 0;
+            right: -40px;
+            @include decoTri(43px, 40px, 43px, 0px, 
+            $color_main1, transparent, $color_main1, transparent);
+        }
+    }
+    .userInfo-wrapper {
+        color: $color_txt;
+        @include rwdSys(pad) {
+            top: 5px;
+            right: 10px;
+        }
+    }
+}
+.bonus-wrapper {
+    position: relative;
+    // width: calc(100% - 40px);
+    margin: 60px 20px 0;
+    padding: $pd;
+    padding-left: 60px;
+    text-align: center;
+    border-top: 2px solid #ddd;
+    border-bottom: 2px solid #ddd;
+    // border-radius: 5000px;
+    @include rwdSys(pad) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .endDate {
+        font-weight: 900;
+        span {
+            display: block;
+            font-size: $fontSize_L;
+            color: $color_hot;
+            padding: $pd;
+        }
+    }
+    .progress-container {
+        font-weight: bolder;
+        padding: $pd *1;
+        h3 {
+            @include textPD($pd);
+        }
+        span {
+            display: inline-block;
+            font-size: $fontSize_L;
+            @include textPD($pd);
+        }
+        .peopleNow {
+            color: $color_hot;
+        }
+        .progressBar {
+            position: relative;
+            width: 90%;
+            height: 6px;
+            margin: 10px auto;
+            border-radius: 100px; 
+            background-color: $color_main2;
+            .progressBar_B {
+                @include BfAf;
+                position: absolute;
+                // width: 90%;
+                height: 6px;
+                border-radius: 100px; 
+                background-color: $color_main1 ;
+            }
+        }
+    }
+    .bonus-container {
+        width: auto;
+        max-width: 300px;
+        margin: auto;
+        float: none;
+    }
+    .almostSucc-icon {
+        left: 0px;
+        @include rwdSys(lgPC) {
+            left: -50px;
+        }
+        top: 17px;
+        transform: rotate(-15deg);
+    }
+}
+.grouponDetail-container {
+    &.g_8 {
+        .text-box {
+            background-color: $color_main1;
+            color: $color_main2;
+            h2 {
+                color: $color_main2;
+            }
+        }
+        .userInfo-wrapper {
+            background-color: $color_main2;
+            color: #fff;
+            .userExp,.userId {
+                color: #fff;
+            }
+        }
+    }
+    // overflow: hidden;
+    margin-top: 200px;
+    padding: $pd;
+    .bonus-wrapper {
+        padding-left: 0px;
+        @include rwdSys(pad) {
+            padding-left: 60px;
+        }
+        .almostSucc-icon {
+            display: none;
+            @include rwdSys(pad) {
+                display: none;
+                left: -40px;
+            }
+        }
+    }
+    .mealDetail-wrapper {
+        .meal-count {
+            @include textPD($pd * 3);
+            border-bottom: 2px solid $color_main4;
+            font-size: $fontSize_S;
+            span {
+                @include highFont;
+            }
+        }
+        .mealPic {
+            position: relative;
+            background-color: #fff;
+            overflow: hidden;
+            // width: 80%;
+            height: 0;
+            border-radius: 60px;
+            box-shadow: 10px 10px 0px $color_main1;
+            margin-top: $pd;
+            padding-top: 80%;
+            float: none;
+            margin: auto;
+            @include rwdSys(pad) {
+                padding-top: 33.33%;
+                float: left;
+                margin: auto;
+            }
+            &:hover .pic img {
+                transform: scale(2.6);
+                transition: .6s;
+            }
+            .pic {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                cursor: pointer;
+                
+                img {
+                    transform: scale(2.1);
+                    transition: .2s;
+                }
+            }
+        }
+        .mealInfo-container {
+            padding: $pd * 4 ;
+            line-height: 1.6;
+            color: $color_main2;
+            font-weight: 600;
+            h2 {
+                text-align: left;
+                @include textPD($pd* 2 );
+                padding-top: 0px;
+                font-size: $fontSize_XL;
+                font-weight: bolder;
+            }
+            h2 + p {
+                max-width: 80%;
+                padding-bottom: $pd * 5; 
+            }
+            .score-wrapper {
+                padding-bottom: $pd * 2;
+                span:first-child {
+                    font-size: $fontSize_S;
+                    border-left: 4px solid $color_main2;
+                    padding: $pd;
+                }
+            }
+            .kcal-wrapper {
+                p {
+                    color: $color_hot;
+                    .kcal {
+                        @include highFont;
+                    }
+                }
+            }
+        }
+        .mealSmallPic-container {
+            @include textPD($pd*2);
+            .meal-box {
+                width: 120px;
+                height: 120px;
+                &:hover {
+                    transition: .3s;
+                    border: 4px solid $color_main2;
+                }
+                &.active {
+                    border: 4px solid $color_main2;
+                } 
+            }
+        }
+    }
+    .mealInfo-wrapper {
+        border-top: 6px solid $color_main2;
+        border-bottom: 2px solid $color_main2;
+        .mealAndKcal {
+            font-size: $fontSize_S;
+            padding: $pd * 2;
+            @include rwdSys(pad) {
+                padding: $pd * 4;
+            }
+            span {
+                font-size: $fontSize_L;
+                font-weight: 800;
+                color: $color_hot;
+            }
+        }
+        .price {
+            padding-top: $pd * 4;
+            // border-left: 1px solid $color_main2;
+            text-align: center;
+            // padding: 0px $pd;
+            .originalPrice {
+                display: none;
+                text-decoration: line-through;
+                @include rwdSys(pad) {
+                    display: block;
+                }
+            }
+            .grouponPrice {
+                font-size: $fontSize_S;
+                font-weight: 800;
+                color: $color_hot;
+                span {
+                    font-size: $fontSize_L;
+                }
+            }
+        }
+        .callToAction {
+            padding: $pd * 4;
+            text-align: center;
+            .subBTN {
+                max-width: 100%;
+            }
+        }
+    }
+}
+.share-wrapper {
+    position: relative;
+    text-align: center;
+    padding: $pd *3;
+    .shareInfo-container {
+        @include centerABS() {
+            z-index: 3;
+            top: 90px;
+            width: auto;
+            max-width: 600px;
+            height: auto;
+            border: 4px solid $color_main4;
+            background-color: #fff;
+            box-shadow: 0px 6px 20px rgba(51, 51, 51, 0.377);
+            border-radius: 30px;
+        }
+        h2 {
+            border-radius: 30px; 
+        }
+        .shareInfo-wrapper .shareInfo-wrapper {
+            margin: 0px auto 0px;
+            padding: $pd;
+            border-top: 2px solid #ddd;
+            .codeHere {
+                border-color: $color_main2;
+            }
+            .groupon_shareCode {
+                color: $color_txt;
+            }
+        }
+    }
+}
+.shareFB-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 2px solid $color_main2;
+    background-color: $color_bonus;
+    border-radius: 0px 0px 20px 20px;
+    span {
+        padding: 0px $pd;
+    }
+    padding: $pd * 2;
+}
+@include popUp('.share6_1-bg', '#share6_1', '.shareInfo-container', '.share-wrapper');
+
+@include popUp('.share5_1-bg', '.share5_1', '.shareInfo-container', '.share-wrapper');
+
+@include popUp('.success6_3-bg', '#success6_3', '.grouponSuccess-container', '.grouponSuccessInfo-wrapper');
+// .grouponSuccess-container, .success6_3-bg {
+//     opacity: 1;
+//     left: 0;
+// } 
+.success6_3-bg {
+    // max-width: 300px;
+    height: 100%;
+    background-color: rgba(17, 17, 17, 0.658);
+}
+.grouponSuccessInfo-wrapper {
+    
+    .chickShishou {
+        position: absolute;
+        z-index: 4;
+        top: -134px;
+        left: 0;
+        right: 0;
+        width: 200px;
+        margin: auto;
+    }
+    .grouponSuccess-container {
+        position: relative;
+        z-index: 4;
+        top: 0;
+        margin-top: -1000px;
+        @include rwdSys(pad) {
+            position: fixed;
+            z-index: 4;
+            top: 0;
+            bottom: 0;
+            // left: 0;
+            right: 0;
+            margin: auto;
+        }
+        
+        max-width: 400px;
+        width: 100vw;
+        // width: 100%;
+        height: 300px;
+        // padding: $pd;
+        background-color: #fff;
+        border-radius: 20px;
+        text-align: center;
+        // overflow: hidden;
+        h2 {
+            padding: 10px 0px $pd*2;
+            background-color: $color_main2;
+            color: #fff;
+            border-radius: 20px 20px 0px 0px;
+        }
+        p {
+            padding: $pd *2;
+            font-size: $fontSize_S;
+            &:nth-child(5) {
+                font-size: $fontSize_text;
+            }
+        }
+    }
+    #sucessMember {
+        font-weight: 900;
+    }
+    #successBonus {
+        font-weight: 900;
+        font-size: $fontSize_M;
+        color: $color_hot;
+    }
+}
+
+
+
+
+.shareGroupon-BTN {
+    margin: auto;
+    @include btn(200px) {
+        border: 3px solid $color_main2;
+        background-color: #fff;
+        color: $color_main2;
+        font-weight: 900;
+    };
+}
+.recommendGroupon-wrapper {
+    // max-width: 1200px;
+    margin-top: 200px;
+    margin-bottom: 60px;
+    width: 100%;
+    overflow: hidden;
+    h2 {
+        padding: $pd;
+        margin: $pd * 4;
+        border-bottom: 4px solid $color_main2;
+    }
+    .owl-carousel {
+        box-shadow: inset 10px 0px 20px rgba(119, 119, 119, 0.151), ;
+    }
+    .groupon-box {
+        position: relative;
+        width: 360px;
+        @include rwdSys(pad) {
+            width: 476px;
+        }
+        // margin-top: 110px;
+        border: 3px solid $color_main2;
+        border-radius: 30px;
+        .groupon_topUI  {
+            .leftUI {
+                padding: 0px;
+                .titleTag {
+                    left: -26px;
+                }
+            }
+            .meal-container {
+                padding-bottom: 0px;
+                
+            }
+        }
+        .groupon_bottomUI {
+            display: block;
+            .avgPrice {
+                text-align: center;
+            }
+            .btn-container {
+                margin: 20px auto 0px;
+                text-align: center;
+            }
+        }
+        .almostSucc-icon {
+            top: 2px;
+            left: 254px;
+            @include rwdSys(pad) {
+                left: 386px;
+            }
+            
+        }
+    }
+    .meal-box {
+        width: 120px;
+        height: 120px;
+    }
+    .meal-box:nth-child(3) {
+        display: none;
+        @include rwdSys(pad) {
+            display: inline-block;
+        }
+    }
+}
+.userInfo-wrapper {
+    position: absolute;
+    z-index: 4;
+    top: -86px;
+    width: 280px;
+    padding: $pd;
+    line-height: 1.6;
+    background-color: $color_bonus;
+    border-radius: 200px;
+    .grouponUser {
+        position: absolute;
+        top: -28px;
+    }
+    .userPic {
+        float: left;
+        @include round(48px) {
+            // border: 2px solid $color_main2;
+        };
+    }
+    .userId, .userExp {
+        position: relative;
+        padding-left: $pd;
+        color: $color_txt;
+    }
+    .userId { 
+        font-size: $fontSize_S;
+        font-weight: 800;
+    }
+    .userExp {
+        cursor: pointer;
+        .achievePic {
+            @include round(20px);
+        }
+        .hint--achievement {
+            @include hint(240px, auto, #333) {
+                
+                left: -40px;
+            };
+            opacity: 0;
+            left: -10000px;
+            top: 24px;
+            padding: $pd;
+            color: #fff;
+            transition: opacity .3s; 
+            .pic { @include round(70px); }     
+            span {
+                text-align: left;
+                color: $color_bonus;
+            }
+            .achName {
+                font-weight: 900;
+                font-size: $fontSize_S;
+            }         
+        }
+        &:hover .hint--achievement {
+            transition: opacity .3s;
+            opacity: 1;
+            left: -30px;
+            
+        }
+        .achStatus {
+            h3, p {
+                display: inline-block;
+            }
+        }
+    }
+        
+}
+
+// 6-2---------------------------------
+
+.grouponPayment-wrapper {
+    margin-top: 100px;
+    text-align: center;
+    line-height: 1.6;
+    border: 3px solid $color_bonus;
+    border-radius: 30px;
+    background-color: #fff;
+    box-shadow: 10px 10px 0px $color_main1;
+    .pic {
+        width: 48px;
+        height: auto;
+    }
+    .card-wrapper {
+        display: flex;
+        flex-flow: column;
+    }
+    .selectPayment  {
+        display: flex;
+        // align-self: space-between;
+        flex-flow: row;
+        // width: 33.33%;
+        // height: 200px;
+        padding: 0px $pd * 3;
+        &:hover label .radioCircle {
+            background-color: $color_main1;
+        }
+    }
+    h2 {
+        width: 90%;
+        margin: auto;
+        @include textPD($pd *4);
+        padding-bottom: $pd;
+        border-bottom: 2px solid $color_bonus;
+    }
+    input[type='radio'] {
+        display: none;
+        &:checked + label .radioCircle {
+            background-color: $color_main1;
+            &:after {
+                opacity: 1;
+            }
+        }
+    }
+    .cardPay {
+        display: flex;
+        // align-content: space-around;
+    }
+    label {
+        position: relative;
+        display: flex;
+        flex-flow: row;
+        justify-content: space-between;
+        padding: 0px $pd;
+        margin: auto;
+        vertical-align: middle;
+        text-align: center;
+        cursor: pointer;
+        .pic {
+            margin: auto;
+        }
+        .radioCircle {
+            position: absolute;
+            top: 30px;
+            left: -30px;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background-color: #ddd;
+            // border: 3px solid $color_main2;
+            &:after {
+                opacity: 0;
+                @include BfAf;
+                content: '$';
+                position: absolute;
+                top: -3px;
+                left: 7px;
+                color: $color_main2;
+                font-size: $fontSize_S;
+                font-weight: 900;
+            }
+            
+        }
+    }
+    label.card {
+        display: flex;
+        flex-flow: column;
+        justify-content: space-between;
+    }
+    h3 {
+        display: inline-block;
+        text-align: center;
+        @include textPD($pd);
+    }
+    .paymentRslt {
+        // border-top: 2px solid $color_main2;
+        
+        margin: 60px auto;
+        font-size: $fontSize_M;
+        font-weight: 900;
+        padding: $pd;
+        background-color: #eee;
+        border-radius: 5000px;
+        @include rwdSys(pad) {
+            width: 50%;
+        }
+    }
+    #selectedResult {
+        color: $color_hot;
+    }
+    .selectPayment--ATM {
+        text-align: center;
+        .radioCircle {
+            top: 10px;
+        }
+        .selectPayment  {
+            text-align: center;
+            width: 100%;
+            padding-top: $pd * 2;
+            @include rwdSys(pad) {
+                display: inline-block;
+                width: 48%;
+            }
+        }
+    }
+}
+
+//6-3
+
+.maxWidthWrapper.success {
+    max-width: 100%;
+    
+    @include rwdSys(pad) {
+        background-image: url("../images/tableCloth_and_curryRice_01.png");
+    }
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.success-wrapper {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    margin-top: 200px;
+    .dish-container {
+        position: relative;
+        
+       
+        width: 100%;
+        margin: 100px auto;
+        padding-bottom: 100px;
+        overflow: unset;
+        position: relative;
+        
+        background-image: url(../images/tableCloth_and_curryRice_03.png);
+        background-position: center 100px;
+        background-repeat: no-repeat;
+        // background-color: #fff;
+        // box-shadow: 0px 0px 20px #aaa;
+        @include rwdSys(pad) {
+            @include round(766px);
+            overflow: unset;
+            background-position: center;
+        };
+        &:before {
+            @include BfAf;
+            position: absolute;
+            z-index: -1;
+            top: 133px;
+            left: 133px;
+            @include round(500px);
+            // background-color: #aaa;
+            // box-shadow: inset 6px 6px 20px rgba(48, 48, 48, 0.219);
+            display: none;
+            @include rwdSys(pad) {
+                display: block;
+            }
+        }
+        .chickDialogue {
+            display: inline-block;
+            position: absolute;
+            top: -240px;
+            left: 10px;
+            right: 0;
+            width: 300px;
+            margin: auto;
+            padding: $pd * 3;
+            color: #fff;
+            background-color: $color_txt;
+            border-radius: 300px;
+            span {
+                font-size: $fontSize_S;
+            }
+            .dialogueDeco {
+                @include centerABS(40px,40px) {
+                    bottom: -190px;
+                    height: 33px;
+                    // background-color: #ddd;
+                    overflow: hidden;
+                }
+                &:before {
+                    @include centerABS(40px,40px) {
+                        bottom: 30px;
+                        background-color: $color_txt;
+                        @include round(40px);
+                    }
+                }
+                &:after {
+                    @include centerABS(40px,40px) {
+                        left: -44px;
+                        bottom: 18px;
+                        // background-color: #fff ;
+                        background-color: #E6F5FF;
+                        @include round(40px);
+                    }
+                }
+            }
+        }
+    }
+    .chickPic {
+        @include centerABS(200px, auto) {
+            top: -104px;
+            @include rwdSys(pad) {
+                top: -60px;
+            }
+        };
+    }
+    .fork, .spoon {
+       width: 130px;
+       img {
+        //    box-shadow: 0px 6px 20px rgb(83, 83, 83);
+           filter: invert(1);
+       }
+       display: none;
+        @include rwdSys(PC) {
+            display: block;
+        }
+    }
+    .grouponTitle-wrapper {
+        h2 {
+            padding-right: $pd; 
+            margin-top: 0px;
+            color: #fff;
+        }
+        .userInfo-wrapper {
+            span {
+                font-weight: 900;
+            }
+            @include rwdSys(pad) {
+                color: #fff;
+            }
+        }
+    }
+    .grouponSimpleInfo-wrapper {
+        margin-top: 120px;
+        .bonus-wrapper {
+            // width: 90%;
+            height: auto;
+            background-color: #fff;
+            border: 3px solid $color_main1;
+            padding-left: 0px;
+            @include rwdSys(pad) {
+                height: 520px;
+                margin: -60px 0px auto 0;
+                padding-left: 60px;
+                padding-right: 60px;
+                background-color: transparent;
+                border: none;
+                background-image: url("../images/tableCloth_and_curryRice-02.png");
+            }
+            @include rwdSys(PC) {
+                margin: -60px 0px auto 0;
+            }
+            padding-right: $pd * 3;
+            // border-radius: 30px;
+            color: $color_main2;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: auto 110%;
+            box-shadow: none;
+            border-radius: 30px;
+            .endDate {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                // height: 160px;
+                @include rwdSys(pad) {
+                    color: #fff;
+                    span {
+                        color: #fff;
+                    }
+                }
+                padding: $pd;
+                border-radius: 3440px;
+            }
+            .progress-container {
+                margin: 20px 0;
+                // color: $color_txt;
+                @include rwdSys(pad) {
+                    color: #fff;
+                    span {
+                        color: #fff;
+                    }
+                }
+                border-radius: 3440px;
+            }
+            .bonus-container {
+                
+                border: 2px solid #fff;
+                border-radius: 3440px;
+                @include rwdSys(pad) {
+                    width: 90%;
+                    color: #fff;
+                    p {
+                        color: #fff;
+                    }
+                }
+            }
+            .almostSucc-icon {
+                top: -50px;
+                left: 0;
+            }
+            @include rwdSys(pad) {
+                border-radius: 3440px;
+                .almostSucc-icon {
+                    top: 20px;
+                    left: -50px;
+                }
+            }
+        }
+    } 
+}
+
+// 3-4----------------------------
+.step-wrapper.create3_4 {
+    position: relative;
+    padding: $pd * 2;
+    margin-top: 200px;
+    background-size: cover;
+    .forkSpoonSucc-container {
+        position: absolute;
+        top: -140px;
+        left: 0;
+        right: 0;
+        margin: auto;
+        text-align: center;
+        .fork, .spoon {
+            width: 50px;
+            display: inline-block;
+            filter: invert(0.2);
+        }
+        .fork {
+            transform: rotate(45deg) translateX(30px);
+        }
+        .spoon {
+            transform: rotate(-45deg) translateX(-30px);
+        }
+    }
+}
+.woodTemp.create3_4 {
+    // background-size: auto;
+    padding: 10px;
+    @include rwdSys(PC) {
+        padding: 0px  $pd * 10;
+    }
+    .grouponTitle-wrapper {
+        max-width: 960px;
+        width: 100%;
+        margin-bottom: 30px;
+        @include rwdSys(PC) {
+            margin: 30px auto;
+        }      
+        .userInfo-wrapper {
+            display: none;
+            @include rwdSys(PC) {
+               display: block;
+            }
+        }
+        .grouponUser {
+            color: #fff;
+        }
+    }
+    
+}
+.shareInfo-wrapper {
+    h2 {
+        font-size: $fontSize_L;
+        font-weight: bolder;
+        // max-width: 500px;
+        margin: auto;
+        padding: $pd;
+        // color: #fff;
+        color: $color_main2;
+        // border-bottom: 5px solid #fff;
+        background-color: #fff;
+        border-radius: 10px;
+    }
+    h2 + p {
+        padding: $pd * 2;
+        text-align: center;
+        border-bottom: 1px solid #fff;
+    }
+    h3 {
+        font-size: $fontSize_M;
+        font-weight: bolder;
+        @include textPD($pd*2);
+    }
+    h3 + p {
+        @include textPD($pd*1);
+    }
+    h3 + span {
+        display: inline-block;
+        @include textPD($pd*1);
+    }
+    .shareInfo-wrapper {
+        max-width: 660px;
+        margin: 60px auto;
+        line-height: 1.6;
+    }
+    .QRcode, .shareCode {
+        margin-bottom: 20px;
+        text-align: center;
+        @include rwdSys(PC) {
+            text-align: left;
+        }
+    }
+    .QR-container {
+        width: 160px;
+        height: 160px;
+        margin: auto;
+        border-radius: 10px;
+        overflow: hidden;
+        @include rwdSys(PC) {
+            margin-left: 0px;
+        }
+    }
+    .codeHere {
+        position: relative;
+        display: flex;
+        align-items: center;
+        
+        padding: 10px 0;
+        border: 2px solid #fff;
+        border-radius: 6px;
+        .hint {
+            display: none;
+            color: #fff;
+            @include hint(200px, 60px, $color_txt) {
+                top: 70px;
+            }
+            animation: fadeOut 2s forwards 1;
+        }
+    }
+    .groupon_shareCode {
+        // width: 80%;
+        // margin: 30px auto;
+        padding-left: $pd;
+        font-size: $fontSize_S;
+        background-color: transparent;
+        border: none;
+        color: #fff;
+        &+span {
+            cursor: pointer;
+            border-left: 1px solid #fff;
+            &:hover {
+                color: $color_main2;
+            }
+        }
+    }
+}
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        display: none;
+    }
+}
+
+
+
+
+} //penguinPage css wrapper end
+
+
+
+
